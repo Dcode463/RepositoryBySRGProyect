@@ -1,0 +1,18 @@
+{
+	"pregunta1":{
+		  "pregunta" : "Que es la raza indigina",
+		  "respuestas1" : "un pais",
+		  "respuestas2" : "Africanos",
+		  "respuestaCorrecta" : "una raza"
+	},"pregunta2":{
+		  "pregunta" : "Estas vivo",
+		  "respuestas1" : "no",
+		  "respuestas2" : "no lose tu dime",
+		  "respuestaCorrecta" : "si"
+	},"pregunta3":{
+		  "pregunta" : "Que es javahttScript",
+		  "respuestas1" : "un teclado",
+		  "respuestas2" : "una pc",
+		  "respuestaCorrecta" : "un leguanje de programacion"
+	}
+}

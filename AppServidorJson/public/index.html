@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="scriptCSS/estilo.css">
+<link rel="stylesheet" type="text/css" href="scriptCSS/normaliz.css">
+<link rel="icon"  href="iconos/icono.png">
+<link rel="stylesheet" type="text/css" href="gamerRom/gamesForDcode/css/estiloXO.css">
+<div style="display: none; position: absolute;"> <!--musica rom-->
+<audio id="audioSuperMarioGalaxi2" src="Games/XO/music/Starship_mario_1_2_and_3_P0vsREk3UWo_140.mp3"> <!--super mario galaxi 2-->
+</div>
+<div style="display:none; position: absolute;">
+<audio id="cancelarEnvioDeInvitacion" src="sonidos/Cancelar envío de invitacion.mp3"></audio>
+<audio id="cancelarInvitacion" src="sonidos/Cancelar invitacion.mp3"></audio>
+<audio id="enviarInvitacion" src="sonidos/Enviar invitación .mp3"></audio>
+<audio id="notificacionRequestChat" src="sonidos/Notificación Request chat.mp3"></audio>
+<audio id="notificacionSend" src="sonidos/notificaion send.mp3"></audio>
+<audio id="correctoQuestion" src="sonidos/respuestaCorrecta.mp3"></audio>
+</div>
+<title>SRG</title>
+</head>
+<body>
+<div class="loadderViajeAlServer" style=" 
+display:block;"> <!--loader startUp--------------------------------------------------------->
+<div style="position:absolute;left:50%;top: 50%;transform: translate(-50%,-50%);">
+<div class="loaderLOGIN"></div>
+</div>
+<p style="position:absolute; width:auto; left: 50%;top: 60%;transform: translate(-50%,-60%);">Espere, cargando los datos de los servidores locales</p>
+</div>
+<section id="viajeSubLaunchuer" style="display:none">
+<img src="mediaChatBot/launcherSendAnd.gif">
+<p id="infoViajeSubLauncher">Viajando a modo academico</p>
+</section>
+<section id="electionMode" style="display:none;">
+<div class="modeGames">
+<p class="modeInfo">Modo Game</p>
+<img src="Games/loaderImages/7.gif">
+<div class="sobrePonerP">
+<p>En este modo puedes divertirte con tus compañeros y ademas de eso aprender</p>
+<button id="severRepositoriGameMode_Buttons">Vamos!</button>
+</div>
+</div>
+<div class="modeAcademic">
+<p class="modeInfo">Modo Repositori</p>
+<img src="Games/loaderImages/teachers-day-2016-poland-4871859734577152-hp.gif">
+<div class="sobrePonerP2">
+<p>Este modo es exclusivamente academico</p>
+<button id="severRepositoriMode_Buttons">Vamos!</button>
+</div>
+</div>
+</section>
+<section id="severRepositoriGameMode_Section" style="display:block;">
+<div id="EroorFetch" style="display:none;">
+<p style="color:grey; padding: 30px;">Error 404 (Problemas con el servidor)<br>
+<br>
+¿Estan encendidos los servidores locales?
+</p>
+<img src="mediaChatBot/errorAnimation.gif">
+<div class="prompt">
+<button id="reinicarApp_Error">Reiniciar app</button>
+</div>
+</div>
+<div id="containerMax">
+<center>
+<button style="display:none; position: absolute;" class="cancelarVerificacionForNotificacion"></button>		
+<div class="errorSever" style="display:none;">
+<p>Ups ocurrio un error en el servidor</p>
+<i class="fa-solid fa-gamepad iGamePad" style="display:none;"></i>
+</div>
+<div class="subBody" style="display:none;">
+<div class="startAnimation" style="display:block;">
+<h1 class="h1AnimationStart"><p class="pAnimationStart">Hola, </p> <p class="p1AnimationStart">¿Estas</p> <p class="p2AnimationStart">Listo</p> <p class="p3AnimationStart">Para</p> <p class="p4AnimationStart">Jugar y aprender?</p></h1>
+<div id="responsiveDiv" style="display: block"></div>
+<h5 class="clickEnter">Toca Enter</h5>
+<p class="clickEnterResponsive">Toca la pantalla</p>
+</div>
+</div>
+</center>
+<div class="LoginUserGame" style=" opacity: 0; "><!--CreateRepositori"newUser"-->
+<div class="loginPrompt" style="">
+<div class="statusConectionUsersDiv"><img src="mediaChatBot/acedor.gif"><p id="statusConectionUsers">Escribe tu nombre <i class="fa-solid fa-database"></i></p></div>
+<img id="userAvatar" src=""><div id="spanChangeImguser"><i style="color: black;cursor: pointer;" class="fa-solid fa-pencil iSpan"><img style="width: 20px;height: 20px;padding: 0;" src="iconos/pencil.png"></i></div> <input max="8" placeholder="aqui" type="text" id="userName" name="">
+<button id="buttonEnvioPeticionNewUser">Siguiente</button>
+</div>
+<div id="imgChange" style="display: none; "> 
+<div class="imgChangeContainerJS"></div>
+</div>
+</div>
+<div class="statusRepositori" style="display: none;">
+<div class="loaderRepositori"></div>
+<p id="PstatusRepositori">Verificando repositorio</p>
+</div>
+<div class="contenedorJson" style="display:none;">
+<p id="statusConection"></p>
+<div class="contenedorStatusServer" style="display: none;">
+<p style="display: inline-block;" id="pStatus">STATUS</p>
+<div class="loader"></div>
+<div class="load" style="display: none"></div>
+<p style="display: inline-block;" id="users"></p>
+</div>
+<nav class="nav">
+<input class="buttonsNav"  id="inputSearch"  autocomplete="of" type="text" placeholder="Buscar jugadores">
+<i id="iSearch" title="Buscar" class="fa-solid fa-magnifying-glass buttonsNav"><img style="width: 20px;height: 20px;padding: 0;" src="iconos/search.png"></i>
+<img id="imgNavUsers" src="">
+<i id="iTrofeo" class="fa-solid fa-trophy buttonsNav"><img style="width: 20px;height: 20px;padding: 0;" src="iconos/trofeo.png"></i>
+<i title="Invitaciones" id="Isolicitud" class="fa-solid fa-bell buttonsNav"><img style="width: 20px;height: 20px;padding: 0;" src="iconos/noti.png"></i>
+<i title="Amigos" id="iUsers" class="fa-solid fa-users buttonsNav"><p id="pIAmigos" style="font-size: 15px; font-weight:1000; color:  #e5820a   ; position: absolute; top: -120%; left: 50%; transform: translate(-50%);">10</p><img style="width: 20px;height: 20px;padding: 0;" src="iconos/friends.png"></i>
+</nav>
+<img src="">
+<div id="friendsContainer" style="display:none;">
+</div>
+<div class="statusConectionUsersDiv2"><img class="imgAcedor" src="mediaChatBot/acedor.gif"><div id="statusConectionUsers2">
+<p>Manda una invitacion, busca a tus amigos o acepta una invitacion para jugar</p>
+</div></div>
+<div id="spanNoti" style="display:none;">
+</div>
+</div>
+<div id="introGamers" style="display:none;">
+<div id="cajaOne_intro">
+<img class="imagesIntroClass" id="cajaOne_Intro_Images">
+<p class="cajaTwo_intro_p_Class" id="cajaOne_intro_p_Class1"></p>
+</div>
+<h1>Vs</h1>
+<div id="cajaTwo_intro">
+<img  class="imagesIntroClass" id="cajaTwo_Intro_Images">
+<p class="cajaTwo_intro_p_Class" id="cajaOne_intro_p_Class2"></p>
+</div>
+</div>
+<div class="gamesByDcode" style="display:none;">
+<div class="containerSobrePonerlo">
+<div class="containerByXO">
+<div class="info">
+<img src="" id="infoAvatarSiguiente">
+<img src="" id="infoAvatarActual">
+<h1 id="infoStatusUsername">TESTING</h1>
+<p id="infoStatusGame">Es turno de TESTING</p>
+</div>
+<div class="buttons">
+<button class="buttonsXO" id="buttonsNumber1">X</button><button class="buttonsXO" id="buttonsNumber2">X</button><button class="buttonsXO" id="buttonsNumber3">X</button><br>
+<button class="buttonsXO" id="buttonsNumber4">X</button><button class="buttonsXO" id="buttonsNumber5">X</button><button class="buttonsXO" id="buttonsNumber6">X</button><br>
+<button class="buttonsXO" id="buttonsNumber7">X</button><button class="buttonsXO" id="buttonsNumber8">X</button><button class="buttonsXO" id="buttonsNumber9">X</button>
+</div>
+</div>
+</div>
+</div>
+<div class="intermedioViajeAlchat" style="display:none;">
+<div>
+<div>
+<p id="statusQuestionWinP">Ganaste la corona</p>
+</div>
+<img class="corona1" src="iconos/corona.png" style="z-index: 10; position:absolute; right: 0;  top: 0; width:10%;  object-fit: fill;">
+<img id="animationCorrect1" src="questionMedia/animacionCelebration.gif" style="display: block; position:absolute; left:50%; top: 50%; transform:translate(-50%,-50%);">
+<img style="z-index:5;" id="statusQuestionWinIMG" src="">
+</div>
+</div>
+<div class="loaderQuestionPerdedor" style="display:none;">
+</div>
+<div class="contenedorQuestionPerdedor" style="display:none;">
+<p style="text-align: center;">"Responde correctamente y ganaras la corona"</p>
+<img id="animationCorrect" src="questionMedia/animacionCelebration.gif" style="display: none; position:absolute; left:50%; top: 50%; transform:translate(-50%,-50%);">
+<p style="font-size:30px; display: inline-block; " ><b style="
+background: black; border-radius: 15px; padding:5px; color: white;"> </b> <p id="userNameQuestionGanador"><b>Es hora de probar tu conocimiento</b><br>Tu amigo/a eligio esta pregunta para ti<br></p></p>
+<h4></h4>
+<p id="question">Quien es juan</p>
+<div class="containerQUESTIONInput">
+<div class="containerQUESTIONInputdIV">
+<input type="checkbox" name="" class="inputCheckbox" id="questionTreeInput" autocomplete="off" value="">
+<label id="questionOne">Primera pregunta</label><br>  
+</div>
+<div class="containerQUESTIONInputdIV">
+<input type="checkbox" name="" class="inputCheckbox" id="questionTreeInput1" autocomplete="off" value="">
+<label id="questionTwo">Segunda pregunta</label><br>  
+</div>
+<div class="containerQUESTIONInputdIV">
+<input type="checkbox" name="" class="inputCheckbox" id="questionTreeInput2" autocomplete="off"  value="">
+<label id="questionTree">Tercerera pregunta</label><br>  
+</div>
+</div>	
+</div>
+<div class="contenedorQuestionGanador" style="display:none;">
+<h3 id="userNameQuestionLuser" style="color: white;padding: 5px; border-radius: 15px; width:100%;">Eligue una pregunta para tu amigo/a</h3>
+<div class="usersContainer">
+<!-- <div class="containerJSusers">
+	<p class="hiddenP">¿Qué papel desempeña la educación formal en el aprendizaje de habilidades empresariales?</p>
+	<p class="nameUsers">¿Qué papel desempeña la educación formal en el aprendizaje de habilidades empresariales?</p>
+	<p class="statusUsers">AEP</p>
+	<img src="questionMedia/giphy.gif">
+</div> -->
+</div>
+</div>
+<div class="containerGestos" style="display:none; position: absolute;">
+</div>
+<div class="cajaGanador" style="display:none;"> <!--cAJA WIN-->
+<div class="containerWIN" style="display:block;">
+<img id="imgGanador" src="" style="z-index: 6000;">
+<img class="corona" src="iconos/corona.png" style="position:absolute; right: 0;  top: 0; width:10%;  object-fit: fill;">
+<h3 id="userWin">Data name </h3>
+<div class="promptsEnvioChats">
+<input autocomplete="of" type="text" max="20" placeholder="Manda un chat" id="inputpromptsEnvioChats"><button id="shareInputText"><i class="fa-solid fa-paper-plane"><img style="width: 20px;height: 20px;padding: 0; color:white;" src="iconos/send.png"></i></button><button id="buttonGestos" style="position: absolute; opacity: 0; z-index: -100;"><i class="fa-solid fa-chevron-up fa-rotate-270"><img style="width: 20px;height: 20px;padding: 0; color:white;" src="iconos/baseline.png"></i><i class="fa-solid fa-face-laugh-squint"><img style="width: 20px;height: 20px;padding: 0; color:white;" src="iconos/face.png"></i></button>
+</div>
+<div class="infoWin" style="display:block;">
+<div class="containerUserschat"> <p id="chatWin"></p></div>
+</div>
+<div class="prompts"><button id="buttonVolverAjugarXO">Jugar de nuevo</button><button id="rebootBydataGame">Salir</button></div>
+</div>
+</div>
+<div class="cajaPerdedor" style="display:none;">
+<img id="imgPerdedor" src="" style="z-index: 6000;">
+<h3 id="userWin2" style="margin: 5px; padding: 5px;">Data name <img class="coronaPng" src="iconos/cacasion.png" style="position:absolute; right: 0; top: 0; width:20%;"></h3> 
+<div class="infoWin2" style="display:block;">
+<div class="containerUserschat"><img style="display:none;" id="avatarPerdedorWin2" src=""> <p id="chatWin2"><b style="display: block; color: transparent;">Seperacion</b>hola amigo</p></div>
+</div>
+</div>
+<script type="text/javascript" src="scriptsJS/codigo.js"></script>
+<script type="text/javascript" src="scriptsJS/usersFunctions.js"></script>
+<script type="text/javascript" src="scriptsJS/sendInvitation.js"></script>
+<script type="text/javascript" src="scriptsJS/veriNotificacion.js"></script>
+<script type="text/javascript" src="scriptsJS/conectionUser.js"></script>
+<script type="text/javascript" src="scriptsJS/datagameXO.js"></script>
+<script type="text/javascript" src="scriptsJS/scriptJugadorHost.js"></script>
+<script type="text/javascript" src="scriptsJS/scriptJugadorConectHost.js"></script>
+<script type="text/javascript" src="scriptsJS/verificacionWin.js"></script>
+<script type="text/javascript" src="scriptsJS/sendAndRecive.js"></script>
+<script type="text/javascript" src="scriptsJS/questionScript.js"></script>
+</section>
+</body>
+</html>

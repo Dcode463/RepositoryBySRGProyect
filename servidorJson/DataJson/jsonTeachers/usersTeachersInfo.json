@@ -1,0 +1,37 @@
+{
+  "NOREMOVE": {
+    "NOREMOVE": "NOREMOVE"
+  },
+  "Hernandez": {
+    "materia": "Matematicas",
+    "name": "Hernandez"
+  },
+  "Zelaya": {
+    "materia": "Computacion",
+    "name": "Zelaya"
+  },
+  "Mayra": {
+    "materia": "Lengua",
+    "name": "Mayra"
+  },
+  "Dennis": {
+    "materia": "Programacion",
+    "name": "Dennis"
+  },
+  "Esteban": {
+    "materia": "Ingles",
+    "name": "Esteban"
+  },
+  "Esner": {
+    "materia": "psicologia",
+    "name": "Esner"
+  },
+  "Juan": {
+    "materia": "AEP",
+    "name": "Juan"
+  },
+  "Alisson": {
+    "materia": "Lengua",
+    "name": "Alisson"
+  }
+}

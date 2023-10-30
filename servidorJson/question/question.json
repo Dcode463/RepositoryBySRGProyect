@@ -1,0 +1,47 @@
+{
+  "NOREMOVE": {
+    "pregunta": "testing",
+    "status": "testing",
+    "respuestas1": "testing",
+    "respuestas2": "testing",
+    "respuestas3": "testing",
+    "respuestaCorrecta": "testing",
+    "avatar": "testing"
+  },
+  "¿Qué papel desempeña la educación formal en el aprendizaje de habilidades empresariales?": {
+    "pregunta": "¿Qué papel desempeña la educación formal en el aprendizaje de habilidades empresariales?",
+    "status": "AEP",
+    "respuestas1": " La educación formal no tiene ningún impacto en el desarrollo de habilidades empresariales.",
+    "respuestas2": "La educación formal garantiza el éxito empresarial sin esfuerzo adicional.",
+    "respuestas3": "La educación formal puede proporcionar una base sólida, pero la experiencia práctica y el aprendizaje continuo son igualmente importantes.",
+    "respuestaCorrecta": "La educación formal puede proporcionar una base sólida, pero la experiencia práctica y el aprendizaje continuo son igualmente importantes.",
+    "avatar": "questionMedia/giphy.gif"
+  },
+  "¿Cuál es la importancia de la planificación estratégica en el emprendimiento?": {
+    "pregunta": "¿Cuál es la importancia de la planificación estratégica en el emprendimiento?",
+    "status": "AEP",
+    "respuestas1": "La planificación estratégica es un desperdicio de tiempo en el emprendimiento.",
+    "respuestas2": " La estrategia no importa; simplemente haga lo que le venga en mente.",
+    "respuestas3": "La planificación estratégica es esencial para establecer metas, tomar decisiones informadas y adaptarse a las cambiantes condiciones del mercado.",
+    "respuestaCorrecta": "La planificación estratégica es esencial para establecer metas, tomar decisiones informadas y adaptarse a las cambiantes condiciones del mercado.",
+    "avatar": "questionMedia/giphy.gif"
+  },
+  "¿Qué desafíos suelen enfrentar los emprendedores al inicio de sus negocios?": {
+    "pregunta": "¿Qué desafíos suelen enfrentar los emprendedores al inicio de sus negocios?",
+    "status": "AEP",
+    "respuestas1": "Los emprendedores nunca enfrentan desafíos, todo es siempre fácil.",
+    "respuestas2": "El mayor desafío es elegir cuál color de taza usar en la oficina.",
+    "respuestas3": "Los desafíos comunes incluyen la financiación inicial, la adquisición de clientes y la gestión del riesgo.",
+    "respuestaCorrecta": "Los desafíos comunes incluyen la financiación inicial, la adquisición de clientes y la gestión del riesgo.",
+    "avatar": "questionMedia/giphy.gif"
+  },
+  "¿Cómo puede alguien aprender a identificar oportunidades de negocio?": {
+    "pregunta": "¿Cómo puede alguien aprender a identificar oportunidades de negocio?",
+    "status": "AEP",
+    "respuestas1": "Identificar oportunidades de negocio se basa en lanzar una moneda al aire y esperar a que aterrice de pie.",
+    "respuestas2": " Simplemente siga a la multitud y haga lo que todos los demás hacen.",
+    "respuestas3": "Aprender a identificar oportunidades de negocio implica la observación de las necesidades del mercado, la investigación y la innovación.",
+    "respuestaCorrecta": "Aprender a identificar oportunidades de negocio implica la observación de las necesidades del mercado, la investigación y la innovación.",
+    "avatar": "questionMedia/giphy.gif"
+  }
+}

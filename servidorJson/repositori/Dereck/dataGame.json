@@ -1,0 +1,32 @@
+{
+  "start": "repositori",
+  "request": " ",
+  "acceptRequest": "",
+  "Mensajes": {
+    "userName": "Dereck",
+    "avatar": " ",
+    "chat": "q lo q",
+    "request": "false",
+    "respuestaRequest": "ok",
+    "Datagame": {
+      "status": "eligiendo",
+      "data": [
+        [
+          "X",
+          " ",
+          " "
+        ],
+        [
+          " ",
+          " ",
+          " "
+        ],
+        [
+          "O",
+          " ",
+          " "
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,618 @@
+*{
+	font-family: sans-serif;
+	/*max-height: 522px;*/
+     scrollbar-width:thin!important;
+	
+}
+#slider{
+	display:none;
+	position: absolute;
+}
+#containerQR{
+	padding: 20px;
+	width: auto;
+}
+.pInfoSever{
+font-size: 12px;
+}
+body{
+    overflow-x:hidden;
+	background:  white ;
+	height: 100vh;
+     scrollbar-width:thin!important;
+     max-height: 522px;
+}
+nav{
+	background:#1d1d1e;
+	padding:20px;
+	position:fixed;
+	width: 100%;
+	top:0;
+	z-index: 1000;
+
+}
+nav a{
+	text-decoration:none;
+	margin:10px;
+	color:white;
+	text-align: center;
+}
+nav a:hover{
+color:#1681f2
+}
+nav a img{
+	width:15px;
+	margin-left: 1%;
+}
+.imgServers{
+	position: absolute;
+    right: 10%;
+	top: 50%;
+	transform: translate(10%,-50%);
+	z-index: -10;
+	width: 50%;
+}
+#infoSaludos{
+	position:absolute;padding: 20px;top:20%;left:1%;transform:translate(-1%,-20%);
+}
+.container{
+	padding: 30px;
+	width: 100%;
+	height: 100vh;
+}
+.pInfoSever{
+	color: grey;
+}
+.container2{
+	width: 100%;
+	height: 100vh;
+	background: #05c9fd ;
+	position: relative;
+/*	border-radius: 0px 200px 0 0 ;*/
+}
+.imgResponsive{
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	transform: translate(-10%,-50%);
+	z-index:1;
+}
+.container3{
+	padding: 30px;
+/*	box-shadow: 0 0 20px black;*/
+	width: 100%;
+	height: 100vh;
+	background:white ;
+	position: relative;
+/*	border-radius: 0px 200px 0 0 ;*/
+}
+.imgResponsive2{
+position: absolute;
+z-index: 0;
+right:-5%;
+top: 50%;
+transform: translate(5%,-50%);
+}
+.inforesposinve{
+	z-index: 12; position: absolute;right: 10%;top: 50%;color:white;background-color: rgba(30, 30, 30, 0.8);padding: 20px;border-radius: 15px;
+}
+.prompt{
+	position: absolute;
+	left: 10%;
+	top: 50%;
+	transform: translate(-1%,-50%);
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.cajaSRG{
+	width:50%;
+	height:100%;
+}
+.cajaHSRG{
+	width:50%;
+	height:100%;
+}
+.cajaHSRG img{
+	width: 30%;
+	display: block;
+}
+.cajaSRG button{
+	border: none;
+    padding:10px;
+    cursor:pointer;
+    background:black;
+    color:white;
+    border-radius:10px;
+    margin:10px;
+}
+.cajaSRG img{
+	width: 30%;
+	display: block;
+}
+.cajaHSRG button{
+	border: none;
+    padding:10px;
+    cursor:pointer;
+    background:black;
+    color:white;
+    border-radius:10px;
+    margin:10px;
+}
+.container4{
+	/*	box-shadow: 0 0 20px black;*/
+	width: 100%;
+	height: 100vh;
+	background: #1d1d1e   ;
+	position: relative;
+	padding: 30px;
+    color: white;
+	/*	border-radius: 0px 200px 0 0 ;*/
+}
+.containerCreators{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 150px;    
+    transform: translate(-50%,-50%);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.containerDennis{
+	display: inline-block;
+width:30%;
+height: 20%;
+padding:20px;
+border-radius: 15px;
+}
+.perfil{
+	width: 30%;
+	/*max-height:100px;*/
+	object-fit: cover;
+	border-radius: 50%;
+	margin: 5px;
+	border:solid 3px white;
+
+}
+.acedorGif{
+	width: 15%;
+	border:solid 3px white;
+	margin-left: -8%;
+	border-radius: 50%;
+}
+.containerEsteban{
+	display: inline-block;
+	width:30%;
+	float: right;
+height:20%;
+padding:20px;
+border-radius: 15px;
+}
+.infoIp{
+		/*	box-shadow: 0 0 20px black;*/
+	width: 100%;
+	height: 100vh;
+     background-image: linear-gradient(to right top, #8d10b9, #8012c5, #6e17d1, #521fde, #1227eb);
+	position: relative;
+	padding: 30px;
+    color: white;
+	/*	border-radius: 0px 200px 0 0 ;*/
+}
+#url{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+@media only screen and (max-width:1020px){
+.imgResponsive2{
+position: absolute;
+z-index: 0;
+right:5%;
+top: 30%;
+width: 30%;
+transform: translate(5%,-30%);
+}
+.prompt{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	display:flex;
+	justify-content:center;
+	align-items:center;
+
+}
+.cajaSRG{
+	width:50%;
+	height:100%;
+}
+.cajaHSRG{
+	width:50%;
+	height:100%;
+}
+.cajaHSRG img{
+	width: 30%;
+	display: block;
+}
+.cajaSRG button{
+	transition: 0.4s;
+	border: none;
+    padding:10px;
+    cursor:pointer;
+    background:black;
+    color:white;
+    border-radius:10px;
+    margin:10px;
+}
+.cajaHSRG button:hover{
+border-radius: 15px!important;
+}
+.cajaSRG button:hover{
+	border-radius: 15px;
+}
+.cajaSRG img{
+	width: 30%;
+	display: block;
+}
+.cajaHSRG button{
+	transition: 0.4s;
+	border: none;
+    padding:10px;
+    cursor:pointer;
+    background:black;
+    color:white;
+    border-radius:10px;
+    margin:10px;
+}
+	.containerDennis{
+	display: inline-block;
+width:50%;
+height: 20%;
+padding:20px;
+border-radius: 15px;
+}
+.perfil{
+	width: 30%;
+	max-height:10%;
+	border-radius: 50%;
+	margin: 5px;
+	border:solid 3px white;
+
+}
+.acedorGif{
+	width: 15%;
+	border:solid 3px white;
+	margin-left: -8%;
+	border-radius: 50%;
+}
+.containerEsteban{
+	display: inline-block;
+	width:50%;
+	float: right;
+height:20%;
+padding:20px;
+border-radius: 15px;
+}
+
+	.imgServers{
+	position: absolute;
+    left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	z-index: -10;
+	width: 50%;
+}
+#infoSaludos{
+	top: 10%;
+	left: 10%;
+	transform: translate(-10%,-10%);
+}
+.imgResponsive{
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%,-70%);
+	z-index:1;
+}
+.inforesposinve{
+	width:60%;
+	z-index: 12; position: absolute;left: 50%;top: 10%;color:white;background-color: rgba(30, 30, 30, 0.8);padding: 20px;border-radius: 15px;
+	transform: translate(-50%);
+}
+}
+@media only screen and (max-width:878px){
+	.prompt{
+	position: absolute;
+	left: 10%;
+	top: 50%;
+	transform: translate(-1%,-50%);
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width: 100%;
+}
+	.inforesposinve{
+	width:90%;
+	z-index: 12; position: absolute;left: 50%;top: 10%;color:white;background-color: rgba(30, 30, 30, 0.8);padding: 20px;border-radius: 15px;
+	transform: translate(-50%);
+}
+		.containerDennis{
+	display: inline-block;
+width:100%;
+height: 20%;
+padding:20px;
+border-radius: 15px;
+}
+.perfil{
+	width: 30%;
+	max-height:10%;
+	border-radius: 50%;
+	margin: 5px;
+	border:solid 3px white;
+
+}
+.acedorGif{
+	width: 15%;
+	border:solid 3px white;
+	margin-left: -8%;
+	border-radius: 50%;
+}
+.containerEsteban{
+	display: inline-block;
+	width:100%;
+	float: right;
+height:20%;
+padding:20px;
+border-radius: 15px;
+}
+#url{
+/*	padding: 80px;*/
+	position: relative;!important;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%)!important;
+	width: 100%;
+}
+#url h3{
+		width: 100%;
+}
+	.imgServers{
+	position: absolute;
+    left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	z-index: -10;
+	width: 50%;
+}
+}
+@media only screen and (max-width:560px){
+	.cajaSRG img{
+	width: 40%;
+	display: block;
+}
+.cajaHSRG img{
+	width: 40%;
+	display: block;
+}
+.containerDennis{
+	display: inline-block;
+width:100%;
+height: 20%;
+padding:5px;
+border-radius: 15px;
+}
+.perfil{
+	width: 30%;
+	max-height:10%;
+	border-radius: 50%;
+	margin: 5px;
+	border:solid 3px white;
+
+}
+.acedorGif{
+	width: 15%;
+	border:solid 3px white;
+	margin-left: -8%;
+	border-radius: 50%;
+}
+.containerEsteban{
+	margin-top: 50px;
+	display: inline-block;
+	width:100%;
+	float: right;
+height:20%;
+padding:5px;
+border-radius: 15px;
+}
+}
+@media only screen and (max-width:552px){
+	#slider{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+		color: white;
+		font-size: 25px;
+		display: block;
+	}
+nav{
+	background-color: rgba(30, 30, 30, 0.7);
+	position:fixed;
+	right: 1%;
+	transition:0.6s;
+	top: 50%;
+	height: 30%;
+	width: 10%;
+	border-radius: 15px;
+	transform: translate(1%,-50%);
+}
+.masaNav{
+	display: none;
+}
+	nav:hover{
+	background-color: rgba(30, 30, 30, 1);
+	padding:10px;
+	position:fixed;
+	width: 50%;
+	height: auto;
+	top:50%;
+	right: 1%;
+	z-index: 1000;
+
+}
+nav:hover > .masaNav{
+	display: inline-block;
+}
+nav:hover > #slider{
+	display: none;
+}
+nav a{
+	width: 100%;
+	display: block;
+	text-decoration:none;
+	margin:10px;
+	color:white;
+	text-align: left;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+nav a:hover{
+color:#1681f2
+}
+nav a img{
+	width:15px;
+	margin-left: 1%;
+}
+	.containerDennis{
+	margin-top: 50px;
+	display: inline-block;
+	width:130%;
+	float: right;
+height:20%;
+padding:0;
+border-radius: 15px;
+}
+.perfil{
+	width: 30%;
+	max-height:10%;
+	border-radius: 50%;
+	margin: 5px;
+	border:solid 3px white;
+
+}
+.acedorGif{
+	width: 15%;
+	border:solid 3px white;
+	margin-left: -8%;
+	border-radius: 50%;
+}
+.containerEsteban{
+	margin-top: 50px;
+	display: inline-block;
+	width:130%;
+	float: right;
+height:20%;
+padding:0;
+border-radius: 15px;
+}
+}
+@media only screen and (max-width:496px){
+.prompt{
+	position: absolute;
+	left: 10%;
+	top: 50%;
+	transform: translate(-1%,-50%);
+	display:block;
+	width: 100%;
+	justify-content:center;
+	align-items:center;
+}
+.cajaSRG{
+	margin-top: 50%;
+		    display: block;
+	width:100%;
+	height:100%;
+}
+.cajaHSRG{
+    display: block;
+	width:100%;
+	height:100%;
+}
+.cajaHSRG img{
+	width: 30%;
+	display: block;
+}
+.cajaSRG button{
+	border: none;
+    padding:10px;
+    cursor:pointer;
+    background:black;
+    color:white;
+    border-radius:10px;
+    margin:10px;
+}
+.cajaSRG img{
+	width: 30%;
+	display: block;
+}
+.cajaHSRG button{
+	border: none;
+    padding:10px;
+    cursor:pointer;
+    background:black;
+    color:white;
+    border-radius:10px;
+    margin:10px;
+}
+	.containerEsteban{
+	margin-top: 50px;
+	display: inline-block;
+	width:100%;
+	float: right;
+height:20%;
+padding:0;
+border-radius: 15px;
+}
+		.containerDennis{
+	margin-top: 50px;
+	display: inline-block;
+	width:100%;
+	float: right;
+height:20%;
+padding:0;
+border-radius: 15px;
+}
+	.containerCreators{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    padding: 50px;    
+    transform: translate(-50%,-50%);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+	.perfil{
+	width: 100px;
+	max-height:10%;
+	border-radius: 50%;
+	margin: 5px;
+	border:solid 3px white;
+
+}
+}
+@media only screen and (max-width:324px){
+		nav:hover{
+	background-color: rgba(30, 30, 30, 1);
+	padding:10px;
+	position:fixed;
+	width: 90%;
+	height: auto;
+	top:50%;
+	right: 1%;
+	z-index: 1000;
+
+}
+}

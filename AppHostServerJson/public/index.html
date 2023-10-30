@@ -1,0 +1,151 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="icon" href="media/iconoSchoolServer.png">
+	<title>HSRG</title>
+</head> 
+<body>
+	<div id="alertDiv" style="display: none">
+		 <p>Estamos trabajando dia y noche en esta applicacion, recuerda que esta en modo beta</p>
+		 <br>
+		 <p>
+		 	Esta applicacion tendra todas la funciones muy pronto
+		 </p>
+		 <br>
+		<h4>Funciones disponibles</h4>
+		 <ul>
+		 	<li>Puedes revisar la preguntas, añadir, modificarla y borrarlas para el juego srg</li>
+		 	<li>Ingresar cuenta con su materia</li>
+		 </ul>
+		 <br>
+		 <h4>Funciones proximas</h4>
+		 <ul>
+		 	 <li>
+		 	        Mandar examenes a todos sus estudiantes
+		 	 </li>
+		 	 <li>Revisar los examenes y evaluarlos</li>
+		 	 <li>Tambien tengra un algoritmo disponible que revisara los examenes por usted</li>
+		 </ul>
+		 <br>
+		 <br>
+		 <button id="buttonForAlert">Ok, entendere si hay bugs</button>
+	</div>
+	<div id="EroorFetch" style="display:none;">
+		<h1 id="statusError">Ups, hay un error en el servidor</h1>
+		<p>Verifica si el servidor local esta encendido</p>
+		<p style="color:grey; padding: 30px;">Error 404</p>
+		 <img src="media/errorAnimation.gif">
+		 <div class="prompt">
+		 	<button id="reinicarApp_Error">Reiniciar app</button>
+		 </div>
+	</div>
+	<center>
+		<div id="createNewUserContainer" style="display:none;">
+	   <div class="chatBot"><img src="media/chatBot.gif"><p id="chatBotText">Ingresa los datos para poder enviarlos al servidor</p></div>
+           <div id="formForCreateNewUser">
+           	<img id="cancelServerNewUser" src="media/iconos/CLOSE.png">
+           			<br>
+		<br>
+           	 <label>Nombre</label>
+           	 <input autocomplete="off" type="text" id="nombre_CreateNewUser" placeholder="Su nombre"  name="nombre">
+           	 <label>Materia</label>
+           	 <input autocomplete="off" type="text" id="materia_CreateNewUser" placeholder="Su materia" name="">
+           	 <label>Contraseña</label>
+           	 <input autocomplete="off" type="password" id="password_CreateNewUser" placeholder="y su contraseña" name="">
+           	 <button id="sendServerNewUser">Listo, creame la cuenta</button>
+           </div>
+		</div>
+<div class="contenLogin" style="display:block;">
+		<div class="salaEsperaLogin" style="display:none;">
+		<div class="loaderLOGIN"></div>
+		<p id="status_salaEsperaLogin">Espere porfavor</p>
+		<button id="buttonAceptarNewLogin" style="display:none;">si</button> <button style="display:none;" id="buttonNoAceptarNewLogin">No</button>
+	</div>
+	<div id="contenedorMAXFORContentLogin" style="display:block;">
+	<p class="spam">D/code Server</p>
+	<img class="imglogin" width="100px" style="" src="media/iconoSchoolServer.png">
+<h2 id="infoLogin">Ingrese su nombre</h2>
+<input id="inputUserName" type="text" class="inputsLogin" placeholder="ingrese su nombre"  style="display:block;">
+<button id="siguiente_Name" style="display:block;">Siguiente</button>
+<input class="inputsLogin"  id="pass" maxlength="8" minlength="1" type="password" autocomplete="off" placeholder="tu contraseña" style="display:none;">
+<button id="buttonPasswordVerificar" style="display:none;">Siguiente</button>
+<p id="whatPassword" style="display:none;">Esparando la contraseña</p>
+<button id="enviarMat" style="display:none;">Listo llevame a mi escritorio</button>
+</div>
+</div>
+</center>
+<div class="subBody" style="display:none;">
+<div class="home caja" style="display :block;">
+		<p id="saludoP">Hola acedor, que desea hacer hoy?</p>
+	<div class="hours"><p id="h"></p><p id="m"></p><p id="s"></p><p id="mm"></p><br></div>
+</div>
+	<div class="loader" style="display:none;"></div>
+	 <div class="todasLasPreguntas caja" style="display:none;">
+	 	<img src="media/iconos/show.png" id="showPreguntas">
+	 	<img id="newPost" src="media/iconos/post.png">
+	 	  <h2 id="materiaName">Conectando <span class="doct"><p class="doct0">.</p><p class="doct1">.</p><p class="doct2">.</p></span></h2>
+ <div style="width:100%;display: flex;"></div>
+	 	  <div class="containerListQuestion"></div>
+	 </div>
+	<div class="containerQuestion caja" style="display:none;">
+<img src="media/iconos/CLOSE.png" id="cancelBoxContainerQuestion">
+		<div class="contenedorInputs">
+			<p style="color:black;">Formulario</p>
+		<input required type="text" id="materiaInput" value="testting" placeholder="Materia" style="display:none;">
+		<input required type="text" id="PreguntaInput" placeholder="Pregunta">
+		<input required type="text" id="RespuestaOneInput" placeholder="Respuesta 1">
+		<input required type="text" id="RespuestaTwoInput" placeholder="Respuesta 2">
+		<input required type="text" id="RespuestaTreeInput" placeholder="Respuesta 3">
+		<input required type="text" id="respuestaCorrectaInput" placeholder="Respuesta Correcta">
+		<button id="buttonSendServer">Enviar</button>
+	</div>
+</div>
+	 <nav class="nav_ecrtro">
+	 	<img src="media/iconoSchoolServer.png" class="userImg">
+	 	<p class="userName"id="userNameId">Dennis acedor<p class="userName" id="statusName">Programador</p><b id="povCertifate"></b></p>
+	 	<hr>
+	    <a id="inicioButton" ><i class="fa-solid fa-sitemap"><img style="width:20px;" src="media/iconos/salirLogin.png"></i>Salir</a>
+	 	<a  id="inicioButtonDaskBoard"><i><img style="width:20px;" src="media/iconos/home.png"></i>Inicio</a>
+	 	<a  id="questionButton"><i class="fa-solid fa-unlock-keyhole"><img style="width:20px;" src="media/iconos/icononSendQuestion.png"></i> Ingresar Preguntas</a>
+	 	<a  id="questionButtonShow"><i class="fa-regular fa-keyboard"><img style="width:20px;" src="media/iconos/icononSendQuestion.png"></i>Todas Preguntas</a>
+	    <a  id="misEstudianteButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/estudianteicon.png"></i>Mis estudiantes</a>
+	       <a  id="misExamenesButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/estudianteicon.png"></i>Examenes</a>
+	 </nav>
+ <div id="contentEstudiantes" class="caja" style="display:none;">
+ 	  <nav>
+ 	  	  <div id="navForSearchcontentEstudiantes"><input type="text" id="inputSearch" autocomplete="off" placeholder="Busca a sus estudiantes"><img id="startSearch" src="media/iconos/search.png"></div>
+ 	  	      <div id="resultadoForSearch" style="display:none;">
+<div class="containerJsSearchResultado">
+<!-- 	  <img class="imgForSearch" src="http://182.122.239.4:8070/perfiles/jugador6.jpg">
+	  <p class="nameUserForSearch">Dennis | 5to año</p>
+	  <img class="buttonsAddEstudent" src="media/iconos/addFriends.png"> -->
+</div>
+ 	     </div>
+	   <div class="chatBot2" style="display:none;"><img src="media/chatBot.gif"><p id="chatBotText2">Ingresa los datos para poder enviarlos al servidor</p></div>
+ 	  </nav>
+ 	  <div id="containerEstudiantes">
+ 	  	<h1 style="color:wheat;">Estudiantes</h1>
+ 	  	<div id="containerEstudiantesPushElementJs">
+<!--             <div class="estudiantesContainerJS">
+            	<img class="avatarEstudiantes" src="http://182.122.239.4:8070/perfiles/jugador6.jpg">
+            	<p class="statusEstudiantes">Dennis</p>
+            	<i class="menuBarsEstuendJs"><div style="display:none;" class="divButtonContainers">
+            		 <button>Borrar</button>
+            		 <button class="viemGameExpectorButton">Mirar juego</button>
+            		 <button>Mandar examenes</button>
+            	</div><img  src="media/iconos/menuBars.png"></i>
+            </div> -->
+ 	  	</div> 
+ 	  </div>		
+ </div>
+</div>
+<script type="text/javascript" src="js/codigo.js"></script>
+<script type="text/javascript" src="js/createNewUser.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
+<script type="text/javascript" src="js/addEstudents.js"></script>
+</body> 
+</html>

@@ -1,0 +1,757 @@
+*{
+	font-family: sans-serif;
+	transition: 1s;
+}
+body{
+	background-image: url('animaciones/fondos/room38.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-width:102px!important;
+	height: 100vh;
+}
+
+.caja{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	padding: 10px;
+	border-radius: 15px;
+	padding-bottom:60px ;
+	width:540px;
+	min-width: 160px!important;
+	}
+.buttonCaja{
+	background: white!important;
+	border-radius: 15px;
+	box-shadow: 0 0 10px black;
+     border: none;
+	padding: 20px;
+	margin: 15px;
+	transition: 1.5s;
+	font-size: 15px;
+}
+#startDiv button{
+     transition: 0.2s;
+	border: none;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	padding: 30px;
+	font-size: 20px;
+	color: white;
+	background: black;
+	border-radius:15px ;
+	transform: translate(-50%,-50%);
+
+}
+#startDiv button:hover{
+	 padding: 35px;
+}
+#loading{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 20px;
+}
+#pTxt{
+	font-size: 19px;
+}
+/*Users*/
+ #gamePerfilJugadorOne{
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 540px;
+ 	height: 300px;
+ 	padding: 10px;
+ 	transform: translate(-50%,-50%);
+ }
+ #gamePerfilJugadorOneInput{
+ 	margin-top: 30px;
+ 	padding: 10px;
+ 	border: none;
+ 	background: black;
+ 	color: white;
+ 	border-radius: 15px;
+ }
+ .gamePerfilJugadorOneImg{
+ 	display: inline-block;
+ 	margin-bottom: 40px;
+ 	border-radius: 150%;
+ 	height: 63px;
+ 	background: black;
+ 	width: 12%;
+ 	scale: 260%;
+		min-width: 55px;
+
+}
+ .gamePerfilJugadorOneButton{
+ 	transition: 0.4s;
+ 	position: absolute;
+ 	bottom: 0;
+ 	right: 0;
+ 	display: block;
+ 	padding: 5px;
+ 	border: none;
+ 	border-radius: 10px;
+ 	margin: 10px;
+ 	background: black;
+ 	color: white;
+ 	font-size: 20px;
+ }
+ .gamePerfilJugadorOneButton:hover{ 
+   background:white;
+   color: black;
+   box-shadow: 0 0 10px;
+  }
+/*jugador 2*/
+   #gamePerfilJugadorTwo{
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 540px;
+ 	height: 400px;
+ 	padding: 10px;
+ 	transform: translate(-50%,-50%);
+ 	min-width: 400px!important;
+ }
+ #txtJugadorTwo{
+ 	margin-top: 50px;
+ }
+ #gamePerfilJugadorTwoInput{
+ 	margin-top: 150px;
+ 	padding: 10px;
+ 	border: none;
+ 	background: black;
+ 	color: white;
+ 	border-radius: 15px;
+ }
+  .gamePerfilJugadorTwoImg{
+  	display: inline-block;
+ 	margin-bottom: 40px;
+ 	border-radius: 150%;
+ 	height: 63px;
+ 	background: black;
+ 	width: 12%;
+ 	scale: 260%;
+	min-width: 55px;
+
+ }
+ #pTxt{
+ 	display: inline-block;
+ 	margin-bottom: 0;
+ }
+ #imgUser{
+ 	position: absolute;
+ 	left: 0;
+ 	top: 0;
+  display: block;
+ 	border-radius: 150%;
+ 	height: 35px;
+ 	background: black;
+ 	width: 35px;
+ 	scale: 260%;
+ }
+ /*contador*/
+.contador{
+	border-radius: 10px;
+	padding:1px;
+	transition: 1s;
+	right:-30px;
+	top: -20px;
+	position: absolute;
+}
+.userOneBContador{
+	transition: 1s;
+	color:grey;
+	font-size:20px;
+	display: inline-block;
+}
+.userTwoBContador{
+	transition: 1s;
+	font-size:20px;
+	color:grey;
+	display: inline-block;
+}
+.numberContadorOne{
+	transition: 1s;
+	font-size: 25px;
+	display: inline-block;
+	font-family: 'Roboto', sans-serif;
+}
+.numberContadorTwo{
+	transition: 1s;
+	font-size: 25px;
+	display: inline-block;
+	font-family: 'Roboto', sans-serif;
+}
+ /*ganador*/
+ .contentGanador{
+ 	z-index: 2000;
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 600px;
+ 	height: 600px;
+ 	transform: translate(-50%,-50%);
+ 	border-radius: 15px;
+
+ }
+ #pGanadorOne{
+ 	position: absolute;
+ 	top:5px;
+ 	left: 20px;
+ 	font-size: 20px;
+ }
+ #pGanadorTwo{
+ 	position: absolute;
+ 	top:5px;
+ 	right: 20px;
+ 	font-size: 20px;
+ }
+ .ganadorImgOne{
+ 	width: 100px;
+ 	position: absolute;
+ 	left:20px;
+ 	top: 65px;
+ 	border-radius: 15px;
+ }
+ .ganadorImgTwo{
+ 	width: 100px;
+ 	position: absolute;
+ 	right:20px;
+ 	top: 65px;
+ 	border-radius: 15px;
+
+ }
+#infoGanador{
+	position: absolute;
+	top: 60%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+.buttonGanador{
+	 position: absolute;
+	 bottom: 20px;
+	 right: 20px;
+	 border: none;
+	 border-radius: 15px;
+	 padding: 10px;
+	 background: black;
+	 font-size: 20px;
+	 color: white;
+}
+.ganadorVideoOne{
+    	position: absolute;
+ 	left: 20px;
+ 	top: 85px;
+ 	border-radius: 15px;
+ 	height: 150px;
+ 	background: black;
+ 	width: 150px;
+ 	overflow: hidden;
+ 	  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.perdedorVideoOne{
+ 	position: absolute;
+ 	right: 20px;
+ 	top: 85px;
+ 	border-radius: 15px;
+ 	height: 150px;
+ 	background: black;
+ 	width: 150px;
+ 	overflow: hidden;
+ 	  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divVideo1{
+		scale: 200%;
+	transition: transform 0.3s ease;	
+	flex-grow: 1;
+	flex-basis: 300px;
+	overflow: hidden;
+	width: 100px!important;
+	height: auto;
+}
+.divVideo2{
+		scale: 200%;
+	transition: transform 0.3s ease;	
+	flex-grow: 1;
+	flex-basis: 300px;
+	overflow: hidden;
+	width: 100px!important;
+	height: auto;
+}
+.perdedorVideoOne img{
+	scale: 120%;
+	transition: transform 0.3s ease;
+	width: 50px!important;
+	height: auto;
+	flex-grow: 1;
+	flex-basis: 300px;
+	overflow: hidden;
+}
+.buttonReinicio{
+	border: none;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	background: black;
+	color: white;
+	padding: 5px;
+	font-size: 20px;
+	border-radius: 15px;
+}
+.animacion{
+	display: inline-block;
+	position: absolute;
+	top: 60%;
+	width: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 5000;
+}
+.BanimacionGanador{
+	color:#ff7c02;
+}
+.BanimacionPerdedor{
+	 color: red;
+}
+h2{
+	z-index: 6000!important;
+	width: 100%;
+}
+.animationVitory{
+	position: absolute;
+	top:5px;
+	width: 25%;
+	left: 0;
+	z-index: 6000;
+}
+/*Responsive*/
+
+@media only screen and (max-width:1095px){
+	.caja{padding: 10px; width: 50%}
+	.caja button{
+		padding: 40px;
+	font-size: 30px;
+
+	}
+		.buttonReinicio{
+			font-size: 20px!important;
+	bottom: -100px;
+}
+}
+@media only screen and (max-width:900px){
+	.buttonReinicio{
+	bottom: -100px;
+}
+	 .contentGanador{
+ 	z-index: 2000;
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 100%;
+ 	height: 600px;
+ 	transform: translate(-50%,-50%);
+ 	border-radius: 15px;
+ }
+
+	 #gamePerfilJugadorOne{
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 90%;
+ 	height: 300px;
+ 	padding: 10px;
+ 	transform: translate(-50%,-50%);
+ }
+	 #imgUser{
+ 	position: absolute;
+ 	left: 30px!important;
+ 	top: 0;
+     display: block;
+ 	border-radius: 150%;
+ 	height: 35px;
+ 	background: black;
+ 	width: 35px;
+ 	scale: 260%;
+ }
+
+
+	.caja{padding: 15px!important; width: 80%;}
+	.caja button{
+		padding: 25px;
+		padding-bottom: 35px;
+	font-size: 20px;
+
+	}
+}
+@media only screen and (max-width:612px){
+	   #gamePerfilJugadorTwo{
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 90%;
+ 	height: 400px;
+ 	padding: 10px;
+ 	transform: translate(-50%,-50%);
+ }
+}
+@media only screen and (max-width:533px){
+	.ganadorVideoOne{
+  position: absolute;
+  left:10px;
+  top: 65px;
+  border-radius: 15px;
+  height: 100px;
+  background: black;
+  width: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.perdedorVideoOne{
+ 	position: absolute;
+ 	right: 10px;
+ 	top: 65px;
+ 	border-radius: 15px;
+ 	height: 100px;
+ 	background: black;
+ 	width: 100px;
+ 	overflow: hidden;
+ 	  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+	 #pGanadorOne{
+ 	position: absolute;
+ 	top:-25px;
+ 	left: 20px;
+ 	font-size: 15px;
+ }
+ #pGanadorTwo{
+ 	position: absolute;
+ 	top:-25px;
+ 	right: 20px;
+ 	font-size: 15px;
+ }
+ .ganadorImgOne{
+ 	width: 100px;
+ 	position: absolute;
+ 	left:20px;
+ 	top: 65px;
+ 	border-radius: 15px;
+ }
+ .ganadorImgTwo{
+ 	width: 100px;
+ 	position: absolute;
+ 	right:20px;
+ 	top: 65px;
+ 	border-radius: 15px;
+
+ }
+#infoGanador{
+	position: absolute;
+	top: 60%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+ .contentGanador{
+ 	z-index: 2000;
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 99%;
+ 	height: 600px;
+ 	transform: translate(-50%,-50%);
+ 	border-radius: 15px;
+
+ }
+	h1{
+		margin-left: 15%!important;
+		margin-right: 15%!important;
+	}
+ #gamePerfilJugadorTwo{
+ 
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 90%!important;
+ 	height: 400px;
+ 	padding: 10px;
+ 	min-width: 35px;
+ 	min-height: 35px;
+ 	transform: translate(-50%,-50%);
+ }
+	#loading{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 20px;
+	width: 100%;
+}
+	.caja{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	padding: 10px;
+	border-radius: 15px;
+	padding-bottom:60px ;
+	width:100%;
+	}
+	 #gamePerfilJugadorOne{
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 100%;
+ 	height: 300px;
+ 	padding: 10px;
+ 	transform: translate(-50%,-50%);
+ }
+	 #gamePerfilJugadorOne{
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 90%;
+ 	height:50vh;
+ 	padding: 10px;
+ 	transform: translate(-50%,-50%);
+ }
+ #imgUser{
+ 	position: absolute;
+ 	left: 0;
+ 	top: -20px;
+     display: block;
+ 	border-radius: 150%;
+ 	height: 35px;
+ 	background: black;
+ 	width: 30px!important;
+ 	scale: 160%!important;
+ }
+.contador{
+	border-radius: 10px;
+	padding:1px;
+	transition: 1s;
+	right:0px;
+	top: -40px;
+	position: absolute;
+}
+
+	.caja{padding: 15px!important; width: 80%;}
+	.caja button{
+		padding: 25px;
+		padding-bottom: 35px;
+	font-size: 20px;
+
+	}
+}
+@media only screen and (max-width:404px){
+	#startDiv button{
+   width: 90%;
+
+}
+	#pTxt{
+	font-size: 15px;
+}
+	h1{
+		margin-left: 15%!important;
+		margin-right: 15%!important;
+	}
+ #gamePerfilJugadorTwo{
+ 
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 90%!important;
+ 	height: 400px;
+ 	padding: 10px;
+ 	min-width: 35px;
+ 	min-height: 35px;
+ 	transform: translate(-50%,-50%);
+ }
+	#loading{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 20px;
+	width: 100%;
+}
+	.caja{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	padding: 10px;
+	border-radius: 15px;
+	padding-bottom:60px ;
+	width:100%;
+	}
+	 #gamePerfilJugadorOne{
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 100%;
+ 	height: 300px;
+ 	padding: 10px;
+ 	transform: translate(-50%,-50%);
+ }
+	 #gamePerfilJugadorOne{
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 90%;
+ 	height:50vh;
+ 	padding: 10px;
+ 	transform: translate(-50%,-50%);
+ }
+ #imgUser{
+ 	position: absolute;
+ 	left: 0;
+ 	top: -40px;
+     display: block;
+ 	border-radius: 150%;
+ 	height: 35px;
+ 	background: black;
+ 	width: 40px!important;
+ 	scale: 160%!important;
+ }
+.contador{
+	border-radius: 10px;
+	padding:1px;
+	transition: 1s;
+	right:0px;
+	top: -50px;
+	position: absolute;
+}
+
+	.caja{padding: 10px!important; width: 80%; height: 50vh}
+	.caja button{
+		justify-content: center;
+		justify-items: center;
+		padding: 20px;
+		padding-bottom: 35px;
+	font-size:20px;
+
+	}
+}
+@media only screen and (max-width:330px){
+	.ganadorVideoOne{
+  position: absolute;
+  left:10px;
+  top: 65px;
+  border-radius: 15px;
+  height: 80px;
+  background: black;
+  width: 80px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.perdedorVideoOne{
+ 	position: absolute;
+ 	right: 10px;
+ 	top: 65px;
+ 	border-radius: 15px;
+ 	height: 80px;
+ 	background: black;
+ 	width: 80px;
+ 	overflow: hidden;
+ 	  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+	 #pGanadorOne{
+ 	position: absolute;
+ 	top:-25px;
+ 	left: 20px;
+ 	font-size: 12px;
+ }
+ #pGanadorTwo{
+ 	position: absolute;
+ 	top:-25px;
+ 	right: 20px;
+ 	font-size: 12px;
+ }
+ .ganadorImgOne{
+ 	width: 100px;
+ 	position: absolute;
+ 	left:20px;
+ 	top: 65px;
+ 	border-radius: 15px;
+ }
+ .ganadorImgTwo{
+ 	width: 100px;
+ 	position: absolute;
+ 	right:20px;
+ 	top: 65px;
+ 	border-radius: 15px;
+
+ }
+#infoGanador{
+	position: absolute;
+	top: 60%;
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+ .contentGanador{
+ 	z-index: 2000;
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	width: 100%;
+ 	height: 600px;
+ 	transform: translate(-50%,-50%);
+ 	border-radius: 15px;
+
+ }
+		.caja button{
+		justify-content: center;
+		justify-items: center;
+		padding: 20px;
+		padding-bottom: 35px;
+    	font-size:20px;
+    	margin:5!important;
+
+}
+.buttonCaja{
+	margin: 5px!important;
+}
+}
+@media only screen and (max-width:270px){
+	 #pGanadorOne{
+ 	position: absolute;
+ 	top:-25px;
+ 	left: 0;
+ 	font-size: 12px;
+ }
+ #pGanadorTwo{
+ 	position: absolute;
+ 	top:-25px;
+ 	right: 0;
+ 	font-size: 12px;
+ }
+	.caja{padding: 0!important; width: 100%; height: 50vh}
+
+	.buttonCaja{
+	margin: 5px!important;
+}
+.caja button{
+		justify-content: center;
+		justify-items: center;
+		padding: 20px;
+		padding-bottom: 35px;
+	font-size:20px;
+
+	}
+}

@@ -1,0 +1,11 @@
+{
+  "nuevosDatos": {
+    "avatar": "http://192.168.20.20:8080/DataJson/perfiles/jugador18.jpg",
+    "name": "julian."
+  },
+  "derile": {
+    "status": "online",
+    "avatar": "http://192.168.20.20:8080/DataJson/perfiles/jugador18.jpg",
+    "name": "derile"
+  }
+}}
