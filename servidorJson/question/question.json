@@ -43,5 +43,14 @@
     "respuestas3": "Aprender a identificar oportunidades de negocio implica la observación de las necesidades del mercado, la investigación y la innovación.",
     "respuestaCorrecta": "Aprender a identificar oportunidades de negocio implica la observación de las necesidades del mercado, la investigación y la innovación.",
     "avatar": "questionMedia/giphy.gif"
+  },
+  "¿Que es programacion?": {
+    "pregunta": "¿Que es programacion?",
+    "status": "Programacion",
+    "respuestas1": "Un programa de television",
+    "respuestas2": "Un estado de dinamarca",
+    "respuestas3": "Es un desarrollo tecnico donde los programadores pueden hacer app. robot etc",
+    "respuestaCorrecta": "Es un desarrollo tecnico donde los programadores pueden hacer app. robot etc",
+    "avatar": "questionMedia/giphy.gif"
   }
 }
