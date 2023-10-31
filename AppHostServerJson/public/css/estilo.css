@@ -10,6 +10,14 @@
     transform: translate(-50%,-50%);
     color: white;
 }
+#saludoP a{
+	text-decoration: none;
+	margin: 5px;
+	background: black;
+	color: white;
+ padding: 5px;
+ border-radius: 5px;
+}
 .hours{
 	position: absolute;
 	top: 20%;
@@ -25,7 +33,7 @@ display: inline-block;
 	position: relative;
 	padding-top: 30px;
 	display: inline-block;
-	transition: padding 13.4s, all 0.9s;
+	transition: padding 0.4s, all 0.2s;
 	display: block;
 	background: #12151c ;
 	height: 100vh;
@@ -34,6 +42,7 @@ display: inline-block;
 	z-index: 1000;
 	top: 0;
 	border-radius:1px;
+	box-shadow: 0 0 25PX BLACK;
 }
 .nav_ecrtro:hover{
 	padding-top: 150px;
@@ -63,8 +72,8 @@ display: inline-block;
 	
 }
 .userImg{
-	transition:  2s!important;
-	transition: width 2s!important;
+	transition:  0.4s!important;
+	transition: width 0.6s!important;
 	transition:  margin 10s!;
 	width: 50px;
 	margin: 10px;
@@ -95,7 +104,7 @@ display: inline-block;
 color: white;
 }
 .nav_ecrtro:hover > #statusName{
-transition: 0.4s;
+transition: 0.2s;
 color:white!important;
 }
 
