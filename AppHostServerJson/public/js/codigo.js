@@ -4,9 +4,6 @@ let elementosCaja = document.querySelectorAll('.caja');
 let urlLocal = location.hostname
 servidor = `http://${urlLocal}:8070`;
 console.log(`conectado ${servidor}`);
-document.getElementById('buttonForAlert').addEventListener('click',()=>{
-	document.getElementById('alertDiv').style.display ="none"
-})
 /////////////////////////////////////////////////////////////////////////////////////////
 let userNames;
 let inputMat;
@@ -45,8 +42,12 @@ startInterface(inputmateriaHtml.value);
  textSpam()
 subBody.style.display = "block"
 */
-siguiente_Name.addEventListener('click',()=>{
-	userNames = inputUserName.value;
+siguiente_Name.addEventListener('click',()=>{eventoLoginForUserName()});
+inputUserName.addEventListener('keydown',event=>{
+ if(event.key === "Enter") eventoLoginForUserName()
+})
+eventoLoginForUserName=()=>{
+		userNames = inputUserName.value;
 	contetLogin.style.display = "none";
   salaEsperaLogin.style.display = "block";
 	  let headers = {
@@ -75,8 +76,10 @@ siguiente_Name.addEventListener('click',()=>{
  salaEsperaLogin.style.display = "none";
  contetLogin.style.display = "block";
  buttonInputPass.style.display = "block"
- buttonInputPass.addEventListener('click',()=>{
- 	if(inputPass.value.length > 0 && inputPass.value != " ") requestPass(inputUserName.value,inputPass.value)
+ buttonInputPass.addEventListener('click',()=>{eventoPass()});
+ inputPass.addEventListener('keydown',event=>{if(event.key) eventoPass()})
+ eventoPass=()=>{
+ 	 	if(inputPass.value.length > 0 && inputPass.value != " ") requestPass(inputUserName.value,inputPass.value)
  		else{
  			infoLogin.textContent = "ingrese un contraseña valida";
  			inputPass.style.border = "solid 2px red";
@@ -84,9 +87,10 @@ siguiente_Name.addEventListener('click',()=>{
  				inputPass.style.border = "none";
  			},1000)
  }
- })
+ }
      },500)
-   }else{
+ }
+   else{
    	   status_salaEsperaLoginP.innerHTML = `No tengo una cuenta que se llame ${inputUserName.value} <br> <br> 
    	                                       ¿Desea crear una cuenta?`;
    	    buttonAceptarNewLogin.style.display = "inline-block";
@@ -122,7 +126,7 @@ siguiente_Name.addEventListener('click',()=>{
 	 // 	 },1000)
 
 	 // })
-})
+}
 function nameSend(){
 buttonSendAlServer.addEventListener('click',()=>{
 const promiseVerificacionInput = new Promise(resolve=>{
