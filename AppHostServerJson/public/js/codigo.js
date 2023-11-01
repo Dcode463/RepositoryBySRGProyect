@@ -301,31 +301,23 @@ cerrarNav()
 		elementosCaja.forEach(e=>{
 		if(e != dashBoard) e.style.display = "none"
 	})
- if(dashBoard.style.display === "none"){
  	dashBoard.style.display = "block";
  		contenedorPreguntas.style.display = "none"
  		contenedorPadreForContainerQuestion.innerHtml = " "
  requestQuestion()
- }else{
- 	dashBoard.style.display = "none";
- }
 }
 document.getElementById('showQuestionAtajo').addEventListener('click',()=>{iniciarEventoTodasLasPreguntas()})
 	contenedorPadreForContainerQuestion.innerHTML =" "
 	showPreguntas.addEventListener('click',()=>{iniciarEventoTodasLasPreguntas()});
 iniciarEventoTodasLasPreguntas=()=>{
-cerrarNav()
-			elementosCaja.forEach(e=>{
+		elementosCaja.forEach(e=>{
 		if(e != dashBoard) e.style.display = "none"
 	})
- if(dashBoard.style.display === "none"){
- 	dashBoard.style.display = "block";
+dashBoard.style.display = "block";
  		contenedorPreguntas.style.display = "none"
  		contenedorPadreForContainerQuestion.innerHtml = " "
  requestQuestionShow()
- }else{
- 	dashBoard.style.display = "none";
- }
+cerrarNav()
 }
 function requestQuestionShow(){
 	let divAelimar = document.querySelectorAll('.questionForJS');
