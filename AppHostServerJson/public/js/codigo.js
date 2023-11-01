@@ -693,3 +693,59 @@ setTimeout(resetear,10)
 function resetear(){
 setTimeout(hours,10)
 }
+let verificacionForNav = true;
+let buttonExtentNav = document.querySelector('.barraExpandirNav');
+buttonExtentNav.addEventListener('click',()=>{
+let displayComprobar = document.querySelector('.p_nav_a');
+if (verificacionForNav){
+verificacionForNav = false;
+displayComprobar.style.display = "block";
+buttonExtentNav.style = `transform: rotate(90deg);right:-15%;`;
+document.querySelector('.nav_ecrtro').style = `padding-top:150px;width:300px;`;
+document.querySelector('.nav_a').style =`width:90%`;
+document.querySelector('.userImg').style =`border-radius: 20%;position: absolute;left: 40%;top: 1%;transform: translate(-50%,-5%);width:50%!important;`;
+document.querySelector('.userName').style =`color: white;`;
+document.getElementById('statusName').style =`transition: 0.2s;color:white!important;`;
+}else{
+verificacionForNav = true;
+buttonExtentNav.style = `transform: rotate(-90deg);right:-60%;`;
+displayComprobar.style.display = "none";
+document.querySelector('.nav_ecrtro').style = `
+box-sizing: border-box;
+position: relative;
+padding-top: 30px;
+display: inline-block;
+transition: padding 0.4s, all 0.2s;
+display: block;
+background: #12151c ;
+height: 100vh;
+width: 70px;
+z-index: 1000;
+top: 0;
+border-radius:1px;
+box-shadow: 0 0 25PX BLACK;
+cursor: pointer;`;
+document.querySelector('.nav_a').style =`
+cursor:pointer;
+width:90%;
+padding: 5px;
+margin: 10px;
+display:block;
+text-decoration: none;
+color: white;`;
+document.querySelector('.userImg').style =`
+transition:  0.4s!important;
+transition: width 0.6s!important;
+transition:  margin 10s!;
+width: 50px;
+margin: 10px;
+border-radius: 50%;`;
+document.querySelector('.userName').style =`
+width: 200px;
+transition: 0s;
+color: transparent;
+padding: 10px;`
+document.getElementById('statusName').style =`	color: transparent;
+	font-size: 12px;`;
+}
+})
