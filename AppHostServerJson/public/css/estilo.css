@@ -6,16 +6,16 @@
 .barraExpandirNav{
 	position: absolute;
 	top: 50%;
-	right: -60%;
+	right: -66%;
 	transform: rotate(-90deg);
 	transition: 0.4s;
-	border-radius: 7px;
-  background: #12151c ;
+	border-radius: 0 0 8px 8px;
+  background: #12151c;
+/*	box-shadow: 0 0 20PX BLACK;*/
 }
 .p_nav_a{
    font-size: 1px;
 		width: 1px;
-	cursor: none;
 	display: none;
 }
 #saludoP{
@@ -35,7 +35,7 @@
 .promptAtajos a{
 	transition: 0.2s;
 		text-decoration: none;
-	margin: 5px;
+	margin: 2px;
 	background: grey;
 	color: white;
  padding: 5px;
@@ -79,7 +79,7 @@ display: inline-block;
 	z-index: 1000;
 	top: 0;
 	border-radius:1px;
-	box-shadow: 0 0 25PX BLACK;
+	box-shadow: 0 0 20PX BLACK;
 	cursor: pointer;
 }
 /*.nav_ecrtro:hover{
@@ -90,18 +90,18 @@ display: inline-block;
 	cursor:pointer;
     width:90%;
 	padding: 5px;
-	margin: 10px;
-	display:block;
+	margin: 5px;
+	display:inline-block;
     text-decoration: none;
     color: white;
 }
 /*.nav_ecrtro:hover > .nav_ecrtro a{
     width:90%;
-}
+}*/
 .nav_ecrtro a:hover{
 	border-radius: 5px;
 	background:grey;
-}*/
+}
 .nav_ecrtro i{
 	padding: 10px;
 	margin-right: 15px;

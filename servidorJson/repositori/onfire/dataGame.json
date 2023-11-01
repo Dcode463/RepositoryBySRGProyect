@@ -3,13 +3,13 @@
   "request": " ",
   "acceptRequest": "",
   "Mensajes": {
-    "userName": "onfire",
+    "userName": "Dereck",
     "avatar": " ",
-    "chat": "hola",
+    "chat": " ",
     "request": "false",
-    "respuestaRequest": "ok",
+    "respuestaRequest": " ",
     "Datagame": {
-      "status": "eligiendo",
+      "status": "esperando",
       "data": [
         [
           " ",
@@ -17,14 +17,14 @@
           " "
         ],
         [
-          "X",
-          "X",
-          "X"
+          " ",
+          " ",
+          " "
         ],
         [
-          "O",
           " ",
-          "O"
+          " ",
+          " "
         ]
       ]
     }

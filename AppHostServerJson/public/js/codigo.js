@@ -696,20 +696,20 @@ setTimeout(hours,10)
 let verificacionForNav = true;
 let buttonExtentNav = document.querySelector('.barraExpandirNav');
 buttonExtentNav.addEventListener('click',()=>{
-let displayComprobar = document.querySelector('.p_nav_a');
+let displayComprobar = document.querySelectorAll('.p_nav_a');
 if (verificacionForNav){
 verificacionForNav = false;
-displayComprobar.style.display = "block";
-buttonExtentNav.style = `transform: rotate(90deg);right:-15%;`;
+displayComprobar.forEach(e=>{e.style = "font-size:15px;width:auto;opacity:0;"; setTimeout(()=>{e.style.display= "inline-block";e.style.opacity = "1"},50)});
+buttonExtentNav.style = `transform: rotate(90deg);right:-15%;border-radius:8px 8px 0px 0px`;
 document.querySelector('.nav_ecrtro').style = `padding-top:150px;width:300px;`;
 document.querySelector('.nav_a').style =`width:90%`;
 document.querySelector('.userImg').style =`border-radius: 20%;position: absolute;left: 40%;top: 1%;transform: translate(-50%,-5%);width:50%!important;`;
 document.querySelector('.userName').style =`color: white;`;
-document.getElementById('statusName').style =`transition: 0.2s;color:white!important;`;
+document.getElementById('statusName').style =`transition: 0s;color:white!important;opacity:1;`;
 }else{
 verificacionForNav = true;
-buttonExtentNav.style = `transform: rotate(-90deg);right:-60%;`;
-displayComprobar.style.display = "none";
+buttonExtentNav.style = `transform: rotate(-90deg);right:-66%;border-radius:0px 0px 8px 8px`;
+displayComprobar.forEach(e=>{e.style = "font-size:1px;opacity:0;";setTimeout(()=>{e.style.display = "none";},50)});
 document.querySelector('.nav_ecrtro').style = `
 box-sizing: border-box;
 position: relative;
@@ -744,8 +744,13 @@ document.querySelector('.userName').style =`
 width: 200px;
 transition: 0s;
 color: transparent;
-padding: 10px;`
-document.getElementById('statusName').style =`	color: transparent;
+padding: 10px;
+opacity:0;
+`
+document.getElementById('statusName').style =`
+    transition:0;
+    opacity:0;
+    color: transparent;
 	font-size: 12px;`;
 }
 })
