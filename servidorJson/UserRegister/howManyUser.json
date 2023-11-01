@@ -2,224 +2,35 @@
   "nuevosDatos": {
     "ok": "data"
   },
-  "onfires": {
+  "onfire": {
     "status": "online",
-    "avatar": "http://192.168.1.13:8070/perfiles/jugadorDos.gif",
-    "name": "onfires",
+    "avatar": "/perfiles/jugadorDos.gif",
+    "name": "onfire",
     "friends": [
       [
-        "onfire",
-        "Elieth",
-        "Dereck",
-        "Fuap"
+        "Dereck"
       ]
     ],
     "trofeos": "undefined"
   },
   "Dereck": {
     "status": "online",
-    "avatar": "http://192.168.1.15:8070/perfiles/jugador5.jpg",
+    "avatar": "/perfiles/jugador5.jpg",
     "name": "Dereck",
     "friends": [
       [
-        "Cristina",
         "onfire"
       ]
     ],
-    "trofeos": "0"
+    "trofeos": "undefined"
   },
-  "Cristina": {
-    "status": {
-      "what": "jugando",
-      "host": "Dereck"
-    },
-    "avatar": "http://192.168.1.16:8070/perfiles/jugador22.jpg",
-    "name": "Cristina",
+  "onfires": {
+    "status": "online",
+    "avatar": "/perfiles/jugador17.jpg",
+    "name": "onfires",
     "friends": [
       [
-        "onfires",
         "Dereck"
-      ]
-    ],
-    "trofeos": "0"
-  },
-  "onfire": {
-    "status": "online",
-    "avatar": "http://192.168.1.15:8070/perfiles/jugadorDos.gif",
-    "name": "onfire",
-    "friends": [
-      [
-        "Fuap",
-        "Dereck",
-        "Elieth",
-        "jjj",
-        "Dennis",
-        "Aracely"
-      ]
-    ],
-    "trofeos": "0"
-  },
-  "Esteban": {
-    "status": {
-      "what": "jugando",
-      "host": "Esteban"
-    },
-    "avatar": "http://192.168.172.98:8070/perfiles/jugador22.jpg",
-    "name": "Esteban",
-    "friends": [
-      []
-    ],
-    "trofeos": "0"
-  },
-  "Juanquin": {
-    "status": {
-      "what": "jugando",
-      "host": "onfire"
-    },
-    "avatar": "http://192.168.88.101:8070/perfiles/jugador22.jpg",
-    "name": "Juanquin",
-    "friends": [
-      [
-        "onfire"
-      ]
-    ],
-    "trofeos": "0"
-  },
-  "Donnadie": {
-    "status": "online",
-    "avatar": "http://192.168.88.101:8070/perfiles/jugadorDos.gif",
-    "name": "Donnadie",
-    "friends": [
-      [
-        "onfire"
-      ]
-    ],
-    "trofeos": "0"
-  },
-  "Esner": {
-    "status": "online",
-    "avatar": "http://192.168.88.101:8070/perfiles/jugador5.jpg",
-    "name": "Esner",
-    "friends": [
-      []
-    ],
-    "trofeos": " "
-  },
-  "Aracely": {
-    "status": {
-      "what": "jugando",
-      "host": "Aracely"
-    },
-    "avatar": "http://192.168.1.12:8070/perfiles/jugadorDos.gif",
-    "name": "Aracely",
-    "friends": [
-      [
-        "onfire"
-      ]
-    ],
-    "trofeos": "0"
-  },
-  "Zelaya": {
-    "status": {
-      "what": "jugando",
-      "host": "Zelaya"
-    },
-    "avatar": "http://192.168.1.12:8070/perfiles/jugadorDos.gif",
-    "name": "Zelaya",
-    "friends": [
-      []
-    ],
-    "trofeos": "0"
-  },
-  "Elieth": {
-    "status": {
-      "what": "jugando",
-      "host": "Elieth"
-    },
-    "avatar": "http://192.168.1.12:8070/perfiles/jugador11.jpg",
-    "name": "Elieth",
-    "friends": [
-      []
-    ],
-    "trofeos": "0"
-  },
-  "fsociety": {
-    "status": {
-      "what": "jugando",
-      "host": "fsociety"
-    },
-    "avatar": "http://192.168.1.12:8070/perfiles/jugadorDos.gif",
-    "name": "fsociety",
-    "friends": [
-      []
-    ],
-    "trofeos": "0"
-  },
-  "Fuap": {
-    "status": {
-      "what": "jugando",
-      "host": "onfire"
-    },
-    "avatar": "http://192.168.88.101:8070/perfiles/jugadorDos.gif",
-    "name": "Fuap",
-    "friends": [
-      [
-        "onfire"
-      ]
-    ],
-    "trofeos": "0"
-  },
-  "Murdocez": {
-    "status": {
-      "what": "jugando",
-      "host": "onfire"
-    },
-    "avatar": "http://192.168.88.101:8070/perfiles/jugadorDos.gif",
-    "name": "Murdocez",
-    "friends": [
-      [
-        "onfire"
-      ]
-    ],
-    "trofeos": "0"
-  },
-  "donnadie": {
-    "status": "online",
-    "avatar": "http://192.168.88.17:8070/perfiles/jugadorDos.gif",
-    "name": "donnadie",
-    "friends": [
-      []
-    ],
-    "trofeos": " "
-  },
-  "Eliezer": {
-    "status": {
-      "what": "jugando",
-      "host": "Eliezer"
-    },
-    "avatar": "http://192.168.1.23:8070/perfiles/jugador23.jpg",
-    "name": "Eliezer",
-    "friends": [
-      []
-    ],
-    "trofeos": "0"
-  },
-  "jjj": {
-    "status": "online",
-    "avatar": "http://192.168.1.15:8070/perfiles/jugador22.jpg",
-    "name": "jjj",
-    "friends": [
-      []
-    ],
-    "trofeos": " "
-  },
-  "Dennis": {
-    "status": "online",
-    "avatar": "http://192.168.1.18:8070/perfiles/jugador4.jpg",
-    "name": "Dennis",
-    "friends": [
-      [
-        "onfire"
       ]
     ],
     "trofeos": "undefined"

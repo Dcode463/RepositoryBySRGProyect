@@ -95,17 +95,17 @@ contenedorStartAnimation.style.display = "none";
 }
 });	
 const arrayImg = [
-`${servidor}/perfiles/jugadorUno.gif`,`${servidor}/perfiles/jugadorDos.gif`,
-`${servidor}/perfiles/jugador4.jpg`,`${servidor}/perfiles/jugador5.jpg`,
-`${servidor}/perfiles/jugador6.jpg`,`${servidor}/perfiles/jugador7.jpg`,
-`${servidor}/perfiles/jugador8.jpg`,`${servidor}/perfiles/jugador9.jpg`,
-`${servidor}/perfiles/jugador10.jpg`,`${servidor}/perfiles/jugador11.jpg`,
-`${servidor}/perfiles/jugador12.jpg`,`${servidor}/perfiles/jugador13.jpg`,
-`${servidor}/perfiles/jugador14.jpg`,`${servidor}/perfiles/jugador15.jpg`,
-`${servidor}/perfiles/jugador16.jpg`,`${servidor}/perfiles/jugador17.jpg`,
-`${servidor}/perfiles/jugador18.jpg`,`${servidor}/perfiles/jugador19.jpg`,
-`${servidor}/perfiles/jugador20.jpg`,`${servidor}/perfiles/jugador21.jpg`,
-`${servidor}/perfiles/jugador22.jpg`,`${servidor}/perfiles/jugador23.jpg`,
+`/perfiles/jugadorUno.gif`,`/perfiles/jugadorDos.gif`,
+`/perfiles/jugador4.jpg`,`/perfiles/jugador5.jpg`,
+`/perfiles/jugador6.jpg`,`/perfiles/jugador7.jpg`,
+`/perfiles/jugador8.jpg`,`/perfiles/jugador9.jpg`,
+`/perfiles/jugador10.jpg`,`/perfiles/jugador11.jpg`,
+`/perfiles/jugador12.jpg`,`/perfiles/jugador13.jpg`,
+`/perfiles/jugador14.jpg`,`/perfiles/jugador15.jpg`,
+`/perfiles/jugador16.jpg`,`/perfiles/jugador17.jpg`,
+`/perfiles/jugador18.jpg`,`/perfiles/jugador19.jpg`,
+`/perfiles/jugador20.jpg`,`/perfiles/jugador21.jpg`,
+`/perfiles/jugador22.jpg`,`/perfiles/jugador23.jpg`,
 ]
 let span = document.getElementById('spanChangeImguser');
 let spanI = document.querySelector('.iSpan')
@@ -113,10 +113,11 @@ let contenedor = document.getElementById('imgChange');
 let contenedorPadre = document.querySelector('.imgChangeContainerJS');
 let imgAvatar = document.getElementById('userAvatar');
 imgAvatar.src = `${servidor}/perfiles/jugadorDos.gif`;
+imgAvatar.setAttribute('value','/perfiles/jugadorDos.gif')
 arrayImg.forEach((srcimg)=>{//inyector de img
 if(contenedorPadre.contains.length != arrayImg.length){
 const img = document.createElement('IMG');
-img.src = srcimg;
+img.src = `${servidor}${srcimg}`;img.setAttribute('value',srcimg)
 img.classList.add('imgUserRequestServer')
 contenedorPadre.appendChild(img)
 }
@@ -128,14 +129,14 @@ span.classList.add('imgChange_responsive')
 let firstChild = span.firstElementChild;
 let sblingElement = firstChild.nextElementSibling;
 sblingElement.style.position = "relative";
-	 	sblingElement.style.display = "block";
+sblingElement.style.display = "block";
 })
 const images = document.querySelectorAll('.imgUserRequestServer');
 images.forEach( (e) => {
 e.addEventListener('click', ()=>{
 let firstChild = span.firstElementChild;
 let sblingElement = firstChild.nextElementSibling;
-imgAvatar.src = e.src;
+imgAvatar.src = e.src;imgAvatar.setAttribute('value',e.getAttribute('value'))
 sblingElement.style.position = "absolute";
 sblingElement.style.display = "none";
 span.style.borderRadius = "50%";
@@ -231,7 +232,7 @@ body : JSON.stringify({
 "funcion" : "newUser",
 "status" : "offline",
 "name" : `${input.value}`,
-"avatar" : `${img.src}`,
+"avatar" : `${img.getAttribute('value')}`,
 "friends" : [],
 "trofeos" : " "
 }),
@@ -352,7 +353,7 @@ body : JSON.stringify({
 "funcion" : "newUser",
 "status" : "offline",
 "name" : `${input.value}`,
-"avatar" : `${img.src}`,
+"avatar" : `${img.getAttribute('value')}`,
 "friends" : [],
 "trofeos" : " "
 }),
@@ -444,7 +445,7 @@ const data = {
 funcion : "newUser",
 status : "online",
 name : `${input.value}`,
-avatar : `${img.src}`,
+avatar : `${img.getAttribute('value')}`,
 friends : [],
 trofeos : 0 
 };
@@ -454,7 +455,7 @@ data.friends = arrayAGuardar[0];
 data.trofeos = guardarTrofeos;
 peticionNewUser.addEventListener('load', ()=>{
 let imgUserNav = document.getElementById('imgNavUsers');
-imgUserNav.setAttribute("src", img.src);
+imgUserNav.setAttribute("src", `${servidor}${img.getAttribute('value')}`);
 imgUserNav.setAttribute("class", input.value);	
 let respuesta = JSON.parse(peticionNewUser.response);
 pStatus.textContent = respuesta.mensaje;

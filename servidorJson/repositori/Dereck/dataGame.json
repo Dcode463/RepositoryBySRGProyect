@@ -3,30 +3,14 @@
   "request": " ",
   "acceptRequest": "",
   "Mensajes": {
-    "userName": "Dereck",
+    "userName": "",
     "avatar": " ",
-    "chat": "q lo q",
+    "chat": " ",
     "request": "false",
-    "respuestaRequest": "ok",
+    "respuestaRequest": " ",
     "Datagame": {
-      "status": "eligiendo",
-      "data": [
-        [
-          "X",
-          " ",
-          " "
-        ],
-        [
-          " ",
-          " ",
-          " "
-        ],
-        [
-          "O",
-          " ",
-          " "
-        ]
-      ]
+      "status": "listoLH",
+      "data": ""
     }
   }
 }

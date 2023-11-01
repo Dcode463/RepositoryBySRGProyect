@@ -164,7 +164,7 @@ const iSearchResultContainer = document.createElement('I'); iSearchResultContain
 const pSearchResultContainer = document.createElement('P'); pSearchResultContainer.classList.add('pSearchResultContainer');
 pSearchResultContainer.innerHTML = jsonParse[`${inputs.value}`].name;
 const imgSearchResultContainer = document.createElement('IMG'); imgSearchResultContainer.classList.add('imgSearchResultContainer');
-imgSearchResultContainer.src = jsonParse[`${inputs.value}`].avatar
+imgSearchResultContainer.src = server + jsonParse[`${inputs.value}`].avatar
 const divSearchResultContainer = document.createElement('DIV'); divSearchResultContainer.classList.add('divSearchResultContainer')
 divSearchResultContainer.appendChild(pSearchResultContainer);
 divSearchResultContainer.appendChild(iSearchResultContainer);
@@ -216,7 +216,7 @@ let data = {
 "funcion":"newUser",
 "name" : `${user}`,
 "status" : "online",
-"avatar" : " ",
+"avatar" : `${img.getAttribute('value')}`,
 "friends" : [] 
 }
 data.friends = arrayUserLocal[0]
@@ -302,7 +302,7 @@ for(let i=0; i < convertArray.length; i++){
 let fragmento = new DocumentFragment();
 let div = document.createElement('DIV'); div.classList.add('divFriendsContainer'); div.setAttribute('value', jsonParse[convertArray[i]].name)
 let pName = document.createElement('P'); pName.classList.add('pNameFriendsContainer'); pName.textContent = jsonParse[convertArray[i]].name;
-let imgAvatar = document.createElement('IMG'); imgAvatar.classList.add('imgAvatartFriendsContainer'); imgAvatar.src = jsonParse[convertArray[i]].avatar;
+let imgAvatar = document.createElement('IMG'); imgAvatar.classList.add('imgAvatartFriendsContainer'); imgAvatar.src = `${server}${jsonParse[convertArray[i]].avatar}`;
 let iGamePad = document.createElement('I'); iGamePad.classList.add('fa-solid'); iGamePad.innerHTML = `<p><img style="width: 20px;height: 20px;padding: 0; color:white;" src="iconos/gamePad.png"></p>`; iGamePad.classList.add('iGamePad');
 if(jsonParse[convertArray[i]].status === "online")  imgAvatar.style.border = "solid 4px #27ff03";
 else imgAvatar.style.border = "solid 4px  grey";

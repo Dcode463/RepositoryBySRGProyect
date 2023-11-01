@@ -47,7 +47,7 @@ fetch(servidor,headers2)
    if (verificacionStudents){
      let div_create = document.createElement('DIV'); div_create.classList.add('containerJsSearchResultado');
  let p_create = document.createElement('P'); p_create.innerHTML = datajsonResponse[search].name; p_create.classList.add('nameUserForSearch')
- let img_create = document.createElement('IMG'); img_create.src = datajsonResponse[search].avatar; img_create.classList.add('imgForSearch');
+ let img_create = document.createElement('IMG'); img_create.src = `${servidor}${datajsonResponse[search].avatar}`; img_create.classList.add('imgForSearch');
  let button_create = document.createElement('IMG'); button_create.src = 'media/iconos/yaEsTuAmigo.png';button_create.classList.add('buttonsAddEstudentNoFriends');button_create.setAttribute('value',datajsonResponse[search].name) 
  div_create.appendChild(img_create);
  div_create.appendChild(p_create);
@@ -58,7 +58,7 @@ fetch(servidor,headers2)
    }else{
        let div_create = document.createElement('DIV'); div_create.classList.add('containerJsSearchResultado');
  let p_create = document.createElement('P'); p_create.innerHTML = datajsonResponse[search].name; p_create.classList.add('nameUserForSearch')
- let img_create = document.createElement('IMG'); img_create.src = datajsonResponse[search].avatar; img_create.classList.add('imgForSearch');
+ let img_create = document.createElement('IMG'); img_create.src = `${servidor}${datajsonResponse[search].avatar}`; img_create.classList.add('imgForSearch');
  let button_create = document.createElement('IMG'); button_create.src = 'media/iconos/addFriends.png';button_create.classList.add('buttonsAddEstudent');button_create.setAttribute('value',datajsonResponse[search].name) 
  div_create.appendChild(img_create);
  div_create.appendChild(p_create);

@@ -651,7 +651,7 @@ fetch(servidor,headers)
 	 for(let i=0; i < aRSLFTs.length; i++){
 	 	let div  = document.createElement('DIV'); div.classList.add('estudiantesContainerJS');
 	 	let p = document.createElement('P');  p.classList.add('statusEstudiantes'); if(jsonData[aRSLFTs[i]].status.what != undefined){p.textContent = `${jsonData[aRSLFTs[i]].name} | esta ${jsonData[aRSLFTs[i]].status.what}`;} else{p.textContent = jsonData[aRSLFTs[i]].name}
-	 	let img  = document.createElement('IMG'); img.classList.add('avatarEstudiantes'); if(jsonData[aRSLFTs[i]].status.what != undefined){img.setAttribute('value',jsonData[aRSLFTs[i]].status.host)} img.src = jsonData[aRSLFTs[i]].avatar;
+	 	let img  = document.createElement('IMG'); img.classList.add('avatarEstudiantes'); if(jsonData[aRSLFTs[i]].status.what != undefined){img.setAttribute('value',jsonData[aRSLFTs[i]].status.host)} img.src = servidor + jsonData[aRSLFTs[i]].avatar;
 	 	let button = document.createElement('I'); button.classList.add('menuBarsEstuendJs'); button.innerHTML = `<div style="display:none;" class="divButtonContainers">
       <button class = "viemGameExpectorButton">Mirar juego</button>
 	 	</div><img src="media/iconos/menuBars.png">`;
