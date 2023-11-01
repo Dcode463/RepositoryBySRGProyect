@@ -5,6 +5,7 @@ let urlLocal = location.hostname
 servidor = `http://${urlLocal}:8070`;
 console.log(`conectado ${servidor}`);
 /////////////////////////////////////////////////////////////////////////////////////////
+document.getElementById("Title").innerHTML = "HSRG | Iniciando sesion";
 let userNames;
 let inputMat;
 let guardarMateria;
@@ -47,6 +48,7 @@ inputUserName.addEventListener('keydown',event=>{
  if(event.key === "Enter") eventoLoginForUserName()
 })
 eventoLoginForUserName=()=>{
+document.getElementById("Title").innerHTML = "HSRG | Esperando contraseña";
 		userNames = inputUserName.value;
 	contetLogin.style.display = "none";
   salaEsperaLogin.style.display = "block";
@@ -67,7 +69,6 @@ eventoLoginForUserName=()=>{
  let obcjetoJsonNames = filter.filter(e => e != "NOREMOVE")
    if(obcjetoJsonNames.some(e => e === inputUserName.value)){
     status_salaEsperaLoginP.textContent = "Ya tiene un cuenta, conectando";
-
      setTimeout(()=>{
  infoLogin.textContent = "Ingrese su Contraseña"
  inputUserName.style.display = "none";
@@ -77,7 +78,7 @@ eventoLoginForUserName=()=>{
  contetLogin.style.display = "block";
  buttonInputPass.style.display = "block"
  buttonInputPass.addEventListener('click',()=>{eventoPass()});
- inputPass.addEventListener('keydown',event=>{if(event.key) eventoPass()})
+ inputPass.addEventListener('keydown',event=>{if(event.key === "Enter") eventoPass()})
  eventoPass=()=>{
  	 	if(inputPass.value.length > 0 && inputPass.value != " ") requestPass(inputUserName.value,inputPass.value)
  		else{
@@ -197,6 +198,7 @@ promiseVerificacionInput.then(e=>{
 })
 }
 function requestPass(userName,pass){
+document.getElementById("Title").innerHTML = "HSRG | Revisando contraseña";
 status_salaEsperaLoginP.textContent = "Verificando Contraseña";
 contetLogin.style.display = "none";
 salaEsperaLogin.style.display = "block";
@@ -217,6 +219,7 @@ fetch(servidor,headers)
     startInterface(dataJson.materia)
 	}
 	else{
+document.getElementById("Title").innerHTML = "HSRG | Esperando contraseña";
 status_salaEsperaLoginP.textContent = "ups, la contraseña es incorrecta";
 setTimeout(()=>{
 contetLogin.style.display = "block";
@@ -243,7 +246,7 @@ salaEsperaLogin.style.display = "none";
 // 	 })
 }
 function startInterface(materia){
-// textSpam()
+document.getElementById("Title").innerHTML = `HSRG | ${inputUserName.value} ${materia} ` ;
 hours()
 document.getElementById('saludoP').innerHTML = `Hola ${inputUserName.value}, que desea hacer hoy?`
 document.getElementById('userNameId').textContent = inputUserName.value;
