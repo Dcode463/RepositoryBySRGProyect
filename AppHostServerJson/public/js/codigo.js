@@ -104,23 +104,24 @@ siguiente_Name.addEventListener('click',()=>{
    	    })
 
    } 
-	  }).catch(error=>{
-	 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
-	 	 let containerForError = document.getElementById('EroorFetch');
-	 	 setTimeout(()=>{
-	 	 	containerForError.style.opacity = "0";
-	 	 containerLogin.style.scale = "500%"
-	 	 	containerForError.style.display = "block"
-	 	 	setTimeout(()=>{
-	 	 		containerForError.style.opacity = "1";
-	 	 		containerLogin.style.display = "none";
-            buttnReiniciar.addEventListener('click',()=>{
-            	location.reload()
-            })
-	 	 	},500)
-	 	 },1000)
+	  })
+	 //  .catch(error=>{
+	 // 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
+	 // 	 let containerForError = document.getElementById('EroorFetch');
+	 // 	 setTimeout(()=>{
+	 // 	 	containerForError.style.opacity = "0";
+	 // 	 containerLogin.style.scale = "500%"
+	 // 	 	containerForError.style.display = "block"
+	 // 	 	setTimeout(()=>{
+	 // 	 		containerForError.style.opacity = "1";
+	 // 	 		containerLogin.style.display = "none";
+     //        buttnReiniciar.addEventListener('click',()=>{
+     //        	location.reload()
+     //        })
+	 // 	 	},500)
+	 // 	 },1000)
 
-	 })
+	 // })
 })
 function nameSend(){
 buttonSendAlServer.addEventListener('click',()=>{
@@ -218,23 +219,24 @@ contetLogin.style.display = "block";
 salaEsperaLogin.style.display = "none";
 },1500)
 	}
-}).catch(error=>{
-	 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
-	 	 let containerForError = document.getElementById('EroorFetch');
-	 	 setTimeout(()=>{
-	 	 	containerForError.style.opacity = "0";
-	 	 containerLogin.style.scale = "500%"
-	 	 	containerForError.style.display = "block"
-	 	 	setTimeout(()=>{
-	 	 		containerForError.style.opacity = "1";
-	 	 		containerLogin.style.display = "none";
-            buttnReiniciar.addEventListener('click',()=>{
-            	location.reload()
-            })
-	 	 	},500)
-	 	 },1000)
+})
+// .catch(error=>{
+// 	 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
+// 	 	 let containerForError = document.getElementById('EroorFetch');
+// 	 	 setTimeout(()=>{
+// 	 	 	containerForError.style.opacity = "0";
+// 	 	 containerLogin.style.scale = "500%"
+// 	 	 	containerForError.style.display = "block"
+// 	 	 	setTimeout(()=>{
+// 	 	 		containerForError.style.opacity = "1";
+// 	 	 		containerLogin.style.display = "none";
+//             buttnReiniciar.addEventListener('click',()=>{
+//             	location.reload()
+//             })
+// 	 	 	},500)
+// 	 	 },1000)
 
-	 })
+// 	 })
 }
 function startInterface(materia){
 // textSpam()
@@ -270,6 +272,7 @@ const buttonSendServer = document.getElementById('buttonSendServer');
 const newPost = document.getElementById('newPost')
 //Eventos escuchas
 dashBoardInicio.addEventListener('click', ()=>{
+cerrarNav();
 elementosCaja.forEach(e=>{
 	if(e != home) e.style.display = "none"
 	 home.style.display = "block"
@@ -287,8 +290,11 @@ newPost.addEventListener('click',()=>{
 buttonHome.addEventListener('click',()=>{
 	 location.reload()
 });
-buttonQuestion.addEventListener('click',()=>{
-	elementosCaja.forEach(e=>{
+document.getElementById('IngresarPreguntasAtajo').addEventListener('click',()=>{iniciarEventoIngresarPreguntas()})
+buttonQuestion.addEventListener('click',()=>{iniciarEventoIngresarPreguntas()});
+iniciarEventoIngresarPreguntas=()=>{
+cerrarNav()
+		elementosCaja.forEach(e=>{
 		if(e != dashBoard) e.style.display = "none"
 	})
  if(dashBoard.style.display === "none"){
@@ -299,10 +305,13 @@ buttonQuestion.addEventListener('click',()=>{
  }else{
  	dashBoard.style.display = "none";
  }
-})
+}
+document.getElementById('showQuestionAtajo').addEventListener('click',()=>{iniciarEventoTodasLasPreguntas()})
 	contenedorPadreForContainerQuestion.innerHTML =" "
-	showPreguntas.addEventListener('click',()=>{
-		elementosCaja.forEach(e=>{
+	showPreguntas.addEventListener('click',()=>{iniciarEventoTodasLasPreguntas()});
+iniciarEventoTodasLasPreguntas=()=>{
+cerrarNav()
+			elementosCaja.forEach(e=>{
 		if(e != dashBoard) e.style.display = "none"
 	})
  if(dashBoard.style.display === "none"){
@@ -313,7 +322,7 @@ buttonQuestion.addEventListener('click',()=>{
  }else{
  	dashBoard.style.display = "none";
  }
-	})
+}
 function requestQuestionShow(){
 	let divAelimar = document.querySelectorAll('.questionForJS');
 divAelimar.forEach(e=>{ 
@@ -370,23 +379,24 @@ if(serverRequestJson.mensaje === "ok"){
 	}
 })
 })
-	 }).catch(error=>{
-	 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
-	 	 let containerForError = document.getElementById('EroorFetch');
-	 	 setTimeout(()=>{
-	 	 	containerForError.style.opacity = "0";
-	 	 subBody.style.scale = "500%"
-	 	 	containerForError.style.display = "block"
-	 	 	setTimeout(()=>{
-	 	 		containerForError.style.opacity = "1";
-	 	 		subBody.style.display = "none";
-            buttnReiniciar.addEventListener('click',()=>{
-            	location.reload()
-            })
-	 	 	},500)
-	 	 },1000)
-
 	 })
+	 // .catch(error=>{
+	 // 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
+	 // 	 let containerForError = document.getElementById('EroorFetch');
+	 // 	 setTimeout(()=>{
+	 // 	 	containerForError.style.opacity = "0";
+	 // 	 subBody.style.scale = "500%"
+	 // 	 	containerForError.style.display = "block"
+	 // 	 	setTimeout(()=>{
+	 // 	 		containerForError.style.opacity = "1";
+	 // 	 		subBody.style.display = "none";
+     //        buttnReiniciar.addEventListener('click',()=>{
+     //        	location.reload()
+     //        })
+	 // 	 	},500)
+	 // 	 },1000)
+
+	 // })
 }
 function requestQuestion(){
 let divAelimar = document.querySelectorAll('.questionForJS');
@@ -445,23 +455,24 @@ if(serverRequestJson.mensaje === "ok"){
 	}
 })
 })
-	 }).catch(error=>{
-	 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
-	 	 let containerForError = document.getElementById('EroorFetch');
-	 	 setTimeout(()=>{
-	 	 	containerForError.style.opacity = "0";
-	 	 subBody.style.scale = "500%"
-	 	 	containerForError.style.display = "block"
-	 	 	setTimeout(()=>{
-	 	 		containerForError.style.opacity = "1";
-	 	 		subBody.style.display = "none";
-            buttnReiniciar.addEventListener('click',()=>{
-            	location.reload()
-            })
-	 	 	},500)
-	 	 },1000)
-
 	 })
+	 // .catch(error=>{
+	 // 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
+	 // 	 let containerForError = document.getElementById('EroorFetch');
+	 // 	 setTimeout(()=>{
+	 // 	 	containerForError.style.opacity = "0";
+	 // 	 subBody.style.scale = "500%"
+	 // 	 	containerForError.style.display = "block"
+	 // 	 	setTimeout(()=>{
+	 // 	 		containerForError.style.opacity = "1";
+	 // 	 		subBody.style.display = "none";
+     //        buttnReiniciar.addEventListener('click',()=>{
+     //        	location.reload()
+     //        })
+	 // 	 	},500)
+	 // 	 },1000)
+
+	 // })
 
 }
 
@@ -560,23 +571,24 @@ respuestaTwoInput.value = "";
 respuestaTreeInput.value = "";
 respuestaCorrecta.value = "";
   	  }
-  }).catch(error=>{
-	 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
-	 	 let containerForError = document.getElementById('EroorFetch');
-	 	 setTimeout(()=>{
-	 	 	containerForError.style.opacity = "0";
-	 	 subBody.style.scale = "500%"
-	 	 	containerForError.style.display = "block"
-	 	 	setTimeout(()=>{
-	 	 		containerForError.style.opacity = "1";
-	 	 		subBody.style.display = "none";
-            buttnReiniciar.addEventListener('click',()=>{
-            	location.reload()
-            })
-	 	 	},500)
-	 	 },1000)
+  })
+  // .catch(error=>{
+// 	 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
+// 	 	 let containerForError = document.getElementById('EroorFetch');
+// 	 	 setTimeout(()=>{
+// 	 	 	containerForError.style.opacity = "0";
+// 	 	 subBody.style.scale = "500%"
+// 	 	 	containerForError.style.display = "block"
+// 	 	 	setTimeout(()=>{
+// 	 	 		containerForError.style.opacity = "1";
+// 	 	 		subBody.style.display = "none";
+  //           buttnReiniciar.addEventListener('click',()=>{
+  //           	location.reload()
+  //           })
+// 	 	 	},500)
+// 	 	 },1000)
 
-	 })
+// 	 })
 }
 }
 let txtPresentado = [];
@@ -594,13 +606,16 @@ m.innerHTML = ` : <b style="font-size:10px;">M</b> ${minuto}`;
 s.innerHTML = ` : <b style="font-size:10px;">S</b> ${segundos}`;
 setTimeout(resetear,10)
 }}
-misEstudianteButtonNav.addEventListener('click',()=>{
+document.getElementById('verEstudianteAtajo').addEventListener('click',()=>{iniciarEventoShowEstudiante()})
+misEstudianteButtonNav.addEventListener('click',()=>{iniciarEventoShowEstudiante()});
+iniciarEventoShowEstudiante=()=>{
+	cerrarNav()
 	contentEstudiantes.style.display = "block";
 	elementosCaja.forEach(w=>{
 		if(w != contentEstudiantes) w.style.display = "none";
 	})
-     startContentEstudientes(userNames)
-})
+     startContentEstudientes(userNames)	 
+}
 function startContentEstudientes(nameTeacher){ 
  let aRSLFTs = []
  let headers = {
@@ -695,27 +710,37 @@ setTimeout(hours,10)
 }
 let verificacionForNav = true;
 let buttonExtentNav = document.querySelector('.barraExpandirNav');
-buttonExtentNav.addEventListener('click',()=>{
 let displayComprobar = document.querySelectorAll('.p_nav_a');
+buttonExtentNav.addEventListener('click',()=>{
 if (verificacionForNav){
+abrirNav()
+}else{
+cerrarNav()
+}});
+
+let navNoFocus =  document.querySelector('.sobrePonerForNav');
+navNoFocus.addEventListener('click',()=>{
+	if(navNoFocus.style.display === "block"){
+        cerrarNav()
+	}
+})
+abrirNav=()=>{
 verificacionForNav = false;
+document.querySelector('.sobrePonerForNav').style.display = "block";
 displayComprobar.forEach(e=>{e.style = "font-size:15px;width:auto;opacity:0;"; setTimeout(()=>{e.style.display= "inline-block";e.style.opacity = "1"},50)});
 buttonExtentNav.style = `transform: rotate(90deg);right:-15%;border-radius:8px 8px 0px 0px`;
 document.querySelector('.nav_ecrtro').style = `padding-top:150px;width:300px;`;
 document.querySelector('.nav_a').style =`width:90%`;
 document.querySelector('.userImg').style =`border-radius: 20%;position: absolute;left: 40%;top: 1%;transform: translate(-50%,-5%);width:50%!important;`;
 document.querySelector('.userName').style =`color: white;`;
-document.getElementById('statusName').style =`transition: 0s;color:white!important;opacity:1;`;
-}else{
+document.getElementById('statusName').style =`transition: 0s;color:white!important;opacity:1;`;	
+}
+cerrarNav=()=>{
 verificacionForNav = true;
+document.querySelector('.sobrePonerForNav').style.display = "none";
 buttonExtentNav.style = `transform: rotate(-90deg);right:-66%;border-radius:0px 0px 8px 8px`;
 displayComprobar.forEach(e=>{e.style = "font-size:1px;opacity:0;";setTimeout(()=>{e.style.display = "none";},50)});
-document.querySelector('.nav_ecrtro').style = `
-box-sizing: border-box;
-position: relative;
-padding-top: 30px;
-display: inline-block;
-transition: padding 0.4s, all 0.2s;
+document.querySelector('.nav_ecrtro').style = `box-sizing: border-box;position: relative;padding-top: 30px;display: inline-block;transition: padding 0.4s, all 0.2s;
 display: block;
 background: #12151c ;
 height: 100vh;
@@ -725,32 +750,8 @@ top: 0;
 border-radius:1px;
 box-shadow: 0 0 25PX BLACK;
 cursor: pointer;`;
-document.querySelector('.nav_a').style =`
-cursor:pointer;
-width:90%;
-padding: 5px;
-margin: 10px;
-display:block;
-text-decoration: none;
-color: white;`;
-document.querySelector('.userImg').style =`
-transition:  0.4s!important;
-transition: width 0.6s!important;
-transition:  margin 10s!;
-width: 50px;
-margin: 10px;
-border-radius: 50%;`;
-document.querySelector('.userName').style =`
-width: 200px;
-transition: 0s;
-color: transparent;
-padding: 10px;
-opacity:0;
-`
-document.getElementById('statusName').style =`
-    transition:0;
-    opacity:0;
-    color: transparent;
-	font-size: 12px;`;
+document.querySelector('.nav_a').style =`cursor:pointer;width:90%;padding: 5px;margin: 10px;display:block;text-decoration: none;color: white;`;
+document.querySelector('.userImg').style =`transition:  0.4s!important;transition: width 0.6s!important;transition:  margin 10s!;width: 50px;margin: 10px;border-radius: 50%;`;
+document.querySelector('.userName').style =`width: 200px;transition: 0s;color: transparent;padding: 10px;opacity:0;`
+document.getElementById('statusName').style =`transition:0;opacity:0;color: transparent;font-size: 12px;`;
 }
-})

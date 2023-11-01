@@ -34,7 +34,7 @@
 		 <br>
 		 <button id="buttonForAlert">Ok, entendere si hay bugs</button>
 	</div>
-	<div id="EroorFetch" style="display:none;">
+<!-- 	<div id="EroorFetch" style="display:none;">
 		<h1 id="statusError">Ups, hay un error en el servidor</h1>
 		<p>Verifica si el servidor local esta encendido</p>
 		<p style="color:grey; padding: 30px;">Error 404</p>
@@ -42,7 +42,7 @@
 		 <div class="prompt">
 		 	<button id="reinicarApp_Error">Reiniciar app</button>
 		 </div>
-	</div>
+	</div> -->
 	<center>
 		<div id="createNewUserContainer" style="display:none;">
 	   <div class="chatBot"><img src="media/chatBot.gif"><p id="chatBotText">Ingresa los datos para poder enviarlos al servidor</p></div>
@@ -59,7 +59,7 @@
            	 <button id="sendServerNewUser">Listo, creame la cuenta</button>
            </div>
 		</div>
-<div class="contenLogin" style="display:none;">
+<div class="contenLogin" style="display:block;">
 		<div class="salaEsperaLogin" style="display:none;">
 		<div class="loaderLOGIN"></div>
 		<p id="status_salaEsperaLogin">Espere porfavor</p>
@@ -78,12 +78,12 @@
 </div>
 </div>
 </center>
-<div class="subBody" style="display:BLOCK;">
+<div class="subBody" style="display:none;">
 <div class="home caja" style="display :block;">
 		<h4 id="saludoP">Hola acedor, que desea hacer hoy?
 		</h4>
 					<br><br>
-<div class="promptAtajos"><a href="" >Ingresar preguntas</a><a href="">Ver todas las preguntas</a><a href="">Ver mi lista de estudiantes</a></div>
+<div class="promptAtajos"><a id="IngresarPreguntasAtajo" >Ingresar preguntas</a><a id="showQuestionAtajo">Ver todas las preguntas</a><a id="verEstudianteAtajo">Ver mi lista de estudiantes</a></div>
 	<div class="hours"><p id="h"></p><p id="m"></p><p id="s"></p><p id="mm"></p><br></div>
 </div>
 	<div class="loader" style="display:none;"></div>
@@ -107,17 +107,20 @@
 		<button id="buttonSendServer">Enviar</button>
 	</div>
 </div>
+	 <section class="sobrePonerForNav">
+	
+</section>
 	 <nav class="nav_ecrtro">
 	 	<img src="media/iconos/baseline.png" class="barraExpandirNav">
 	 	<img src="media/iconoSchoolServer.png" class="userImg">
 	 	<p class="userName"id="userNameId">Dennis acedor<p class="userName" id="statusName">Programador</p><b id="povCertifate"></b></p>
 	 	<!-- <hr> -->
-	    <a class="nav_a" id="inicioButton" ><i class="fa-solid fa-sitemap"><img style="width:20px;" src="media/iconos/salirLogin.png"></i><p class="p_nav_a">Salir</p></a>
-	 	<a class="nav_a" id="inicioButtonDaskBoard"><i><img style="width:20px;" src="media/iconos/home.png"></i><p class="p_nav_a">Inicio</p></a>
-	 	<a class="nav_a" id="questionButton"><i class="fa-solid fa-unlock-keyhole"><img style="width:20px;" src="media/iconos/icononSendQuestion.png"></i><p class="p_nav_a"> Ingresar Preguntas</p></a>
-	 	<a class="nav_a" id="questionButtonShow"><i class="fa-regular fa-keyboard"><img style="width:20px;" src="media/iconos/icononSendQuestion.png"></i><p class="p_nav_a">Todas Preguntas</p></a>
-	    <a class="nav_a" id="misEstudianteButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/estudianteicon.png"></i><p class="p_nav_a">Mis estudiantes</p></a>
-	       <a class="nav_a" id="misExamenesButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/estudianteicon.png"></i><p class="p_nav_a">Examenes</p></a>
+	    <a title="Salir" class="nav_a" id="inicioButton" ><i class="fa-solid fa-sitemap"><img style="width:20px;" src="media/iconos/salirLogin.png"></i><p class="p_nav_a">Salir</p></a>
+	 	<a title="Inicio" class="nav_a" id="inicioButtonDaskBoard"><i><img style="width:20px;" src="media/iconos/home.png"></i><p class="p_nav_a">Inicio</p></a>
+	 	<a title="Ingresar Preguntas al juego SRG" class="nav_a" id="questionButton"><i class="fa-solid fa-unlock-keyhole"><img style="width:20px;" src="media/iconos/icononSendQuestion.png"></i><p class="p_nav_a"> Ingresar Preguntas</p></a>
+	 	<a title="Ver todas las preguntas" class="nav_a" id="questionButtonShow"><i class="fa-regular fa-keyboard"><img style="width:20px;" src="media/iconos/icononSendQuestion.png"></i><p class="p_nav_a">Todas Preguntas</p></a>
+	    <a title="ver estudiantes" class="nav_a" id="misEstudianteButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/estudianteicon.png"></i><p class="p_nav_a">Mis estudiantes</p></a>
+	       <a title="Examenes" class="nav_a" id="misExamenesButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/estudianteicon.png"></i><p class="p_nav_a">Examenes</p></a>
 	 </nav>
  <div id="contentEstudiantes" class="caja" style="display:none;">
  	  <nav>
