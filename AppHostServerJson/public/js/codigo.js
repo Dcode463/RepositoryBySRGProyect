@@ -746,7 +746,7 @@ top: 0;
 border-radius:1px;
 box-shadow: 0 0 25PX BLACK;
 cursor: pointer;`;
-document.querySelector('.nav_a').style =`cursor:pointer;width:90%;padding: 5px;margin: 10px;display:block;text-decoration: none;color: white;`;
+document.querySelector('.nav_a').style =`cursor:pointer;width:90%;padding: 5px;margin: 5px;display:block;text-decoration: none;color: white;`;
 document.querySelector('.userImg').style =`transition:  0.4s!important;transition: width 0.6s!important;transition:  margin 10s!;width: 50px;margin: 10px;border-radius: 50%;`;
 document.querySelector('.userName').style =`width: 200px;transition: 0s;color: transparent;padding: 10px;opacity:0;`
 document.getElementById('statusName').style =`transition:0;opacity:0;color: transparent;font-size: 12px;`;
