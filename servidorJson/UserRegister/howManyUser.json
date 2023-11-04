@@ -4,7 +4,7 @@
   },
   "onfire": {
     "status": "online",
-    "avatar": "/perfiles/jugadorDos.gif",
+    "avatar": "/perfiles/jugador4.jpg",
     "name": "onfire",
     "friends": [
       [
@@ -34,5 +34,32 @@
       ]
     ],
     "trofeos": "undefined"
+  },
+  "Derek": {
+    "status": {
+      "what": "jugando",
+      "host": "Derek"
+    },
+    "avatar": "http://192.168.1.13:8070/perfiles/jugadorDos.gif",
+    "name": "Derek",
+    "friends": [
+      []
+    ],
+    "trofeos": "0"
+  },
+  "Denis": {
+    "status": {
+      "what": "jugando",
+      "host": "Derek"
+    },
+    "avatar": "http://192.168.1.13:8070/perfiles/jugador5.jpg",
+    "name": "Denis",
+    "friends": [
+      [
+        "Dereck",
+        "Derek"
+      ]
+    ],
+    "trofeos": "0"
   }
 }

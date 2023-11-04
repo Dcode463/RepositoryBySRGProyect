@@ -34,7 +34,7 @@
            	 <button id="sendServerNewUser">Listo, creame la cuenta</button>
            </div>
 		</div>
-<div class="contenLogin" style="display:block;">
+<div class="contenLogin" style="display:none;">
 		<div class="salaEsperaLogin" style="display:none;">
 		<div class="loaderLOGIN"></div>
 		<p id="status_salaEsperaLogin">Espere porfavor</p>
@@ -53,8 +53,8 @@
 </div>
 </div>
 </center>
-<div class="subBody" style="display:none;">
-<div class="home caja" style="display :block;">
+<div class="subBody" style="display:block;">
+<div class="home caja" style="display :none;">
 		<h4 id="saludoP">Hola acedor, que desea hacer hoy?
 		</h4>
 					<br><br>
@@ -124,10 +124,26 @@
  	  	</div> 
  	  </div>		
  </div>
+ <div class="caja_Examenes">
+ 	<div id="exa_cash_adjustments">
+ 		
+ 	</div>
+ 	 <div id="contenedorParaExamenes">
+ 	 <center>
+ 		 <nav id="nav_For_exam"><a href="#" id="buttonAñadirPreguntas">Ingresar preguntas</a><a id="buttonBorrarPreguntas" href="#">Borrar pregunta</a><a href="#">salir</a><p id="statusNav">Ingrese las preguntas</p></nav>
+ 	 	
+ 	 </center>
+ 	 <div id="pushBoxFather"></div>
+ 	 	  <h1 id="infoPreguntas" style="position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);">Haga click en añadir preguntas</h1>  
+
+           <button id="buttonSendExa" style="display:none;">Enviar</button>
+
+ </div>
 </div>
 <script type="text/javascript" src="js/codigo.js"></script>
 <script type="text/javascript" src="js/createNewUser.js"></script>
 <script type="text/javascript" src="js/search.js"></script>
 <script type="text/javascript" src="js/addEstudents.js"></script>
+<script type="text/javascript" src="js/exa.js"></script>
 </body> 
 </html>
