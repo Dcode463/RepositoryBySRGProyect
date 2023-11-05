@@ -125,16 +125,27 @@
  	  </div>		
  </div>
  <div class="caja_Examenes">
- 	<div id="exa_cash_adjustments">
- 		
+ 	<div id="exa_cash_adjustments" style="display:block;">
+ 		<p style="position:absolute; left: 50%;top: 5%;transform: translate(-50%,-5%);">Configuracion</p>
+ 		<div class="prompt">
+ 			<input type="text" placeholder="Nombre del examen" class="inputNombreExamen" autocomplete="off">
+ 		</div>
+ 		<div class="promptOpcional">
+ 			<div class="promptInputForTIME">
+ 				<input id="checkForConfig" type="checkbox"><label>Agregar un tiempo limite</label><input id="inputForTimeConfig" type="number" placeholder="">
+ 			</div>
+ 			<div class="promptVeri">
+ 				<input type="checkbox" name=""><label>No permitir que salga de la app</label>
+ 			</div>
+ 		</div>
  	</div>
- 	 <div id="contenedorParaExamenes">
+ 	 <div id="contenedorParaExamenes" style="display:none;">
  	 <center>
- 		 <nav id="nav_For_exam"><a href="#" id="buttonAñadirPreguntas">Ingresar preguntas</a><a id="buttonBorrarPreguntas" href="#">Borrar pregunta</a><a href="#">salir</a><p id="statusNav">Ingrese las preguntas</p></nav>
+ 		 <nav id="nav_For_exam"><a href="#" id="buttonAñadirPreguntas">Ingresar preguntas</a><a href="#">Cancelar</a><p id="statusNav">Ingrese las preguntas</p></nav>
  	 	
  	 </center>
  	 <div id="pushBoxFather"></div>
- 	 	  <h1 id="infoPreguntas" style="position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);">Haga click en añadir preguntas</h1>  
+ 	 	  <h1 id="infoPreguntas" style="position: absolute;left:50%;top:50%;transform:translate(-50%,-50%);">Haga click en ingresar preguntas</h1>  
 
            <button id="buttonSendExa" style="display:none;">Enviar</button>
 

@@ -228,7 +228,7 @@ transform: translate(-50%,-80%);
 	
 top: 90%;
 left: 50%;
-transform: translate(-50%,-%);
+transform: translate(-50%,-90%);
 	}
 }
 }
@@ -310,8 +310,8 @@ background-image: linear-gradient(to right top, #2611da, #2818d7, #2a1ed4, #2d23
   width: 100%;
 	min-width: 90%;
 	max-width:90%;
-	min-height: 100vh;
-	max-height: 100vh;
+	min-height: 894px;
+	max-height: 894px;
 }
 h6{
 	display: inline-block;
@@ -531,9 +531,7 @@ transform:  scale(130%);
   }
 }
 
-.statusConectionUsersDiv p #text::after:last-child {
-  animation: none;
-}
+
 .statusConectionUsersDiv{
 	display: flex;
 	justify-items: center;
@@ -817,7 +815,6 @@ overflow: hidden;
 	cursor:pointer;
 }
 .usersContainer{	
-	overflow-x: none;
 	overflow-y: auto;
 	width:auto;
   height: auto;
@@ -839,7 +836,6 @@ overflow: hidden;
 	justify-content: center;
 	align-items: center;
 	position: relative;
-  width: ;
 	margin: 20px;
     height: 50px;
     padding: 70px;
@@ -1470,9 +1466,10 @@ cursor: pointer;
 			width: 20%;
 		overflow: hidden;
 	}
+
 	100%{
 	width: 90%;
-		overflow: none;	}
+	}
 }
 .intermedioViajeAlchat{
 	position: absolute;
@@ -1873,7 +1870,6 @@ bottom: 10%;
 	left: 2%;
 	top: 0;
 	animation: scale 1s infinite;
-	z-index: ;
 }
 .promptsEnvioChats button{
 margin: 10px;
@@ -1882,7 +1878,7 @@ height:auto;
 background:  #212121 ;
 color: white;
 font-size: 20px;
-transition:color 0.2s ease, width 0.1s ease, height  1.4 ease, border-radius 2s ease;
+transition:0.2s;
 	box-shadow:  0 0 30px  #212121 ;
 }
 .promptsEnvioChats button:hover{
@@ -2656,7 +2652,6 @@ transform: translate(-50%,-40%);
 	height: 100vh;
 }
 .usersContainer{	
-	overflow-x: none;
 	overflow-y: auto;
 	width:95%;
   height:90%;
@@ -2690,7 +2685,6 @@ transform: translate(-50%,-40%);
 .containerJSusers img{
 	z-index: 500;
 	justify-content: center;
-	justify-item: center;
 	height: 100px;
 	width: 100px;
 	border-radius: 50%;
