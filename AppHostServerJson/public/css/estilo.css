@@ -8,40 +8,71 @@
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%,-50%);
-	width: 60%;
+	width: 70%;
 	height: 100vh;
+}
+hr{
+	opacity: 0;
+	border-radius: 200% 0 0 0 ;
+}
+#statusforconfigExa{
+	z-index: 100;
+	position: absolute;
+	right: 1%;
+	bottom: 1%;
 }
 #exa_cash_adjustments{
 	overflow: auto;
  scrollbar-width: thin;
 	position: absolute;
 	left: 50%;
-	top: 50%;
+	top: 50%; 
 	transform: translate(-50%,-50%);
 	background: white;
 	height: 70vh;
 	width: 100%;
 	border-radius: 15px;
+	box-shadow: 0 0 5px black
 }
-.prompt{
+.promptOne{
+	float: left;
 	width: 50%;
 	position: absolute;
 	left: 0;
 	top: 50%;
-	transform: translate(0,-50%);
+	transform: translate(-0%,-50%);
+	background: royalblue;
+	height: 100%;
+	border-radius: 0 0 245px 0;
+  transition: 0.4s;
 }
+/*.promptOne:hover{
+	border-radius: 0 0 0 0;
+}*/
 .promptOpcional{
+	color:black;
+	height: 100%;
+	background: whitesmoke;
 	width: 50%;
 	position: absolute;
 	right: 0;
 	top: 50%;
 	transform: translate(0,-50%);
+	border-radius: 0 0 245px 0;
 }
-.inputNombreExamen{
+.inputsForPromptOne{
+	display: block;
 	border-radius: 7px;
 	padding: 5px;
   border: none;
-  box-shadow: 0 0 3px black;
+  margin: 10px;
+}
+.labelForPromptOne{
+	display: block;
+	padding: 5px;
+  border: none;
+  margin: 10px;
+  color: white;
 }
 .promptInputForTIME{
 	width: 100%;
@@ -49,21 +80,37 @@ display: block;
 float: left;
 padding: 10px;
 }
-.promptVeri{
+#ramConfig{
+	position: absolute;
+	right: 5%;
+	bottom:7%;
+	z-index: 1000;
+	background: black;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	width: 20%;
+	padding: 10px;
+	cursor: pointer;
+}
+.cajaForPromptCheckBox{
 	width: 100%;
 display: block;
 float: left;
 padding: 10px;
 }
-#checkForConfig{
-	margin:5px;
+.checkbox{
+margin: 5px;
+cursor: pointer;
 }
-#inputForTimeConfig{
-	display: none;
+.inputTime{
+		display: none;
 		border-radius: 7px;
 	padding: 5px;
   border: none;
   box-shadow: 0 0 3px black;
+  width: 100px;
+  margin: 5px;
 }
 #contenedorParaExamenes{
 	overflow: auto;
@@ -266,6 +313,7 @@ display: inline-block;
 	border-radius:1px;
 	box-shadow: 0 0 20PX BLACK;
 	cursor: pointer;
+
 }
 .nav_ecrtro a{
 	cursor:pointer;
@@ -630,7 +678,6 @@ display: inline-block;
 }
 .infoInputsQuestions{
 	padding: 10px;
-	float: ;
 	width:40%;
      text-align: center;
      background:white;

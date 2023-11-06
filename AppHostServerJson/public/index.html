@@ -26,11 +26,11 @@
            			<br>
 		<br>
            	 <label>Nombre</label>
-           	 <input autocomplete="off" type="text" id="nombre_CreateNewUser" placeholder="Su nombre"  name="nombre">
+           	 <input autocomplete="off" autocomplete="off" type="text" id="nombre_CreateNewUser" placeholder="Su nombre"  name="nombre">
            	 <label>Materia</label>
-           	 <input autocomplete="off" type="text" id="materia_CreateNewUser" placeholder="Su materia" name="">
+           	 <input autocomplete="off" autocomplete="off" type="text" id="materia_CreateNewUser" placeholder="Su materia" name="">
            	 <label>Contraseña</label>
-           	 <input autocomplete="off" type="password" id="password_CreateNewUser" placeholder="y su contraseña" name="">
+           	 <input autocomplete="off" autocomplete="off" type="password" id="password_CreateNewUser" placeholder="y su contraseña" name="">
            	 <button id="sendServerNewUser">Listo, creame la cuenta</button>
            </div>
 		</div>
@@ -44,9 +44,9 @@
 	<p class="spam">D/code Server</p>
 	<img class="imglogin" width="100px" style="" src="media/iconoSchoolServer.png">
 <h2 id="infoLogin">Ingrese su nombre</h2>
-<input id="inputUserName" type="text" class="inputsLogin" placeholder="ingrese su nombre"  style="display:block;">
+<input autocomplete="off" id="inputUserName" type="text" class="inputsLogin" placeholder="ingrese su nombre"  style="display:block;">
 <button id="siguiente_Name" style="display:block;">Siguiente</button>
-<input class="inputsLogin"  id="pass" maxlength="8" minlength="1" type="password" autocomplete="off" placeholder="tu contraseña" style="display:none;">
+<input autocomplete="off" class="inputsLogin"  id="pass" maxlength="8" minlength="1" type="password" autocomplete="off" placeholder="tu contraseña" style="display:none;">
 <button id="buttonPasswordVerificar" style="display:none;">Siguiente</button>
 <p id="whatPassword" style="display:none;">Esparando la contraseña</p>
 <button id="enviarMat" style="display:none;">Listo llevame a mi escritorio</button>
@@ -73,12 +73,12 @@
 <img src="media/iconos/CLOSE.png" id="cancelBoxContainerQuestion">
 		<div class="contenedorInputs">
 			<p style="color:black;">Formulario</p>
-		<input required type="text" id="materiaInput" value="testting" placeholder="Materia" style="display:none;">
-		<input required type="text" id="PreguntaInput" placeholder="Pregunta">
-		<input required type="text" id="RespuestaOneInput" placeholder="Respuesta 1">
-		<input required type="text" id="RespuestaTwoInput" placeholder="Respuesta 2">
-		<input required type="text" id="RespuestaTreeInput" placeholder="Respuesta 3">
-		<input required type="text" id="respuestaCorrectaInput" placeholder="Respuesta Correcta">
+		<input autocomplete="off" required type="text" id="materiaInput" value="testting" placeholder="Materia" style="display:none;">
+		<input autocomplete="off" required type="text" id="PreguntaInput" placeholder="Pregunta">
+		<input autocomplete="off" required type="text" id="RespuestaOneInput" placeholder="Respuesta 1">
+		<input autocomplete="off" required type="text" id="RespuestaTwoInput" placeholder="Respuesta 2">
+		<input autocomplete="off" required type="text" id="RespuestaTreeInput" placeholder="Respuesta 3">
+		<input autocomplete="off" required type="text" id="respuestaCorrectaInput" placeholder="Respuesta Correcta">
 		<button id="buttonSendServer">Enviar</button>
 	</div>
 </div>
@@ -88,7 +88,7 @@
 	 <nav class="nav_ecrtro">
 	 	<img src="media/iconos/baseline.png" class="barraExpandirNav">
 	 	<img src="media/iconoSchoolServer.png" class="userImg">
-	 	<p class="userName"id="userNameId">Dennis acedor<p class="userName" id="statusName">Programador</p><b id="povCertifate"></b></p>
+	 	<p class="userName"id="userNameId"><span class="doct" style="display: inline-block;"><p class="doct0" style="color: white">.</p><p class="doct1" style="color: white">.</p><p class="doct2" style="color: white">.</p></span><p class="userName" id="statusName"><span class="doct" style="display: inline-block;"><p class="doct0" style="color: white">.</p><p class="doct1" style="color: white">.</p><p class="doct2" style="color: white">.</p></span></p><b id="povCertifate"></b></p>
 	 	<!-- <hr> -->
 	    <a title="Salir" class="nav_a" id="inicioButton" ><i class="fa-solid fa-sitemap"><img style="width:20px;" src="media/iconos/salirLogin.png"></i><p class="p_nav_a">Salir</p></a>
 	 	<a title="Inicio" class="nav_a" id="inicioButtonDaskBoard"><i><img style="width:20px;" src="media/iconos/home.png"></i><p class="p_nav_a">Inicio</p></a>
@@ -99,7 +99,7 @@
 	 </nav>
  <div id="contentEstudiantes" class="caja" style="display:none;">
  	  <nav>
- 	  	  <div id="navForSearchcontentEstudiantes"><input type="text" id="inputSearch" autocomplete="off" placeholder="Busca a sus estudiantes"><img id="startSearch" src="media/iconos/search.png"></div>
+ 	  	  <div id="navForSearchcontentEstudiantes"><input autocomplete="off" type="text" id="inputSearch" autocomplete="off" placeholder="Busca a sus estudiantes"><img id="startSearch" src="media/iconos/search.png"></div>
  	  	      <div id="resultadoForSearch" style="display:none;">
 <div class="containerJsSearchResultado">
 <!-- 	  <img class="imgForSearch" src="http://182.122.239.4:8070/perfiles/jugador6.jpg">
@@ -127,15 +127,32 @@
  <div class="caja_Examenes">
  	<div id="exa_cash_adjustments" style="display:block;">
  		<p style="position:absolute; left: 50%;top: 5%;transform: translate(-50%,-5%);">Configuracion</p>
- 		<div class="prompt">
- 			<input type="text" placeholder="Nombre del examen" class="inputNombreExamen" autocomplete="off">
+ 		<div class="promptOne">
+         <p style="position:absolute;left: 50%;top: 5%;transform: translate(-50%,-5%);color:black;background:white;width: auto;border-radius: 5px;padding: 5px;">No opcional</p>
+ 			<br>
+ 			<br>
+ 			<br>
+  			<hr style="color:white; border:solid 1px white;">
+ 			<label class="labelForPromptOne">Crea un nombre para su examen</label>
+  			<input autocomplete="off" id="nameForExa" class="inputsForPromptOne" type="text" placeholder="Nombre del examen" class="inputNombreExamen" autocomplete="off">
+  			<hr style="color:white; border:solid 1px white;">
+ 			<label class="labelForPromptOne">Ingrese el puntaje que tendra el examen</label>
+ 			<input autocomplete="off" type="number" min="0" class="inputsForPromptOne" id="puntosMateria" placeholder="Ingrese el puntaje">
  		</div>
+ <p id="statusforconfigExa"></p><button id="ramConfig">Listo</button>
  		<div class="promptOpcional">
- 			<div class="promptInputForTIME">
- 				<input id="checkForConfig" type="checkbox"><label>Agregar un tiempo limite</label><input id="inputForTimeConfig" type="number" placeholder="">
+ 			<p style="position:absolute;left: 50%;top: 5%;transform: translate(-50%,-5%);">Opcional</p>
+ 			<br>
+ 			<br>
+ 			<br>
+ 			<div class="cajaForPromptCheckBox promptInputForTIME">
+ 				<input autocomplete="off" id="limitTimeCheckBox" class="checkbox" type="checkbox"><label id="labelLimitTime">Agregar un tiempo limite</label><input type="number" min="0" max="24" id="inputForTimeConfigHours" placeholder="Horas" class="inputTime"><input min="0" max="59" autocomplete="off" class="inputTime" id="inputForTimeConfigMinutes" type="number" placeholder="Minutos"><p id="timeStatus" style="display:inline-block;font-size: 13px;color: grey;"></p>
  			</div>
- 			<div class="promptVeri">
- 				<input type="checkbox" name=""><label>No permitir que salga de la app</label>
+ 			<div class="cajaForPromptCheckBox promptVeri">
+ 				<input autocomplete="off" id="notExitCheckbox" type="checkbox" class="checkbox" name=""><label>No permitir que salga de la app</label>
+ 			</div>
+ 			<div class="cajaForPromptCheckBox">
+ 				<input autocomplete="off" type="checkbox" class="checkbox" name=""><label>Permitir que otros docentes vean este examen</label>
  			</div>
  		</div>
  	</div>
