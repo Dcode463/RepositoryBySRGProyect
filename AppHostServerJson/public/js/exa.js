@@ -3,10 +3,71 @@ const buttonAñidirPregunta = document.getElementById('buttonAñadirPreguntas');
 const contenedorPadre = document.getElementById('pushBoxFather');
 const buttonSend = document.getElementById('buttonSendExa');
 const infoPreguntas = document.getElementById('infoPreguntas');
+// Document HTML
+//limit time
+let checkboxLimitTime = document.getElementById('limitTimeCheckBox');
+let inputTheCheckBoxLimitTimeMinutes = document.getElementById('inputForTimeConfigMinutes');
+let inputTheCheckBoxLimitTimeHours = document.getElementById('inputForTimeConfigHours');
+let labelLimitTime = document.getElementById('labelLimitTime');
+// no OPtional
+let inputNameExa = document.getElementById('nameForExa');
+let puntosMateria = document.getElementById('puntosMateria');
+// global
+let buttonSendS = document.getElementById('ramConfig');
+// EXA documents
+const contenedorEXAconfig = document.getElementById('exa_cash_adjustments');
+const contenedorLoadderForExa = document.getElementById('loadderForExa');
+const contenedorEXAQuestion = document.getElementById('contenedorParaExamenes');
 let numPreguntas = 0;
+//No exit app
+const checkboxNoExit = document.getElementById('notExitCheckbox');
+// privateForTeacher
+const checkboxPrivateForTeacher = document.getElementById('checkboxForPrivateForTeachers');
+// dataSend
+let pushData = {
+	numero : 0,
+	preguntas : []
+}
+
+let objPushDataConfig = {
+	nameForExa : '',
+	pointsForExa : '',
+	privateForTeacher : false,
+	noExitApp : false,
+	limitTime : {
+	    confirm : false,
+	    data : {
+	 	   hours : '00',
+	 	   minute : '00'
+	 }
+	}
+}
+// function value for question  'fucionProcesarDatos'
+valueForQuestion=()=>{
+const promaValue = new Promise((resolve,reject)=>{
+ let inputsForQuestions = document.querySelectorAll('.inputsForExamenes');
+ inputsForQuestions.forEach(i=>{
+ 	if(i.value === '' || i.value === ' '){
+ 	i.style.border = 'solid 2px red';
+ 	i.placeholder = 'ingrese una pregunta';
+ 	i.addEventListener('focus',()=>{
+ 	i.style.border = 'none';
+ 	i.placeholder = 'Escriba aqui la pregunta que desea mandar';
+ 	reject({data : 'input vacio'})
+ 	})
+ 	}else{
+ 		resolve({data : true})
+ 	}
+ })
+}).then(i=>{
+	if(i.data) fucionProcesarDatos()
+}).catch(j=>{
+	console.log(j.data)
+})
+}
 // Eventos click
 buttonAñidirPregunta.addEventListener('click',funcionAñadirPreguntas)
-buttonSend.addEventListener('click',fucionProcesarDatos)
+buttonSend.addEventListener('click',valueForQuestion)
 
 function funcionAñadirPreguntas(){
 numPreguntas ++
@@ -33,39 +94,9 @@ div.appendChild(input);div.appendChild(icon);contenedorPadre.appendChild(div);
 	 }else {statusNav.innerHTML = `Preguntas ${numPreguntas}`;}
 	})
 })
-
-}
-function fucionProcesarDatos(){
-let inputsQuestion = [];
-let pushData = {
-	numero : 0,
-	preguntas : []
-}
-let preguntasForInputs = document.querySelectorAll('.inputsForExamenes');
-preguntasForInputs.forEach(i=>{ 
- inputsQuestion.push(i.parentElement.firstElementChild.value)
-});
-for(let i = 0; i < inputsQuestion.length; i++){
-	pushData.numero = inputsQuestion.length;
-	let rams = [ ... pushData.preguntas]
-    let copilador = rams.push(inputsQuestion[i])
-    pushData.preguntas = rams;
-}
-console.log(pushData)
 }
 configFunctions()
 function configFunctions(){
-// Document HTML
-//limit time
-let checkboxLimitTime = document.getElementById('limitTimeCheckBox');
-let inputTheCheckBoxLimitTimeMinutes = document.getElementById('inputForTimeConfigMinutes');
-let inputTheCheckBoxLimitTimeHours = document.getElementById('inputForTimeConfigHours');
-let labelLimitTime = document.getElementById('labelLimitTime');
-// no OPtional
-let inputNameExa = document.getElementById('nameForExa');
-let puntosMateria = document.getElementById('puntosMateria');
-// global
-let buttonSend = document.getElementById('ramConfig');
 //-->functions
 //limit time
 statusTimeLimitFunction=()=>{
@@ -106,9 +137,13 @@ if(inputNameExa.value.length === 0 || inputNameExa.value === " ")reject({input :
 else if(puntosMateria.value.length === 0 || puntosMateria.value === " ")reject({input: puntosMateria,method : true, data : 'Ingrese el puntaje de su examen (obligatorio)'});
 else resolve(true)
 }).then(e => pushDataConfig()).catch(e=>{
- e.input.style.border = 'solid 2px red';
+if(e.input != undefined){
+	 e.input.style.border = 'solid 2px red';
  statusforconfigExa.innerHTML = e.data
  setTimeout(()=>{e.input.style.border = 'none';statusforconfigExa.innerHTML = ''},3000)
+}else{
+	alert(e)
+}
 }) 
 }
 // Eventos
@@ -116,10 +151,53 @@ else resolve(true)
 inputTheCheckBoxLimitTimeHours.addEventListener('keyup',validacionForInputLimitTimeHours);
 inputTheCheckBoxLimitTimeMinutes.addEventListener('keyup',validacionForInputLimitTimeMinutes);
 checkboxLimitTime.addEventListener('change',funcionchaneForInputimit);
-buttonSend.addEventListener('click',veriDataInput)
-//No exit app
-let checkboxNoExit = document.getElementById('notExitCheckbox');
+buttonSendS.addEventListener('click',veriDataInput)
+
 }
 function pushDataConfig(){
-alert("todo bien papu")
+//Loader start
+contenedorEXAconfig.style.opacity = '0';
+setTimeout(()=>{contenedorEXAconfig.style.display = 'none'},1000)
+// push data 
+//name exa
+push()
+async function push(){
+objPushDataConfig.nameForExa = await inputNameExa.value;
+//points
+objPushDataConfig.pointsForExa = await `${puntosMateria.value}`;
+//No exit checked
+if(checkboxNoExit.checked) objPushDataConfig.noExitApp =  true;
+else if (checkboxNoExit.checked === false) objPushDataConfig.noExitApp = false;
+// privateForTeachers
+if(checkboxPrivateForTeacher.checked) objPushDataConfig.privateForTeacher = true;
+else if(checkboxPrivateForTeacher.checked === false) objPushDataConfig.privateForTeacher = false;
+//limitTime
+if(checkboxLimitTime.checked){
+objPushDataConfig.limitTime.confirm = true;
+objPushDataConfig.limitTime.data.minute = inputTheCheckBoxLimitTimeMinutes.value;
+objPushDataConfig.limitTime.data.hours = inputTheCheckBoxLimitTimeHours.value;
+}
+else if(checkboxLimitTime.checked === false) objPushDataConfig.limitTime.confirm = false;
+console.log(objPushDataConfig)
+changeSectionForExa();
+}
+}
+function changeSectionForExa(){
+contenedorEXAQuestion.style.display = 'block';
+contenedorEXAQuestion.style.display = '0';
+setTimeout(()=>{contenedorEXAconfig.style.opacity = '1'},1000)
+}
+function fucionProcesarDatos(){
+let inputsQuestion = [];
+let preguntasForInputs = document.querySelectorAll('.inputsForExamenes');
+preguntasForInputs.forEach(i=>{ 
+ inputsQuestion.push(i.parentElement.firstElementChild.value)
+});
+for(let i = 0; i < inputsQuestion.length; i++){
+	pushData.numero = inputsQuestion.length;
+	let rams = pushData.preguntas.filter(e=> e != "")
+    let copilador = rams.push(inputsQuestion[i])
+    pushData.preguntas = rams;
+}
+console.log(pushData)
 }

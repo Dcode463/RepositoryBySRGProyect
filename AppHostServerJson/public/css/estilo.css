@@ -15,6 +15,15 @@ hr{
 	opacity: 0;
 	border-radius: 200% 0 0 0 ;
 }
+#loadderForExa{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 #statusforconfigExa{
 	z-index: 100;
 	position: absolute;
@@ -22,6 +31,7 @@ hr{
 	bottom: 1%;
 }
 #exa_cash_adjustments{
+	transition: 0.6s;
 	overflow: auto;
  scrollbar-width: thin;
 	position: absolute;
@@ -113,6 +123,7 @@ cursor: pointer;
   margin: 5px;
 }
 #contenedorParaExamenes{
+	transition: 0.6s;
 	overflow: auto;
  scrollbar-width: thin;
 	position: absolute;
