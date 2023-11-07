@@ -15,6 +15,12 @@ hr{
 	opacity: 0;
 	border-radius: 200% 0 0 0 ;
 }
+#nav_a_containers{
+	overflow-y: auto;
+	height: 100%;
+	overflow-x: hidden;
+	scrollbar-width: thin;
+}
 #loadderForExa{
 	position: absolute;
 	left: 50%;
@@ -324,7 +330,6 @@ display: inline-block;
 	border-radius:1px;
 	box-shadow: 0 0 20PX BLACK;
 	cursor: pointer;
-
 }
 .nav_ecrtro a{
 	cursor:pointer;
@@ -744,7 +749,7 @@ display: inline-block;
 	padding: 15px;
 	margin:20px;
 	width:auto;
-	box-shadow: 0 0 10px black;
+	box-shadow: 0 0 5px black;
 	border-radius: 15px;
 }
 .buttonRemoves{
@@ -842,7 +847,11 @@ cursor: pointer;
 }
 #cancelBoxContainerQuestion{
 float: right;
-display: inline-block;
+  display: inline-block;
+  position: absolute;
+  right: -10%;
+  top: -10%;
+  cursor: pointer;
 }
 #cancelBoxContainerQuestion:hover{ 
   scale: 110%;

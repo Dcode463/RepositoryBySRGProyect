@@ -621,6 +621,55 @@ fs.readFile(filePath, 'utf8', (err, data)=>{
   else resolve(data)
 })
 }
+////////////////////////////////////////saveExa//////////////////////////////////////////////////
+if(datosRecibidos.funcion === 'saveExa'){
+        //registramos al usuario en dataJsonHowManyUser
+  console.log(`Peticion saveExa procesada para ${datosRecibidos.user}`)
+  const rutaJson = `repositoriForTeachers/${datosRecibidos.user}/infoAdd.json`;
+const nuevosDatos = {
+   dataconfig : datosRecibidos.config,
+   questionsData : datosRecibidos.dataQuestion
+};
+const datos = datosRecibidos.nameExa;
+fs.readFile(rutaJson, 'utf8', (error, datosExistente) => {
+  if (error) {
+      resolve({
+      "mensaje" : "Error",
+      "error" : " al analizar el archivo JSON"
+    })
+    console.log("Error al leer el archivo JSON");
+    return;
+  }
+  try {
+    const dataJson = JSON.parse(datosExistente);
+    // Usar notación de corchetes para agregar nuevosDatos al objeto existente
+    dataJson[datos] = nuevosDatos;
+
+    const datosActualizados = JSON.stringify(dataJson, null, 2);
+
+    fs.writeFile(rutaJson, datosActualizados, 'utf8', (error) => {
+      if (error) {
+          resolve({
+      "mensaje" : "Error",
+      "error" : " al analizar el archivo JSON"
+    })
+        console.log('Error al escribir el archivo JSON: ' + error);
+      } else {
+        console.log(`ingresando nuevos datos para la materia ${datosRecibidos.materia}`);
+        resolve({
+          "mensaje": true
+        })
+      }
+    });
+  } catch (parseError) {
+    resolve({
+      "mensaje" : "Error",
+      "error" : " al analizar el archivo JSON"
+    })
+    console.log("Error al analizar el archivo JSON: " + parseError);
+  }
+});
+}
   });
   promesaDatosRecibidos.then((envio) => {
     res.json(envio);

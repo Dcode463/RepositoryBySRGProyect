@@ -207,24 +207,34 @@ function centralize_data(){
 //document
 document.getElementById('salaDeEspera').style.display = 'flex';
 document.getElementById('centerForExa').style.display = 'none';
+let materia = document.getElementById('addicionalInfoUserMateria');
+let name = document.getElementById('addicionalInfoUserName');
 //data send server
 let dataPushServer = {
-	user : document.getElementById('inputUserName').value,
+	materia : materia.value,
+	name : name.value,
+	user : name.value,
 	funcion : 'saveExa',
+	nameExa : objPushDataConfig.nameForExa,
 	config : {... objPushDataConfig},
 	dataQuestion : {... pushData}
 }
 let configServer = {
 	method: 'post',
-	body : dataPushServer,
+	body : JSON.stringify(dataPushServer),
     headers : {'Content-Type' : 'application/json'}
 
 }
+fetchRequest()
 async function fetchRequest(){
-const fetch = await fetch(server,configServer);
-const response = await fetch.json();
+const fetchData = await fetch(server,configServer);
+const response = await fetchData.json();
 if(response.mensaje === true){
 statusSaveServer.innerHTML = 'Listo, Examen guardado';
+setTimeout(()=>{  
+
+})
 }
 } 
 }
+

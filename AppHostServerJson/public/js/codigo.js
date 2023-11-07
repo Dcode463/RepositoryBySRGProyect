@@ -36,13 +36,6 @@ let objectModi;
 let contenedorByEstudiantes = document.getElementById('contentEstudiantes')
 let containerEstudiantesPushElementJs = document.getElementById('containerEstudiantesPushElementJs');
 const misEstudianteButtonNav = document.getElementById('misEstudianteButtonNav');
-// const inputSearch = document.getElementById('inputSearch')
-/*
-containerLogin.style.display = "none";
-startInterface(inputmateriaHtml.value);
- textSpam()
-subBody.style.display = "block"
-*/
 siguiente_Name.addEventListener('click',()=>{eventoLoginForUserName()});
 inputUserName.addEventListener('keydown',event=>{
  if(event.key === "Enter") eventoLoginForUserName()
@@ -65,7 +58,6 @@ document.getElementById("Title").innerHTML = "HSRG | Esperando contraseña";
 	  .then(async(dataJson) => {
  let datosJsonAwait = await JSON.parse(dataJson);
  let filter = Object.keys(datosJsonAwait);
- // alert(filter)
  let obcjetoJsonNames = filter.filter(e => e != "NOREMOVE")
    if(obcjetoJsonNames.some(e => e === inputUserName.value)){
     status_salaEsperaLoginP.textContent = "Ya tiene un cuenta, conectando";
@@ -198,6 +190,7 @@ promiseVerificacionInput.then(e=>{
 })
 }
 function requestPass(userName,pass){
+document.getElementById('addicionalInfoUserName').setAttribute('value',userName)
 document.getElementById("Title").innerHTML = "HSRG | Revisando contraseña";
 status_salaEsperaLoginP.textContent = "Verificando Contraseña";
 contetLogin.style.display = "none";
@@ -255,6 +248,7 @@ containerLogin.style.display = "none";
 containerLogin.innerHTML = " "
 subBody.style.display = "block";
 guardarMateria = materia;
+document.getElementById('addicionalInfoUserMateria').setAttribute('value',materia)
 inputMat = materia;
 //contenedores del html
 const contenedorPreguntas = document.querySelector('.containerQuestion')
@@ -300,6 +294,7 @@ buttonHome.addEventListener('click',()=>{
 document.getElementById('IngresarPreguntasAtajo').addEventListener('click',()=>{iniciarEventoIngresarPreguntas()})
 buttonQuestion.addEventListener('click',()=>{iniciarEventoIngresarPreguntas()});
 iniciarEventoIngresarPreguntas=()=>{
+newPost.style.display = 'block';
 cerrarNav()
 		elementosCaja.forEach(e=>{
 		if(e != dashBoard) e.style.display = "none"
@@ -313,6 +308,7 @@ document.getElementById('showQuestionAtajo').addEventListener('click',()=>{inici
 	contenedorPadreForContainerQuestion.innerHTML =" "
 	showPreguntas.addEventListener('click',()=>{iniciarEventoTodasLasPreguntas()});
 iniciarEventoTodasLasPreguntas=()=>{
+	newPost.style.display = 'none';
 		elementosCaja.forEach(e=>{
 		if(e != dashBoard) e.style.display = "none"
 	})
@@ -342,12 +338,11 @@ contenedorPadreForContainerQuestion.removeChild(e)
 	 let json = await JSON.parse(jsons) 
 	 materiaName.textContent = "Todas las preguntas"
   objectModi = await json;
-  console.log(objectModi)
   let convertArrayPreguntasObjectFilter = Object.values(json)
   let convertArrayPreguntasObject;
  convertArrayPreguntasObject = convertArrayPreguntasObjectFilter.filter(e => e.status != "testing" );
   	for(let i=0; i < convertArrayPreguntasObject.length; i++){
-	let div = document.createElement('DIV'); div.classList.add('questionForJS'); div.innerHTML = `<p class="containerParrafoForQuestion"><b>${convertArrayPreguntasObject[i].status}</b> <br> ${convertArrayPreguntasObject[i].pregunta}</p> <img src="media/iconos/remove.png" class="buttonRemoves">`;
+	let div = document.createElement('DIV'); div.classList.add('questionForJS'); div.innerHTML = `<p class="containerParrafoForQuestion"><b style="color:#0034ff96;">${convertArrayPreguntasObject[i].status}</b> <br> <br> ${convertArrayPreguntasObject[i].pregunta}</p> <img src="media/iconos/remove.png" class="buttonRemoves">`;
 	contenedorPadreForContainerQuestion.appendChild(div);
 }
 let buttonsRemoves = document.querySelectorAll('.buttonRemoves');
@@ -417,13 +412,12 @@ contenedorPadreForContainerQuestion.removeChild(e)
 	 let json = await JSON.parse(jsons) 
 	 materiaName.textContent = await inputMat
   objectModi = await json;
-  console.log(objectModi)
   let convertArrayPreguntasObjectFilter = Object.values(json)
   let convertArrayPreguntasObject;
  convertArrayPreguntasObject = convertArrayPreguntasObjectFilter.filter(e => e.status === inputMat);
   if(contenedorPadreForContainerQuestion.contains.length <= convertArrayPreguntasObject.length){
   	for(let i=0; i < convertArrayPreguntasObject.length; i++){
-	let div = document.createElement('DIV'); div.classList.add('questionForJS'); div.innerHTML = `<p class="containerParrafoForQuestion"><b>${convertArrayPreguntasObject[i].status}</b> : ${convertArrayPreguntasObject[i].pregunta}</p> <img src="media/iconos/remove.png" class="buttonRemoves">`;
+	let div = document.createElement('DIV'); div.classList.add('questionForJS'); div.innerHTML = `<p class="containerParrafoForQuestion"><b style="color:#0034ff96;">${convertArrayPreguntasObject[i].status}</b> <br><br> ${convertArrayPreguntasObject[i].pregunta}</p> <img src="media/iconos/remove.png" class="buttonRemoves">`;
 	contenedorPadreForContainerQuestion.appendChild(div);
 }}
 let buttonsRemoves = document.querySelectorAll('.buttonRemoves');
@@ -605,8 +599,6 @@ m.innerHTML = ` : <b style="font-size:10px;">M</b> ${minuto}`;
 s.innerHTML = ` : <b style="font-size:10px;">S</b> ${segundos}`;
 setTimeout(resetear,10)
 }}
-document.getElementById('verEstudianteAtajo').addEventListener('click',()=>{iniciarEventoShowEstudiante()})
-misEstudianteButtonNav.addEventListener('click',()=>{iniciarEventoShowEstudiante()});
 iniciarEventoShowEstudiante=()=>{
 	cerrarNav()
 	contentEstudiantes.style.display = "block";
@@ -615,6 +607,16 @@ iniciarEventoShowEstudiante=()=>{
 	})
      startContentEstudientes(userNames)	 
 }
+iniciarContentCreateNewExa=()=>{
+let containerCreateNewExa = document.getElementById('boxForCreateNewExa');
+cerrarNav(); containerCreateNewExa.style.display = 'block'
+elementosCaja.forEach(j=>{
+	if(j != containerCreateNewExa) j.style.display = 'none';
+});
+}
+document.getElementById('verEstudianteAtajo').addEventListener('click',iniciarEventoShowEstudiante)
+misEstudianteButtonNav.addEventListener('click',iniciarEventoShowEstudiante);
+document.getElementById('misExamenesButtonNav').addEventListener('click', iniciarContentCreateNewExa)
 function startContentEstudientes(nameTeacher){ 
  let aRSLFTs = []
  let headers = {
@@ -685,10 +687,6 @@ buttonViemExpector.forEach(e=>{
          let elementoPadre3 = elementoPadre2.parentElement;
          let primerHijoByElementoPadre = elementoPadre3.firstElementChild;
          let hosGameConection = primerHijoByElementoPadre.getAttribute('value');
-         console.log(elementoPadre)
-         console.log(elementoPadre2)
-         console.log(elementoPadre3)
-         console.log(primerHijoByElementoPadre)
          if(hosGameConection === null || hosGameConection === undefined) alert("Tu estudiante no esta jugando")
          else alert(hosGameConection)
 	 })
@@ -728,7 +726,8 @@ verificacionForNav = false;
 document.querySelector('.sobrePonerForNav').style.display = "block";
 displayComprobar.forEach(e=>{e.style = "font-size:15px;width:auto;opacity:0;"; setTimeout(()=>{e.style.display= "inline-block";e.style.opacity = "1"},50)});
 buttonExtentNav.style = `transform: rotate(90deg);right:-15%;border-radius:8px 8px 0px 0px`;
-document.querySelector('.nav_ecrtro').style = `padding-top:150px;width:300px;`;
+document.getElementById('nav_a_containers').style.height = '90%'
+document.querySelector('.nav_ecrtro').style = `padding-right:5px; padding-top:150px;width:300px;`;
 document.querySelector('.nav_a').style =`width:90%`;
 document.querySelector('.userImg').style =`border-radius: 20%;position: absolute;left: 40%;top: 1%;transform: translate(-50%,-5%);width:50%!important;`;
 document.querySelector('.userName').style =`color: white;`;
@@ -737,9 +736,11 @@ document.getElementById('statusName').style =`transition: 0s;color:white!importa
 cerrarNav=()=>{
 verificacionForNav = true;
 document.querySelector('.sobrePonerForNav').style.display = "none";
+document.getElementById('nav_a_containers').style.height = '100%';
 buttonExtentNav.style = `transform: rotate(-90deg);right:-66%;border-radius:0px 0px 8px 8px`;
 displayComprobar.forEach(e=>{e.style = "font-size:1px;opacity:0;";setTimeout(()=>{e.style.display = "none";},50)});
-document.querySelector('.nav_ecrtro').style = `box-sizing: border-box;position: relative;padding-top: 30px;display: inline-block;transition: padding 0.4s, all 0.2s;
+/*  padding-right: 5px;*/
+document.querySelector('.nav_ecrtro').style = `padding-right:0; box-sizing: border-box;position: relative;padding-top: 30px;display: inline-block;transition: padding 0.4s, all 0.2s;
 display: block;
 background: #12151c ;
 height: 100vh;

@@ -34,7 +34,9 @@
            	 <button id="sendServerNewUser">Listo, creame la cuenta</button>
            </div>
 		</div>
-<div class="contenLogin" style="display:none;">
+		<input type="hidden" id="addicionalInfoUserName">
+		<input type="hidden" id="addicionalInfoUserMateria">
+<div class="contenLogin" style="display:block;">
 		<div class="salaEsperaLogin" style="display:none;">
 		<div class="loaderLOGIN"></div>
 		<p id="status_salaEsperaLogin">Espere porfavor</p>
@@ -53,12 +55,12 @@
 </div>
 </div>
 </center>
-<div class="subBody" style="display:block;">
-<div class="home caja" style="display :none;">
+<div class="subBody" style="display:none;">
+<div class="home caja" style="display :block;">
 		<h4 id="saludoP">Hola acedor, que desea hacer hoy?
 		</h4>
 					<br><br>
-<div class="promptAtajos"><a id="IngresarPreguntasAtajo" >Ingresar preguntas</a><a id="showQuestionAtajo">Ver todas las preguntas</a><a id="verEstudianteAtajo">Ver mi lista de estudiantes</a></div>
+<div class="promptAtajos"><a id="IngresarPreguntasAtajo">Ingresar preguntas</a><a id="showQuestionAtajo">Ver todas las preguntas</a><a id="verEstudianteAtajo">Ver mi lista de estudiantes</a></div>
 	<div class="hours"><p id="h"></p><p id="m"></p><p id="s"></p><p id="mm"></p><br></div>
 </div>
 	<div class="loader" style="display:none;"></div>
@@ -88,14 +90,17 @@
 	 <nav class="nav_ecrtro">
 	 	<img src="media/iconos/baseline.png" class="barraExpandirNav">
 	 	<img src="media/iconoSchoolServer.png" class="userImg">
-	 	<p class="userName"id="userNameId"><span class="doct" style="display: inline-block;"><p class="doct0" style="color: white">.</p><p class="doct1" style="color: white">.</p><p class="doct2" style="color: white">.</p></span><p class="userName" id="statusName"><span class="doct" style="display: inline-block;"><p class="doct0" style="color: white">.</p><p class="doct1" style="color: white">.</p><p class="doct2" style="color: white">.</p></span></p><b id="povCertifate"></b></p>
+	 	<p class="userName"id="userNameId"><p class="userName" id="statusName"></p><b id="povCertifate"></b></p>
 	 	<!-- <hr> -->
+	 	<div id="nav_a_containers">
 	    <a title="Salir" class="nav_a" id="inicioButton" ><i class="fa-solid fa-sitemap"><img style="width:20px;" src="media/iconos/salirLogin.png"></i><p class="p_nav_a">Salir</p></a>
 	 	<a title="Inicio" class="nav_a" id="inicioButtonDaskBoard"><i><img style="width:20px;" src="media/iconos/home.png"></i><p class="p_nav_a">Inicio</p></a>
 	 	<a title="Ingresar Preguntas al juego SRG" class="nav_a" id="questionButton"><i class="fa-solid fa-unlock-keyhole"><img style="width:20px;" src="media/iconos/icononSendQuestion.png"></i><p class="p_nav_a"> Ingresar Preguntas</p></a>
-	 	<a title="Ver todas las preguntas" class="nav_a" id="questionButtonShow"><i class="fa-regular fa-keyboard"><img style="width:20px;" src="media/iconos/icononSendQuestion.png"></i><p class="p_nav_a">Todas Preguntas</p></a>
+	 	<a title="Ver todas las preguntas" class="nav_a" id="questionButtonShow"><i class="fa-regular fa-keyboard"><img style="width:20px;" src="media/iconos/showQuestions.png"></i><p class="p_nav_a">Todas Preguntas</p></a>
 	    <a title="ver estudiantes" class="nav_a" id="misEstudianteButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/estudianteicon.png"></i><p class="p_nav_a">Mis estudiantes</p></a>
-	       <a title="Examenes" class="nav_a" id="misExamenesButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/estudianteicon.png"></i><p class="p_nav_a">Examenes</p></a>
+	     <a title="Ver mis examenes" class="nav_a" id="examenesButton"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/exaIcon.png"></i><p class="p_nav_a">Examanes</p></a>
+	       <a title="Crear un nuevo examen" class="nav_a" id="misExamenesButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/createNewExaIcon.png"></i><p class="p_nav_a">Crear Examanes</p></a>
+	   </div>
 	 </nav>
  <div id="contentEstudiantes" class="caja" style="display:none;">
  	  <nav>
@@ -124,7 +129,7 @@
  	  	</div> 
  	  </div>		
  </div>
- <div class="caja_Examenes">
+ <div class="caja_Examenes caja" id="boxForCreateNewExa" style="display:none">
  	 <div id="loadderForExa" style="display:none;">
  	 <div class="loaderLOGIN"></div>
  </div>
