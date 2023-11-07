@@ -726,7 +726,8 @@ verificacionForNav = false;
 document.querySelector('.sobrePonerForNav').style.display = "block";
 displayComprobar.forEach(e=>{e.style = "font-size:15px;width:auto;opacity:0;"; setTimeout(()=>{e.style.display= "inline-block";e.style.opacity = "1"},50)});
 buttonExtentNav.style = `transform: rotate(90deg);right:-15%;border-radius:8px 8px 0px 0px`;
-document.getElementById('nav_a_containers').style.height = '90%'
+document.getElementById('nav_a_containers').style.height = '90%';
+document.getElementById('nav_a_containers').style.paddingBottom = '30px';
 document.querySelector('.nav_ecrtro').style = `padding-right:5px; padding-top:150px;width:300px;`;
 document.querySelector('.nav_a').style =`width:90%`;
 document.querySelector('.userImg').style =`border-radius: 20%;position: absolute;left: 40%;top: 1%;transform: translate(-50%,-5%);width:50%!important;`;

@@ -12,6 +12,15 @@
 	padding: 20px;
 	width: auto;
 }
+#containerQR img{
+border-style: none;
+  max-width: 100%;
+  width: auto;
+  background: white;
+  padding: 10px;
+  border-radius: 20px;
+
+}
 .pInfoSever{
 font-size: 12px;
 }
@@ -170,9 +179,9 @@ border-radius: 15px;
 	width: 30%;
 	/*max-height:100px;*/
 	object-fit: cover;
-	border-radius: 50%;
+	border-radius: 40%;
 	margin: 5px;
-	border:solid 3px white;
+/*	border:solid 3px white;*/
 
 }
 .acedorGif{

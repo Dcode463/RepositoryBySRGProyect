@@ -293,9 +293,9 @@ border: solid 4px transparent;
 width:1%;
 }
 .promptAtajos a:hover{
-	background: white;
-	color:black;
-	cursor: pointer;
+color: white;
+  cursor: pointer;
+  border: solid 3px white;
 }
 @keyframes animacionFlip{
 	0%{  
@@ -767,7 +767,7 @@ display: inline-block;
 }
 .home img{
   border-radius: 15px;
-  box-shadow: 0 0 15px black;
+/*  box-shadow: 0 0 0 black;*/
 }
 #textSpamForTeacher{
 	position: absolute;
