@@ -1,3 +1,6 @@
+let server;
+let urlLocalS = location.hostname;
+server = `http://${urlLocalS}:8070`;
 const buttonBorrarPreguntas = document.getElementById('buttonBorrarPreguntas');
 const buttonAñidirPregunta = document.getElementById('buttonAñadirPreguntas');
 const contenedorPadre = document.getElementById('pushBoxFather');
@@ -62,7 +65,7 @@ const promaValue = new Promise((resolve,reject)=>{
 }).then(i=>{
 	if(i.data) fucionProcesarDatos()
 }).catch(j=>{
-	console.log(j.data)
+	console.log(j)
 })
 }
 // Eventos click
@@ -178,7 +181,6 @@ objPushDataConfig.limitTime.data.minute = inputTheCheckBoxLimitTimeMinutes.value
 objPushDataConfig.limitTime.data.hours = inputTheCheckBoxLimitTimeHours.value;
 }
 else if(checkboxLimitTime.checked === false) objPushDataConfig.limitTime.confirm = false;
-console.log(objPushDataConfig)
 changeSectionForExa();
 }
 }
@@ -199,5 +201,30 @@ for(let i = 0; i < inputsQuestion.length; i++){
     let copilador = rams.push(inputsQuestion[i])
     pushData.preguntas = rams;
 }
-console.log(pushData)
+centralize_data()
+}
+function centralize_data(){
+//document
+document.getElementById('salaDeEspera').style.display = 'flex';
+document.getElementById('centerForExa').style.display = 'none';
+//data send server
+let dataPushServer = {
+	user : document.getElementById('inputUserName').value,
+	funcion : 'saveExa',
+	config : {... objPushDataConfig},
+	dataQuestion : {... pushData}
+}
+let configServer = {
+	method: 'post',
+	body : dataPushServer,
+    headers : {'Content-Type' : 'application/json'}
+
+}
+async function fetchRequest(){
+const fetch = await fetch(server,configServer);
+const response = await fetch.json();
+if(response.mensaje === true){
+statusSaveServer.innerHTML = 'Listo, Examen guardado';
+}
+} 
 }

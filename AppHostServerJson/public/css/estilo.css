@@ -884,6 +884,40 @@ display: inline-block;
 @keyframes l15{ 
   100%{transform: rotate(1turn)}
 }
+.salaDeEspera{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.loaderLOGINs2 {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid #0000;
+  border-radius: 50%;
+  border-right-color:black;
+  animation: l154 1s infinite linear;
+}
+.loaderLOGINs2::before,
+.loaderLOGINs2::after {    
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: l154 2s infinite;
+}
+.loaderLOGINs2::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+@keyframes l154{ 
+  100%{transform: rotate(1turn)}
+}
 .salaEsperaLogin{width: 100%; position: absolute;left: 50%;top:50%;transform: translate(-50%,-50%);}
 #status_salaEsperaLogin{
 	color:whitesmoke;
