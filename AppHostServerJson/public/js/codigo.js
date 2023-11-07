@@ -83,7 +83,7 @@ document.getElementById("Title").innerHTML = "HSRG | Esperando contraseña";
  }
      },500)
  }
-   else{
+   else if(inputUserName.value != "" && inputUserName.value != " "){
    	   status_salaEsperaLoginP.innerHTML = `No tengo una cuenta que se llame ${inputUserName.value} <br> <br> 
    	                                       ¿Desea crear una cuenta?`;
    	    buttonAceptarNewLogin.style.display = "inline-block";
@@ -100,7 +100,12 @@ document.getElementById("Title").innerHTML = "HSRG | Esperando contraseña";
           location.reload();
    	    })
 
-   } 
+   }else if(inputUserName.value === "" || inputUserName.value === " "){
+   	status_salaEsperaLogin.innerHTML = 'Ingrese un nombre, reiniciando';
+   	setTimeout(()=>{
+  location.reload()
+   	},2000)
+   }
 	  })
 	 //  .catch(error=>{
 	 // 	let buttnReiniciar = document.getElementById('reinicarApp_Error')
