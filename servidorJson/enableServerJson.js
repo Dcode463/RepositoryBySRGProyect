@@ -139,6 +139,22 @@ const data = {
   };
 let dataJson = JSON.stringify(data, null, 2);
 fs.writeFileSync(rutaDeRepositorio, dataJson);
+console.log(`questionJson creado en ${nombreRepositoriCarpeta}`);
+creatorRepositoriJsonForPassword()
+}catch(e){ 
+console.error(`Error al crear  el archivo json de ${nombreRepositoriCarpeta}
+  problema : ${e}
+  `)
+}
+}
+creatorRepositoriJsonForPassword=()=>{
+  let rutaDeRepositorio = `repositori/${nombreRepositoriCarpeta}/password.json`;
+try{ 
+const data = {
+pass : datosRecibidos.password
+  };
+let dataJson = JSON.stringify(data, null, 2);
+fs.writeFileSync(rutaDeRepositorio, dataJson);
 console.log(`questionJson creado en ${nombreRepositoriCarpeta}`)
 }catch(e){ 
 console.error(`Error al crear  el archivo json de ${nombreRepositoriCarpeta}
@@ -147,7 +163,6 @@ console.error(`Error al crear  el archivo json de ${nombreRepositoriCarpeta}
 }
 }
 }
-      
 ///////////////////////////////////obtener los datos de usuario/////////////////////////////////////////////////////////////
 else if (datosRecibidos.funcion === "howManyUsers") {
 const filePath = path.join(__dirname, 'UserRegister', `howManyUser.json`);
@@ -669,6 +684,31 @@ fs.readFile(rutaJson, 'utf8', (error, datosExistente) => {
     console.log("Error al analizar el archivo JSON: " + parseError);
   }
 });
+}
+/////////////////////////////////////pushPassword_init//////////////////////////////////////////////////////////////////////
+else if (datosRecibidos.funcion === 'pushPassword_init'){
+  const filePath = path.join(__dirname, 'repositori', `${datosRecibidos.name}`, 'password.json');
+fs.readFile(filePath, 'utf8', (err, data)=>{
+  if(err){
+    console.log(err)
+    resolve({
+      "mensaje" : "error",
+      "typeError" : `${err}`
+    })
+  }
+  else{
+    let datas = JSON.parse(data)
+   if(datas.pass === datosRecibidos.password){
+    resolve({
+      "resultado" : true
+    })
+   }else{
+    resolve({
+      "resultado" : false
+    })
+   } 
+  }
+})
 }
   });
   promesaDatosRecibidos.then((envio) => {

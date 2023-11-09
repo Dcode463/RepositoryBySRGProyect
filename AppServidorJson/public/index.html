@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="scriptCSS/modeAcademic.css">
 <link rel="stylesheet" type="text/css" href="scriptCSS/estilo.css">
 <link rel="stylesheet" type="text/css" href="scriptCSS/normaliz.css">
 <link rel="icon"  href="iconos/icono.png">
@@ -22,7 +23,7 @@
 </head>
 <body>
 <div class="loadderViajeAlServer" style=" 
-display:none;"> <!--loader startUp--------------------------------------------------------->
+display:block;"> <!--loader startUp--------------------------------------------------------->
 <div style="position:absolute;left:50%;top: 50%;transform: translate(-50%,-50%);">
 <div class="loaderLOGIN"></div>
 </div>
@@ -42,7 +43,7 @@ display:none;"> <!--loader startUp----------------------------------------------
 </div>
 </div>
 <div class="modeAcademic">
-<p class="modeInfo">Modo Repositori</p>
+<p class="modeInfo">Modo Repository</p>
 <img src="Games/loaderImages/teachers-day-2016-poland-4871859734577152-hp.gif">
 <div class="sobrePonerP2">
 <p>Este modo es exclusivamente academico</p>
@@ -222,7 +223,100 @@ background: black; border-radius: 15px; padding:5px; color: white;"> </b> <p id=
 <script type="text/javascript" src="scriptsJS/scriptJugadorConectHost.js"></script>
 <script type="text/javascript" src="scriptsJS/verificacionWin.js"></script>
 <script type="text/javascript" src="scriptsJS/sendAndRecive.js"></script>
-<script type="text/javascript" src="scriptsJS/questionScript.js"></script>
+<script type="text/javascript" src="scriptsJS/questionScript.js"></script>	
+</section>
+<script type="text/javascript" src="scriptsJS/changeModeConection.js"></script>
+<section id="modeAcademicSection" style="display:none;">
+<section id="singupContainer" style="display:none;"> <!--singup-->
+		<div class="login" style="display:block;">
+
+	<button id="cancelarLogin"><img src="iconos/X.png"></button>
+	 <!--------------------------------------------------------->
+	 <div id="formUserName" class="formularioBydiv"  action="#" style="display:block;"> 
+	 	<h1>Crea una cuenta</h1>
+	 	<p id="pWarnig" style="margin-bottom: 100px; position: absolute; top:-50px; left:-35px;color: grey; font-family: 'Roboto Condensed', sans-serif;">Cree su cuenta asi podra revisar sus examanes y jugar tambien.</p>
+	 	<p style="margin-top:60px; font-size:15px; color: white;" >Escriba su nombre</p>
+	 	 <input max="8" min="1" autocomplete="off" type="text" placeholder="aqui" id="UserNameLogin" name="">
+	 	 <button class="buttonsSiguiente" id="siguiente_NameForPassword">Siguiente</button>
+
+	 </div>
+	 <!--------------------------------------------------------->
+	 <div style="display:none;" class="formularioBydiv" action="#" id="formUserPassword"> 
+	 	<h1>Crear contraseña</h1>
+	 	<p id="ppWarnig" style="margin-bottom: 100px; position: absolute; top:-50px; left:-35px;color: grey; font-family: 'Roboto Condensed', sans-serif;">Ya casi terminamos, ahora crea una contraseña</p>
+	 	<p style="margin-top:60px; font-size:20px; color: white;" >Ingrese su contraseña</p>
+	 	<div class="promptByINputs"> <input max="8" min="1" autocomplete="off"  type="password" placeholder="Escriba tu contraseña" id="UserPasswordLogin" name=""><img class="viemPassword" src="iconos/viemPassword.png"></div>
+	 	 <br>
+	 	<p style="margin-top:60px; font-size:20px; color: white;" >Confirme su contraseña</p>
+	 	 <div class="promptByINputs"><input type="password" placeholder="confirmar" name="" id="verificadorUsersPasswordLogin"><img  class="viemPassword" src="iconos/viemPassword.png"></div>
+	 	 <script type="text/javascript">
+	 	 	let buttonsS = document.querySelectorAll('.viemPassword');
+	 	 	buttonsS.forEach(e=>{ 
+                e.addEventListener('click',()=>{
+                let input =	e.parentElement.firstElementChild;
+                if(input.getAttribute('type') === 'text') {input.setAttribute('type','password'); e.src = 'iconos/viemPassword.png'}
+                	else {input.setAttribute('type','text'); e.src = 'iconos/novisibility.png'}
+                })
+	 	 	})
+	 	 </script>
+	 	 <button class="buttonsSiguiente" id="buttonLitoLogin">Listo</button>
+	 </div>
+	 <!--------------------------------------------------------->
+	 <div class="listoAnimation" id="statusSingupContainer" style="display:none;">
+	 	 <p id="statusForLoginResponseSever">Cuenta 'Dennis' creada, no olvides tu contraseña  <img src="iconos/yaEsTuAmigo.png"></p>
+	 	 <p id="timeForLanucherAutoLogin"></p>
+	 </div>
+</div>
+</section> <!--singup-->
+<section id="loginForAcademic" style="display:none;">
+	<div id="sobrePonerAlert" style="display:none;"></div>
+		 	<div id="alertForNewLogin" style="display:none;">
+	 		<p id="alertInfo">Ups, no tengo ninguna cuenta con tu nombre
+   <br><br><br>
+	 		</p>
+	 		<div class="promptForLoginAcademic"><p>¿Desea crear una cuenta?</p><button id="crearCuentaButton">Crear cuenta</button><button id="cancelarSingup">Cancelar</button></div>
+	 	</div>
+	 <div class="contenLogin" style="display:block;">
+		<div class="salaEsperaLogin" style="display:none;">
+		<div class="loaderLOGIN"></div>
+		<p id="status_salaEsperaLogin">Espere porfavor</p>
+		<button id="buttonAceptarNewLogin" style="display:none;">si</button> <button style="display:none;" id="buttonNoAceptarNewLogin">No</button>
+	</div>
+	<div id="contenedorMAXFORContentLogin" style="display:block;">
+	<p class="spam">D/code Server</p>
+	<img class="imglogin" width="100px" style="" src="mediaChatBot/iconoForAcademic2.png">
+<center><h2 id="infoLogin">Ingrese su nombre</h2></center>
+<br>
+<input autocomplete="off" id="inputUserName" type="text" class="inputsLogin" placeholder="ingrese su nombre"  style="display:block;">
+<input autocomplete="off" id="inputUserPassword" type="text" class="inputsLogin" placeholder="ingrese su contraseña"  style="display:none;">
+<button id="siguiente_Password"  style="display:none;">Verificar</button>
+<button id="siguiente_Name"  style="display:block;">Siguiente</button>
+</div>
+</div>
+</section>
+<section id="ramaPrincipalDeHSRG" style="display:none;">
+		 <section class="sobrePonerForNav">
+	
+</section>
+	 <nav class="nav_ecrtro">
+	 	<img src="media/iconos/baseline.png" class="barraExpandirNav">
+	 	<img src="mediaChatBot/iconoForAcademic2.png" class="userImg">
+	 	<p class="userName"id="userNameId"><p class="userName" id="statusName"></p><b id="povCertifate"></b></p>
+	 	<!-- <hr> -->
+	 	<div id="nav_a_containers">
+	    <a title="Salir" class="nav_a" id="inicioButton" ><i class="fa-solid fa-sitemap"><img style="width:20px;" src="media/iconos/salirLogin.png"></i><p class="p_nav_a">Salir</p></a>
+	 	<a title="Inicio" class="nav_a" id="inicioButtonDaskBoard"><i><img style="width:20px;" src="media/iconos/home.png"></i><p class="p_nav_a">Inicio</p></a>
+
+	 	<a title="Ver Todos los examenes" class="nav_a" id="questionButtonShow"><i class="fa-regular fa-keyboard"><img style="width:20px;" src="media/iconos/showQuestions.png"></i><p class="p_nav_a">Todos los examenes</p></a>
+	     <a title="Ver mis Examanes pendientes" class="nav_a" id="examenesButton"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/exaIcon.png"></i><p class="p_nav_a">Examanes pendientes</p></a>
+	   </div>
+	 </nav>
+<div class="caja" id="homeSection">
+	<div><p id="statusExaPendiente">Examenes pendientes <b>5</b> |<b class="bInfoFullMateri">Matematica, lengua ...</b> </p><button class="buttonViemExamanesPendientes">Ver</button></div>
+	<div><p id="statusResultadoForExa">Resultados de examenes <b>1</b> | <b class="bInfoFullMateri">Matematica</b></p><button class="buttonViemResultadosExa">Ver</button></div>
+</div>
+</section>
+<script type="text/javascript" src="scriptsJS/jsModeAcademic/script.js"></script>
 </section>
 </body>
 </html>

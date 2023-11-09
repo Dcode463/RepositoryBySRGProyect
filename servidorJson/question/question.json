@@ -8,49 +8,31 @@
     "respuestaCorrecta": "testing",
     "avatar": "testing"
   },
-  "¿Qué papel desempeña la educación formal en el aprendizaje de habilidades empresariales?": {
-    "pregunta": "¿Qué papel desempeña la educación formal en el aprendizaje de habilidades empresariales?",
+  "¿Que es AEP?": {
+    "pregunta": "¿Que es AEP?",
     "status": "AEP",
-    "respuestas1": " La educación formal no tiene ningún impacto en el desarrollo de habilidades empresariales.",
-    "respuestas2": "La educación formal garantiza el éxito empresarial sin esfuerzo adicional.",
-    "respuestas3": "La educación formal puede proporcionar una base sólida, pero la experiencia práctica y el aprendizaje continuo son igualmente importantes.",
-    "respuestaCorrecta": "La educación formal puede proporcionar una base sólida, pero la experiencia práctica y el aprendizaje continuo son igualmente importantes.",
+    "respuestas1": "Una clase donde nos enseñan sobre Aprender,Enprender y prosperar",
+    "respuestas2": "Una clase de computacion",
+    "respuestas3": "Se usa en el ingles cuando se tiene que hablar con dramatica",
+    "respuestaCorrecta": "Una clase donde nos enseñan sobre Aprender,Enprender y prosperar",
     "avatar": "questionMedia/giphy.gif"
   },
-  "¿Cuál es la importancia de la planificación estratégica en el emprendimiento?": {
-    "pregunta": "¿Cuál es la importancia de la planificación estratégica en el emprendimiento?",
+  "¿En que nos puede ayudar AEP?": {
+    "pregunta": "¿En que nos puede ayudar AEP?",
     "status": "AEP",
-    "respuestas1": "La planificación estratégica es un desperdicio de tiempo en el emprendimiento.",
-    "respuestas2": " La estrategia no importa; simplemente haga lo que le venga en mente.",
-    "respuestas3": "La planificación estratégica es esencial para establecer metas, tomar decisiones informadas y adaptarse a las cambiantes condiciones del mercado.",
-    "respuestaCorrecta": "La planificación estratégica es esencial para establecer metas, tomar decisiones informadas y adaptarse a las cambiantes condiciones del mercado.",
+    "respuestas1": "En realidad solo nos sirve dentro del colegio",
+    "respuestas2": "Nos ayuda a Tener una mentalidad de enprendedor",
+    "respuestas3": "Solamente nos ayuda a pasar el grado",
+    "respuestaCorrecta": "Nos ayuda a Tener una mentalidad de enprendedor",
     "avatar": "questionMedia/giphy.gif"
   },
-  "¿Qué desafíos suelen enfrentar los emprendedores al inicio de sus negocios?": {
-    "pregunta": "¿Qué desafíos suelen enfrentar los emprendedores al inicio de sus negocios?",
+  "¿Que sicnifica AEP?": {
+    "pregunta": "¿Que sicnifica AEP?",
     "status": "AEP",
-    "respuestas1": "Los emprendedores nunca enfrentan desafíos, todo es siempre fácil.",
-    "respuestas2": "El mayor desafío es elegir cuál color de taza usar en la oficina.",
-    "respuestas3": "Los desafíos comunes incluyen la financiación inicial, la adquisición de clientes y la gestión del riesgo.",
-    "respuestaCorrecta": "Los desafíos comunes incluyen la financiación inicial, la adquisición de clientes y la gestión del riesgo.",
-    "avatar": "questionMedia/giphy.gif"
-  },
-  "¿Cómo puede alguien aprender a identificar oportunidades de negocio?": {
-    "pregunta": "¿Cómo puede alguien aprender a identificar oportunidades de negocio?",
-    "status": "AEP",
-    "respuestas1": "Identificar oportunidades de negocio se basa en lanzar una moneda al aire y esperar a que aterrice de pie.",
-    "respuestas2": " Simplemente siga a la multitud y haga lo que todos los demás hacen.",
-    "respuestas3": "Aprender a identificar oportunidades de negocio implica la observación de las necesidades del mercado, la investigación y la innovación.",
-    "respuestaCorrecta": "Aprender a identificar oportunidades de negocio implica la observación de las necesidades del mercado, la investigación y la innovación.",
-    "avatar": "questionMedia/giphy.gif"
-  },
-  "¿Que es programacion?": {
-    "pregunta": "¿Que es programacion?",
-    "status": "Programacion",
-    "respuestas1": "Un programa de television",
-    "respuestas2": "Un estado de dinamarca",
-    "respuestas3": "Es un desarrollo tecnico donde los programadores pueden hacer app. robot etc",
-    "respuestaCorrecta": "Es un desarrollo tecnico donde los programadores pueden hacer app. robot etc",
+    "respuestas1": "Aprender Empreder y prosperar",
+    "respuestas2": "Asociación Española de la Prensa",
+    "respuestas3": "Acción Educativa Popular",
+    "respuestaCorrecta": "Aprender Empreder y prosperar",
     "avatar": "questionMedia/giphy.gif"
   }
 }

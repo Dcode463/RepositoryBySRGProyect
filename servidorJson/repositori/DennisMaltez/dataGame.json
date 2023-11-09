@@ -3,13 +3,13 @@
   "request": " ",
   "acceptRequest": "",
   "Mensajes": {
-    "userName": "Denis",
+    "userName": "",
     "avatar": " ",
     "chat": " ",
     "request": "false",
-    "respuestaRequest": "ok",
+    "respuestaRequest": " ",
     "Datagame": {
-      "status": "eligiendo",
+      "status": "listoLH",
       "data": ""
     }
   }

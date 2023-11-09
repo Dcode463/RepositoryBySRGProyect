@@ -1,0 +1,387 @@
+#modeAcademicSection{
+position:absolute;
+left:50%;
+top:49%;
+transform:translate(-50%,-49%);
+width:100%;
+height:101vh;
+background:transparent;
+}
+.contenLogin{
+color: white;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+background: #1a1a1a ;
+padding:5px;
+width: 500px;
+height: 400px;
+border-radius: 15px;
+z-index: 100;
+}
+#infoLogin{
+	margin-top: 100px;
+}
+.inputsLogin{
+	width: 45%;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%,-55%);
+	background: white;
+	color: black;
+	border-radius: 15px;
+	border: none;
+	padding: 15px;	
+}
+ #siguiente_Name{
+ 	background:#2646d7;
+ 	color: white;
+ 	padding: 10px;
+ 	border-radius: 10px;
+ 	position: absolute;
+ 	right: 5%;
+ 	bottom: 5%;
+ 	border:solid 3px white;
+ 	cursor: pointer;
+ }
+ #siguiente_Name:hover{
+ 	border: solid 3px transparent;
+ }
+ .imglogin{
+	position: absolute;
+	top: -70px;
+	left: 50%;
+	transform: translate(-50%,-20%);
+	margin-top: 60px;
+}.spam{  
+	text-align: left;
+	position: absolute;
+	left: 10px;
+	top: 1px;
+	font-size: 10px;
+}
+#alertForNewLogin{
+	transition: 0.2s;
+	scale: 40%;
+	text-align: center;
+	z-index: 200;
+	border-radius: 15px;
+	padding: 20px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 30%;
+	height: 30%;
+background-image: linear-gradient(to right top, #9e29ae, #0574ff, #004fb4, #007cff, #3567d9);
+  color: white;
+}
+.promptForLoginAcademic{
+position: absolute;
+right: 5%;
+bottom: 5%;
+}
+.promptForLoginAcademic button{
+	margin:5px;
+	padding: 5px;
+	cursor: pointer;
+}
+#alertInfo{
+	width: 100%;
+    font-size: 19px;
+    color:whitesmoke;
+}
+#sobrePonerAlert{
+	z-index: 150;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(30, 30, 30, 0.6);
+	backdrop-filter: blur(10px);
+}
+#singupContainer{
+	transition: 0.4s;
+	width: 100%;
+	height: 101vh;
+	position: absolute;
+	left: 50%;
+	top: 49%;
+	transform: translate(-50%,-49%);
+	background: #1e1e1e;
+	scale: 100%;
+}
+.login{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	background-color:#1e1e1e;
+	 width: 70%;
+	 height:600px;
+	 border-radius: 25px;
+}
+.formularioBydiv{ 
+  background:transparent;
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 50%;
+ }
+ .login input{
+ 	background: white;
+ 	color: black;
+ 	width: 70%;
+ 	padding: 10px;
+ }
+ .login h1{
+ 	position: absolute;
+ 	top: -100px;
+    left: -40px;
+    color: white;
+ }
+ .buttonsSiguiente{
+  width: 40%;
+  transition: 0.2s;
+  position: absolute;
+  right: -30%;
+  bottom: -30%;
+  font-size: 15px;
+  background: #0a435e;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 19px;
+  border: solid 2px transparent;
+ }
+ .buttonsSiguiente:hover{
+ 	 border: solid 2px white;
+ }
+ .login button:hover{
+ }
+ #cancelarLogin{
+ 	border: none;
+ 	position: absolute;
+ 	background: transparent;
+ 	 color: white;
+ 	 top: 30px;
+ 	 font-size: 20px;
+ 	 right: 20px;
+ 	 width:auto;
+ 	 padding: 5px;
+ 	 border-radius:14px;	
+ 	 cursor:pointer;
+ }
+ .listoAnimation{
+position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+ }
+ .listoAnimation p{
+ 	color: white;
+ 	font-size: 25px;
+ 	text-align: center;
+ }
+ .promptByINputs{
+background: transparent;
+padding: 5px;
+border-radius: 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+ }
+ .promptByINputs input{
+ 	float: left;
+box-shadow: 0 0 3px black;
+display: inline-block;
+ }
+ .promptByINputs img{
+ 	transition: 0.4s;
+    background: ghostwhite;
+    padding:5px;
+    border-radius: 5px;
+ 	margin-left: 10px;
+ 	float: right;
+ 	width: 25px;
+ 	display: inline-block;
+ 	cursor: pointer;
+ }
+ .promptByINputs img:hover{
+ 	border-radius: 10px;
+ }
+ #timeForLanucherAutoLogin{
+    transition: 0.4s;
+ 	text-align: center;
+ 	font-size: 15px;
+ 	color: grey;
+ }
+ #siguiente_Password{
+ 	background:#2646d7;
+ 	color: white;
+ 	padding: 10px;
+ 	border-radius: 10px;
+ 	position: absolute;
+ 	right: 5%;
+ 	bottom: 5%;
+ 	border: none;
+ 	cursor: pointer;
+ }
+ button{
+ 	cursor: pointer;
+ }
+ body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/*mode rama principal*/
+.nav_ecrtro{
+	box-sizing: border-box;
+	position: relative;
+	padding-top: 30px;
+	display: inline-block;
+	transition: padding 0.4s, all 0.2s;
+	display: block;
+	background: #12151c ;
+	height: 100vh;
+	width: 70px;
+	z-index: 1000000;
+	top: 0;
+	border-radius:1px;
+	box-shadow: 0 0 20PX BLACK;
+	cursor: pointer;
+}
+.nav_ecrtro a{
+	cursor:pointer;
+    width:90%;
+	padding: 5px;
+	margin: 5px;
+	display:inline-block;
+    text-decoration: none;
+    color: white;
+}
+.nav_ecrtro a:hover{
+	border-radius: 5px;
+	background-color: rgba(30, 30, 30, 6);}
+.nav_ecrtro i{
+	padding: 10px;
+	margin-right: 15px;
+	color: white;
+	display: inline-block;
+	
+}
+.userImg{
+	transition:  0.4s!important;
+	transition: width 0.6s!important;
+	transition:  margin 10s!;
+	width: 50px;
+	margin: 10px;
+	border-radius: 50%;
+}
+.certificate{
+	color: #1e56be !important;
+}
+.userName{
+	width: 200px;
+	transition: 0.4s;
+	color: transparent;
+    padding: 10px;
+}
+#statusName{
+	color: transparent;
+	font-size: 12px;
+}
+#nav_a_containers{
+	overflow-y: auto;
+	height: 100%;
+	overflow-x: hidden;
+	scrollbar-width: thin;
+}
+.p_nav_a{
+   font-size: 1px;
+		width: 1px;
+	display: none;
+}
+.barraExpandirNav{
+	position: absolute;
+	top: 50%;
+	right: -66%;
+	transform: rotate(-90deg);
+	transition: 0.4s;
+	border-radius: 0 0 8px 8px;
+  background: #12151c;
+/*	box-shadow: 0 0 20PX BLACK;*/
+}
+.sobrePonerForNav{
+	top:-10px;
+	 position: absolute;
+	 width: 100%;
+	 z-index: 1000;
+	 height: 103vh;
+	 background-color: rgba(30, 30, 30, 0.2);
+	 backdrop-filter: blur(10px);
+	 display: none;
+}
+#statusExaPendiente{
+	display: inline-block;
+	padding: 15px;
+	color: black;
+	background: white;
+	border-radius: 5px;
+	width:70%;
+}
+#statusResultadoForExa{
+	display: inline-block;
+		padding: 15px;
+	color: black;
+	background: white;
+	border-radius: 5px;
+	width:70%;
+}
+.buttonViemResultadosExa{
+	width: 20%;
+	height: 100%;
+	padding-top: 1%;
+	margin: 1%;
+	display: inline-block;
+		background:white;
+	color: black;
+	border: solid 2px black;
+	border-radius: 6px;
+}
+.buttonViemExamanesPendientes{
+	width: 20%;
+	height: 100%;
+	padding-top: 1%;
+	margin: 1%;
+	display: inline-block;
+	background:white;
+	color: black;
+	border: solid 2px black;
+	border-radius: 6px;
+}
+#homeSection{
+	width: 40%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+.bInfoFullMateri{
+	color: grey;
+	font-size: 12px;
+}

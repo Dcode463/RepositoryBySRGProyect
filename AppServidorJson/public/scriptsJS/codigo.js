@@ -21,8 +21,13 @@ buttonsSelectionModeRepositori.style.display = "none";
 boxModeGames.style.opacity = "0";
 setTimeout(()=>{
 boxModeAcademic.style = `left:50%;top:50%;transform:translate(-50%,-50%)`;
-setTimeout(()=>{boxModeAcademic.style.opacity = "0"; setTimeout(()=>{viajeSubLaunchuer.style.display = "block";
-sectionModeServerRepositoriGames.style.style = "none"},500)},500)
+setTimeout(()=>{boxModeAcademic.style.opacity = "0"; setTimeout(()=>{
+viajeSubLaunchuer.style.display = "block";
+sectionModeServerRepositoriGames.style.style = "none";
+document.getElementById('electionMode').style.display = "none";
+sectionModeServerRepositoriGames.innerHTML = '';
+setTimeout(()=>{modeAcademic(viajeSubLaunchuer,servidor)},1500)
+},500)},500)
 },500)
 })
 buttonsSelectionModeRepositoriGames.addEventListener('click',()=>{

@@ -347,7 +347,7 @@ contenedorPadreForContainerQuestion.removeChild(e)
   let convertArrayPreguntasObject;
  convertArrayPreguntasObject = convertArrayPreguntasObjectFilter.filter(e => e.status != "testing" );
   	for(let i=0; i < convertArrayPreguntasObject.length; i++){
-	let div = document.createElement('DIV'); div.classList.add('questionForJS'); div.innerHTML = `<p class="containerParrafoForQuestion"><b style="color:#0034ff96;">${convertArrayPreguntasObject[i].status}</b> <br> <br> ${convertArrayPreguntasObject[i].pregunta}</p> <img src="media/iconos/remove.png" class="buttonRemoves">`;
+	let div = document.createElement('DIV'); div.classList.add('questionForJS'); div.innerHTML = `<b style="color:#0034ff96;">${convertArrayPreguntasObject[i].status}</b><br><br><p class="containerParrafoForQuestion">${convertArrayPreguntasObject[i].pregunta}</p> <img src="media/iconos/remove.png" class="buttonRemoves">`;
 	contenedorPadreForContainerQuestion.appendChild(div);
 }
 let buttonsRemoves = document.querySelectorAll('.buttonRemoves');
@@ -359,7 +359,7 @@ buttonsRemoves.forEach(e=>{
  	method : "post",
  	body : JSON.stringify({
  		"funcion" : "DELETEQuestion",
-       "questionDelete" : e.parentElement.firstElementChild.textContent,
+       "questionDelete" : e.parentElement.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.textContent,
 	 	"name" :`Teacher : ${inputMat}`
 
  	}),
@@ -422,19 +422,20 @@ contenedorPadreForContainerQuestion.removeChild(e)
  convertArrayPreguntasObject = convertArrayPreguntasObjectFilter.filter(e => e.status === inputMat);
   if(contenedorPadreForContainerQuestion.contains.length <= convertArrayPreguntasObject.length){
   	for(let i=0; i < convertArrayPreguntasObject.length; i++){
-	let div = document.createElement('DIV'); div.classList.add('questionForJS'); div.innerHTML = `<p class="containerParrafoForQuestion"><b style="color:#0034ff96;">${convertArrayPreguntasObject[i].status}</b> <br><br> ${convertArrayPreguntasObject[i].pregunta}</p> <img src="media/iconos/remove.png" class="buttonRemoves">`;
+	let div = document.createElement('DIV'); div.classList.add('questionForJS'); div.innerHTML = `<b style="color:#0034ff96;">${convertArrayPreguntasObject[i].status}</b><br><br><p class="containerParrafoForQuestion">${convertArrayPreguntasObject[i].pregunta}</p> <img src="media/iconos/remove.png" class="buttonRemoves">`;
 	contenedorPadreForContainerQuestion.appendChild(div);
 }}
 let buttonsRemoves = document.querySelectorAll('.buttonRemoves');
 let divRam;
 buttonsRemoves.forEach(e=>{
 	 e.addEventListener('click',()=>{
+
 	if(confirm("Esta  seguro de borrar esta pregunta")){
  let headers = {
  	method : "post",
  	body : JSON.stringify({
  		"funcion" : "DELETEQuestion",
-       "questionDelete" : e.parentElement.firstElementChild.textContent,
+       "questionDelete" : e.parentElement.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.textContent,
 	 	"name" :`Teacher : ${inputMat}`
 
  	}),
@@ -712,7 +713,7 @@ setTimeout(hours,10)
 }
 let verificacionForNav = true;
 let buttonExtentNav = document.querySelector('.barraExpandirNav');
-let displayComprobar = document.querySelectorAll('.p_nav_a');
+let displayComprobar = document.querySelectorAll('.p_nav_a'); 
 buttonExtentNav.addEventListener('click',()=>{
 if (verificacionForNav){
 abrirNav()

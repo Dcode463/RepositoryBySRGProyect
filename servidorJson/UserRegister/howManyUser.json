@@ -2,62 +2,40 @@
   "nuevosDatos": {
     "ok": "data"
   },
-  "onfire": {
+  "DennisMaltez": {
     "status": "online",
-    "avatar": "/perfiles/jugadorDos.gif",
-    "name": "onfire",
-    "friends": [
-      [
-        "Dereck",
-        "Derek"
-      ]
-    ],
-    "trofeos": "undefined"
-  },
-  "Dereck": {
-    "status": "online",
-    "avatar": "/perfiles/jugador5.jpg",
-    "name": "Dereck",
-    "friends": [
-      [
-        "onfire"
-      ]
-    ],
-    "trofeos": "undefined"
-  },
-  "onfires": {
-    "status": "online",
-    "avatar": "/perfiles/jugador17.jpg",
-    "name": "onfires",
-    "friends": [
-      [
-        "Dereck"
-      ]
-    ],
-    "trofeos": "undefined"
-  },
-  "Derek": {
-    "status": "online",
-    "avatar": "/perfiles/jugador23.jpg",
-    "name": "Derek",
+    "avatar": "/perfiles/studentPerfil.png",
+    "name": "DennisMaltez",
     "friends": [
       []
     ],
-    "trofeos": "0"
+    "trofeos": " "
   },
-  "Denis": {
-    "status": {
-      "what": "jugando",
-      "host": "Derek"
-    },
-    "avatar": "http://192.168.1.13:8070/perfiles/jugador5.jpg",
-    "name": "Denis",
+  "onfire": {
+    "status": "online",
+    "avatar": "/perfiles/studentPerfil.png",
+    "name": "onfire",
     "friends": [
-      [
-        "Dereck",
-        "Derek"
-      ]
+      []
     ],
-    "trofeos": "0"
+    "trofeos": " "
+  },
+  "Dereck": {
+    "status": "online",
+    "avatar": "/perfiles/studentPerfil.png",
+    "name": "Dereck",
+    "friends": [
+      []
+    ],
+    "trofeos": " "
+  },
+  "Dennis": {
+    "status": "online",
+    "avatar": "/perfiles/jugadorDos.gif",
+    "name": "Dennis",
+    "friends": [
+      []
+    ],
+    "trofeos": " "
   }
 }
