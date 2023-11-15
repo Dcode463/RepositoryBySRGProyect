@@ -1,16 +1,16 @@
 {
   "start": "repositori",
-  "Modo emprendimiento": {
+  "Emprendimiento": {
     "dataconfig": {
-      "nameForExa": "Modo emprendimiento",
-      "pointsForExa": "60",
+      "nameForExa": "Emprendimiento",
+      "pointsForExa": "50",
       "privateForTeacher": true,
       "noExitApp": true,
-      "limitTimeCompleteVercion": "2 minutos",
+      "limitTimeCompleteVercion": "0 hora y 2 minutos",
       "limitTime": {
         "confirm": true,
         "data": {
-          "hours": "",
+          "hours": "0",
           "minute": "2"
         }
       }
@@ -18,31 +18,8 @@
     "questionsData": {
       "numero": 2,
       "preguntas": [
-        "¿Que es el modo emprendedor?",
-        "¿Como puedo ser emprendedor?"
-      ]
-    }
-  },
-  "Emprendor": {
-    "dataconfig": {
-      "nameForExa": "Emprendor",
-      "pointsForExa": "65",
-      "privateForTeacher": false,
-      "noExitApp": false,
-      "limitTimeCompleteVercion": "2 minutos",
-      "limitTime": {
-        "confirm": true,
-        "data": {
-          "hours": "",
-          "minute": "2"
-        }
-      }
-    },
-    "questionsData": {
-      "numero": 2,
-      "preguntas": [
-        "¿what?",
-        "¿yea?"
+        "¿Como es el emprendimiento?",
+        "¿Como puedes volverte en un emprendedor?"
       ]
     }
   }

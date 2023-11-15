@@ -1327,6 +1327,7 @@ overflow: auto;
 	padding: 10px;
 	margin: 20px;
 	transition: 0.2s;
+	position: relative;
 }
 
 .pAll{
@@ -1361,9 +1362,10 @@ box-shadow: 0 0 10px red!important;
   right: 10%;
   background: #1a1a1a;
   color: white;
-  padding: 10px;
-  border-radius: 15px;
+  padding: 5px;
+  border-radius: 11px;
   display: none;
+  top: 10%;
 }
 .divShowBars img{float: right; cursor: pointer;}
 .divShowBars button{
@@ -1420,8 +1422,6 @@ border: none;
 	border-radius: 15px;
 	padding: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: auto;
-  overflow-x: hidden;
 }
 #containerLOADDINGBydeleteExa{
 		position: absolute;
@@ -1559,6 +1559,23 @@ background-color: rgba(250, 250, 250, 0.9);
 }
 .pushDivElementResult:hover{
 background: royalblue;
+color: white;
+}
+.pushDivElementResult2{
+		display: flex;
+ cursor: pointer;
+		background: white;
+	color:black;
+	padding: 5px;
+	border-radius: 5px;
+	width:100%;
+	margin: 10px 0 10px 0;
+	width: auto;
+	overflow: auto;
+background-color: rgba(250, 250, 250, 0.9);
+}
+.pushDivElementResult2:hover{
+	background: royalblue;
 color: white;
 }
 /* HTML: <div class="loader"></div> */
@@ -1711,7 +1728,8 @@ align-items: center;
 	width: 90%;
 	padding: 10px;
 	height: auto;
-	border: solid 2px royalblue;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
 	margin: 20px;
 	border-radius: 10px;
 }.divContainerOFRequestStudent textarea{

@@ -622,6 +622,7 @@ elementosCaja.forEach(j=>{
 }
 document.getElementById('verEstudianteAtajo').addEventListener('click',iniciarEventoShowEstudiante)
 misEstudianteButtonNav.addEventListener('click',iniciarEventoShowEstudiante);
+document.getElementById('forExaButtonNewExaForInfo').addEventListener('click', iniciarContentCreateNewExa)
 document.getElementById('misExamenesButtonNav').addEventListener('click', iniciarContentCreateNewExa)
 function startContentEstudientes(nameTeacher){ 
  let aRSLFTs = []
@@ -810,11 +811,10 @@ let div = document.createElement('DIV');div.classList.add('cajaPushExa');
 let pByNameExa = document.createElement('P');pByNameExa.classList.add('pNameForExaContainer','pAll');
 pByNameExa.innerHTML = `<p class='pAll' style = "color:grey;">Tema</p><p class = 'pAll'>${documentJsonResponse[filterobjeBydocument[i]].dataconfig.nameForExa}</p><a href="#" class= "init_questionForExa pAll">Preguntas ${documentJsonResponse[filterobjeBydocument[i]].questionsData.numero}</a><p class="p_for_b_Puntaje pAll"><b style="color:grey;font-weight: 12;">Puntaje</b> <br> ${documentJsonResponse[filterobjeBydocument[i]].dataconfig.pointsForExa}`;
 let buttonRemoveExa = document.createElement('IMG');buttonRemoveExa.classList.add('imgRemoveExa');buttonRemoveExa.src = 'media/iconos/remove.png';
-let buttonEdit  = document.createElement('IMG');buttonEdit.classList.add('iconEditExa');buttonEdit.src = 'media/iconos/editIcon.png';
 let buttonBars = document.createElement('IMG');buttonBars.classList.add('iconShowContainerExa');buttonBars.src = 'media/iconos/menuBars2.png';
-let divBarsOther = document.createElement('DIV');divBarsOther.classList.add('divShowBars');divBarsOther.innerHTML = `<img src='media/iconos/CLOSE.png' class='closeWindow'>	<button class="resultadosButton">Ver resultados</button><button class="infoSendButton">Enviados</button><button class="allInfoButton">Toda la inf</button>
+let divBarsOther = document.createElement('DIV');divBarsOther.classList.add('divShowBars');divBarsOther.innerHTML = `<img src='media/iconos/CLOSE.png' class='closeWindow'>	<button class="resultadosButton">Ver resultados</button><button class="infoSendButton">Enviados</button><button class="allInfoButton">Registro</button>
 `;
-div.appendChild(pByNameExa);div.appendChild(buttonRemoveExa);div.appendChild(buttonEdit);div.appendChild(buttonBars);div.appendChild(divBarsOther)
+div.appendChild(pByNameExa);div.appendChild(buttonRemoveExa);div.appendChild(buttonBars);div.appendChild(divBarsOther)
 containerFatherForEXApush.appendChild(div);
 }
 if(ifExaNodeNOne.style.display === 'none'){
@@ -826,6 +826,12 @@ let buttonclose = document.getElementById('buttonCloseContainerViewQuestion');
 let buttonsForPushOpciones = document.querySelectorAll('.iconShowContainerExa');
 let buttonDeleteEXA = document.querySelectorAll('.imgRemoveExa');
 let buttonclosed = document.querySelectorAll('.closeWindow');
+let resultadosButton = document.querySelectorAll('.allInfoButton');
+resultadosButton.forEach(e=>{
+e.addEventListener('click', ()=>{
+
+})
+})
 buttonDeleteEXA.forEach(e=>{ 
 e.addEventListener('click',async ()=>{
 let objectoSend  = await {
@@ -883,8 +889,9 @@ let pStatus = document.getElementById('pStatusContainerLoaddingDelete');
 let sobreponer = document.getElementById('sobrePonerForExaQuestion');
 let fatherPush = document.getElementById('pushExaContainer');
 let elementoDiv = obj.father;
+containerLoad.style.display = 'block';
 sobreponer.style.display = 'block';
-pStatus.textContent = `Borrando Examen '${obj.exaDelete} ...'`;
+pStatus.textContent = `Borrando Examen '${obj.nameExa} ...'`;
 let requestResponse = await requestDelete();
 if(requestResponse){
 pStatus.textContent = `Examen '${obj.exaDelete}' borrado con exito`;
@@ -977,6 +984,15 @@ let p = document.createElement('P');
      div.appendChild(p)
       fatherOne.appendChild(div)
 }
+if(filterMatriz.length === 0){
+let div = document.createElement('DIV');
+    div.classList.add('pushDivElementResult2');
+let p = document.createElement('P'); 
+    p.classList.add('pushDivPName')
+    p.textContent = 'No hay resultados';
+    div.appendChild(p);
+    fatherOne.appendChild(div)
+}
 // evento escucha de divs elements
 let divsElements = document.querySelectorAll('.pushDivElementResult');
 init_view_resultado_de_usuario=(name)=>{
@@ -987,6 +1003,7 @@ let fatherPushRevisarExamanes = document.getElementById('pushToRevisarExamanes')
 let buttoncancelarRevicionDeExamanes = document.getElementById('cancelarRevicionDeExamanes');
 let buttonEnviarResultadosALestudiante = document.getElementById('enviarResultados');
 buttonEnviarResultadosALestudiante.textContent = `Enviar a ${name}`;
+buttonEnviarResultadosALestudiante.setAttribute('value', name);
 buttonEnviarResultadosALestudiante.addEventListener('click',()=>{ init_validor_divs_result()})
 buttoncancelarRevicionDeExamanes.addEventListener('click',()=>{
 fatherPushRevisarExamanes.innerHTML = '';
@@ -1131,10 +1148,24 @@ commit : commit
 if(validor2){
 	objectoEnviar.puntajeGanado = countsPuntaje;
 document.getElementById('sectionByLOader').style.display = 'block';
-}else{
-	alert('ingrese en que se una confirmacion')
+init_send_resultado= async ()=>{
+sendStudent()
+async function sendStudent(){
+let data = {
+registro : {nameExamen : nameExamenGlobal,nameStudent :document.getElementById('enviarResultados').getAttribute('value'),puntaje :  countsPuntaje},
+send : {... objectoEnviar},
+function : 'sendStudentAndRegistro',
+nameStudent : document.getElementById('enviarResultados').getAttribute('value'),
+nameTeacher : addicionalInfoUserName.value
+}
+console.log(data)
 }
 }
+init_send_resultado()
+
+}
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
 async function init_send_exa_for_student(nameConection,pContainer,valueForExamen,obj){
 async function sendRequesExa(){
 let data = await {

@@ -2,48 +2,10 @@
   "nuevosDatos": {
     "ok": "data"
   },
-  "Dennis": {
-    "status": "online",
-    "avatar": "/perfiles/studentPerfil.png",
-    "name": "Dennis",
-    "friends": [
-      []
-    ],
-    "trofeos": " "
-  },
   "onfire": {
     "status": "online",
-    "avatar": "/perfiles/jugadorDos.gif",
+    "avatar": "/perfiles/studentPerfil.png",
     "name": "onfire",
-    "friends": [
-      [
-        "Dennis"
-      ]
-    ],
-    "trofeos": "undefined"
-  },
-  "Zelaya": {
-    "status": "online",
-    "avatar": "/perfiles/studentPerfil.png",
-    "name": "Zelaya",
-    "friends": [
-      []
-    ],
-    "trofeos": " "
-  },
-  "DennisMaltez": {
-    "status": "online",
-    "avatar": "/perfiles/studentPerfil.png",
-    "name": "DennisMaltez",
-    "friends": [
-      []
-    ],
-    "trofeos": " "
-  },
-  "Esteban": {
-    "status": "online",
-    "avatar": "/perfiles/studentPerfil.png",
-    "name": "Esteban",
     "friends": [
       []
     ],

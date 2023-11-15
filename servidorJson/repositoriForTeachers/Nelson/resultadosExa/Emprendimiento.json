@@ -1,0 +1,18 @@
+{
+  "NOREMOVE": "011514415757",
+  "onfire": {
+    "nameStudent": "onfire",
+    "data": {
+      "puntaje": "50",
+      "infoExitApp": true,
+      "¿Como es el emprendimiento?": {
+        "pregunta": "¿Como es el emprendimiento?",
+        "respuesta": "El emprendimiento es como una montaña rusa hay subidas y bajadas"
+      },
+      "¿Como puedes volverte en un emprendedor?": {
+        "pregunta": "¿Como puedes volverte en un emprendedor?",
+        "respuesta": "Siendo perseverante, teniendo autocontrol y confiando en uno mismo."
+      }
+    }
+  }
+}

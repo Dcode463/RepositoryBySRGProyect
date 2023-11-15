@@ -117,9 +117,9 @@ bottom: 5%;
 }
 .login{
 	position: absolute;
-	left: 50%;
+	left: 41%;
 	top: 50%;
-	transform: translate(-50%,-50%);
+	transform: translate(-41%,-50%);
 	background-color:#1e1e1e;
 	 width: 70%;
 	 height:600px;
