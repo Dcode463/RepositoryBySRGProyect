@@ -1,9 +1,14 @@
 //serverconection
 let serverConection;
 serverConection = `http://${location.hostname}:8070`
+let contaienerForExa = document.getElementById('section_Exa');
+let docenteConection;
+let nameConectionUserLocal = 'onfire';
+let nameExass;
+let puntajeGlobal;
 //function inicializador
-function inicializarModoAcademico(servidor){
-serverConection = servidor;
+inicializarModoAcademico()
+function inicializarModoAcademico(){
 loginForAcademic.style.display ='block';
 }
 // documents HTML
@@ -28,7 +33,7 @@ infoLoginP.innerHTML = 'Ingrese su contraseña';
 //Eventos for veriPassword
 init_password=async (name)=>{
 let verificacionForPassword = await fetch_Init_Password(inputSendUserPassword.value);
-if(verificacionForPassword) init_Rama_principal(document.getElementById('loginForAcademic'),name)
+if(verificacionForPassword) init_Rama_principal(containerLong,name)
 else alert('contraseña incorrecta')
 async function fetch_Init_Password(password){
 let config = {
@@ -52,7 +57,7 @@ loginPass=(obj)=> {
 containerLong.style.display = 'none';
 sectionSingup.style.opacity = '0';
 sectionSingup.style.scale = '40%';
-init_Rama_principal(document.getElementById('loginForAcademic'),obj.name)
+init_Rama_principal(containerLong,obj.name)
 setTimeout(()=>{sectionSingup.style.display = 'none';},2000)
 }
 loginNoPass=()=>{
@@ -268,10 +273,12 @@ if(veri) resolve({data : true});
 buttonSendUserName.addEventListener('click',sendRequestUserName) // send user name for button
 inputSendUserName.addEventListener('keydown',(e)=>{if(e.key === 'Enter') sendRequestUserName()}) // send user name for input
 function init_Rama_principal(documents,nameConection){
+nameConectionUserLocal = nameConection
 documents.style.display = 'none';
 //document
 let sectionRamaPrincipalDeHSRG = document.getElementById('ramaPrincipalDeHSRG');
 sectionRamaPrincipalDeHSRG.style.display = 'block';
+examenes_Contenedor()
 }
 //nav
 let displayComprobar = document.querySelectorAll('.p_nav_a');
@@ -280,7 +287,7 @@ let verificacionForNav = true;
 abrirNav=()=>{
 verificacionForNav = false;
 document.querySelector('.sobrePonerForNav').style.display = "block";
-displayComprobar.forEach(e=>{e.style = "font-size:15px;width:auto;opacity:0;"; setTimeout(()=>{e.style.display= "inline-block";e.style.opacity = "1"},50)});
+displayComprobar.forEach(e=>{e.style = "font-size:15px;width:auto;opacity:0;"; setTimeout(()=>{e.style.display= "inline-block";e.style.opacity = "1"},100)});
 buttonExtentNav.style = `transform: rotate(90deg);right:-15%;border-radius:8px 8px 0px 0px`;
 document.getElementById('nav_a_containers').style.height = '90%';
 document.getElementById('nav_a_containers').style.paddingBottom = '30px';
@@ -300,7 +307,7 @@ displayComprobar.forEach(e=>{e.style = "font-size:1px;opacity:0;";setTimeout(()=
 document.querySelector('.nav_ecrtro').style = `padding-right:0; box-sizing: border-box;position: relative;padding-top: 30px;display: inline-block;transition: padding 0.4s, all 0.2s;
 display: block;
 background: #12151c ;
-height: 100vh;
+height: 101vh;
 width: 70px;
 z-index: 1000;
 top: 0;
@@ -319,3 +326,239 @@ abrirNav()
 cerrarNav()
 }});
 document.querySelector('.sobrePonerForNav').addEventListener('click',cerrarNav)
+async function examenes_Contenedor(){
+let buttonInitFinallyExa = document.getElementById('buttonInit_SendExa');
+let father = document.getElementById('pushJS_Section_Exa')
+async function requestExa(){
+let data = {
+funcion : 'requestExaForStudent',
+name : nameConectionUserLocal
+}
+let config = { 
+method : 'post',
+body : JSON.stringify(data),
+headers : {'Content-Type':'application/json'}
+}
+let fetchData = await fetch(serverConection,config);
+let dataJson = await fetchData.json();
+return JSON.parse(dataJson);
+}
+let requestResultado = await requestExa();
+father.innerHTML = '';
+let filterObj = Object.keys(requestResultado);;
+let objLength = filterObj.filter(e=> e != 'NOREMOVE'); 
+if(objLength.length > 0){
+document.getElementById('infoNoExa').style.display = 'none';
+}
+else{
+document.getElementById('infoNoExa').style.display = 'block';
+}
+for(let i=0; i < objLength.length; i++){
+let div = document.createElement('DIV');div.classList.add('pForPush');div.classList.add('divpushElementExa')
+// let imgAvatar = document.createElement('IMG');imgAvatar.classList.add('imgExa');imgAvtar.src = requestResultado[objLength[i]].urlAvatar 
+let pNameExa = document.createElement('P');pNameExa.classList.add('pForPush');pNameExa.innerHTML = `<b>Materia</b> <br> ${requestResultado[objLength[i]].materiaTeacher}`;
+let pTema = document.createElement('P');pTema.classList.add('pForPush');pTema.innerHTML = `<b>Tema</b>  <b class = 'bForP'>${requestResultado[objLength[i]].dataconfig.nameForExa}</b>`;
+let pPuntaje = document.createElement('P');pPuntaje.classList.add('pForPush');pPuntaje.innerHTML = `<b>Puntaje</b> <br> ${requestResultado[objLength[i]].dataconfig.pointsForExa}`
+let pInfoExit = document.createElement('P');pInfoExit.classList.add('pForPush');
+if(requestResultado[objLength[i]].dataconfig.noExitApp) pInfoExit.innerHTML = `<b>Salir de la app</b> <br> Permitido`;	
+else pInfoExit.innerHTML = `<b>Salir de la app</b> <br> No permitido`;
+let pTimeLimit = document.createElement('P');pTimeLimit.classList.add('pForPush');
+if(requestResultado[objLength[i]].dataconfig.limitTime.confirm) pTimeLimit.innerHTML = `<b>Tiempo limite</b> ${requestResultado[objLength[i]].dataconfig.limitTimeCompleteVercion}`
+else pTimeLimit.innerHTML = `<b>Tiempo limite</b> <br> No hay limite`;
+div.appendChild(pNameExa);div.appendChild(pTema);div.appendChild(pPuntaje);div.appendChild(pInfoExit);div.appendChild(pTimeLimit);father.appendChild(div)
+}
+init_Rama_Exa=(nameExa)=>{
+let obj = requestResultado[nameExa]
+docenteConection = obj.nameTeacher;
+nameExass = obj.dataconfig.nameForExa
+puntajeGlobal = obj.dataconfig.pointsForExa;
+function init_Se_Acabo_time(){
+alert('se acabo el tiempo')
+}
+let validorExitAPP = false;
+let validorExitAPPinfo;
+init_exit_limit=()=>{
+if(validorExitAPP === false){
+	let alertDocumentNoExitApp = document.getElementById('alertModeNoExit');
+	alertDocumentNoExitApp.style.display = 'block'
+let avisoDocumentExit = document.getElementById('exitAppInfo');
+let buttonCloseInfoExitApp = document.getElementById('buttonCloseInfoExitApp');
+document.addEventListener('visibilitychange', ()=>{
+if(document.visibilityState === 'visible'){
+console.log('conectado')
+}
+else{
+	if(validorExitAPP === false){
+		avisoDocumentExit.style.display = 'block';
+funcionCloseInfoExitApp=()=>{
+avisoDocumentExit.style.display = 'none';
+
+buttonCloseInfoExitApp.removeEventListener('click',funcionCloseInfoExitApp)
+}
+buttonCloseInfoExitApp.addEventListener('click',funcionCloseInfoExitApp)
+alertDocumentNoExitApp.style.display = 'block'
+	}
+	validorExitAPP = true;
+	validorExitAPPinfo =  'Se ha salido de la app'
+}
+})	
+}
+}
+init_timeLimit=()=>{
+let divAnimation = document.getElementById('timeLimet'); 
+let horas = parseInt(obj.dataconfig.limitTime.data.hours);
+let minutos = parseInt(obj.dataconfig.limitTime.data.minute);
+let processData = (horas * 3600) + (minutos * 60);
+
+// Formatear a cadena con dos decimales
+let duracionTransicion = processData.toFixed(2);
+
+divAnimation.style.transition = `all ${duracionTransicion}s ease 0s`;
+setTimeout(function(){divAnimation.style.width = '0%';divAnimation.style.background = 'red'},10)
+var temporizadorForExaCreator = setTimeout(()=>{init_Se_Acabo_time()}, duracionTransicion * 1000);
+buttonInitFinallyExa.addEventListener('click',async ()=>{
+let veri = await initValidorInputsVacios();
+if(veri){clearTimeout(temporizadorForExaCreator);divAnimation.style.transition = 'all 0.2s ease 0s'; divAnimation.style.width = '100%'; divAnimation.style.background = 'green';initProcessDataByCreatorExa(divAnimation)}
+});
+}
+init_Focus_INputIcompleto=(input)=>{
+input.style.border = 'solid 3px red';
+input.focus();
+input.addEventListener('keydown',()=>{input.style.border = 'none'})
+}
+initValidorInputsVacios=()=>{
+let containersForDocumentExa = document.querySelectorAll('.questionContainerJs');
+let verficador = true;
+containersForDocumentExa.forEach(d=>{ 
+let inputs = d.firstElementChild.nextElementSibling;
+if(inputs.value === " " || inputs.value === ''){verficador = false;init_Focus_INputIcompleto(inputs)}
+})
+if(verficador) return true
+else return false
+}
+let father = document.getElementById('push_JS_ExaCreator');
+document.querySelectorAll('.questionContainerJs').forEach(e=>{father.removeChild(e)})
+let containerByCreatorExa = document.getElementById('byExaCreatorAndSend');
+let objLengthPregntas = [ ... obj.questionsData.preguntas];
+if(obj.dataconfig.noExitApp === false) init_exit_limit()
+if(obj.dataconfig.limitTime.confirm) init_timeLimit()
+else{
+let divAnimation = document.getElementById('timeLimet');
+divAnimation.style.display = 'none';
+buttonInitFinallyExa.addEventListener('click',async ()=>{
+if(initValidorInputsVacios()){
+if(validorExitAPP){
+
+initProcessDataByCreatorExa(true)
+}else{
+initProcessDataByCreatorExa(false)
+}
+}
+});
+}
+for(let i=0; i< objLengthPregntas.length; i++){
+let div = document.createElement('DIV');div.classList.add('questionContainerJs');
+let label = document.createElement('LABEL');label.textContent = objLengthPregntas[i];
+let textarea = document.createElement('TEXTAREA');textarea.setAttribute('placeholder','Escriba aqui su respuesta');
+div.appendChild(label);div.appendChild(textarea);father.appendChild(div)
+}
+console.log(obj)
+
+containerByCreatorExa.style.display = 'block';
+}
+init_event_containerExa=()=>{
+init_conatinerInfoConfirmExa=(name)=>{
+let nameExa = name;
+contaienerForExa.scrollTop = 0;
+let containerbyInfoExa = document.getElementById('contenedorHcaerExa');
+let p_ForContenedor_Exa_Materia = document.getElementById('p_ForContenedor_Exa_Materia');
+let p_ForContenedor_Exa_Tema = document.getElementById('p_ForContenedor_Exa_Tema');
+let p_ForContenedor_Exa_Preguntas = document.getElementById('p_ForContenedor_Exa_Preguntas');
+let p_ForContenedor_Exa_Puntaje = document.getElementById('p_ForContenedor_Exa_Puntaje');
+let p_ForContenedor_Exa_Docente = document.getElementById('p_ForContenedor_Exa_Docente');
+let p_ForContenedor_Exa_Tiempo = document.getElementById('p_ForContenedor_Exa_Tiempo');
+let buttonInit_Exa = document.getElementById('buttonInit_Exa');
+containerbyInfoExa.style.display = 'block'; // container
+buttonInitFinallyExa.textContent = `Enviar Examen al doc ${requestResultado[nameExa].nameTeacher}`
+p_ForContenedor_Exa_Docente.textContent = `Docente : ${requestResultado[nameExa].nameTeacher}`;
+p_ForContenedor_Exa_Materia.textContent = `Materia : ${requestResultado[nameExa].materiaTeacher}`
+p_ForContenedor_Exa_Tema.textContent = `Tema : ${requestResultado[nameExa].dataconfig.nameForExa}`;
+p_ForContenedor_Exa_Preguntas.textContent = ` Preguntas : ${requestResultado[nameExa].questionsData.numero}`;
+p_ForContenedor_Exa_Puntaje.textContent = `Puntaje : ${requestResultado[nameExa].dataconfig.pointsForExa}`;
+p_ForContenedor_Exa_Tiempo.textContent = `Tiempo limite ${requestResultado[nameExa].dataconfig.limitTimeCompleteVercion}`;
+events(buttonInit_Exa,buttonCloseForElements,containerbyInfoExa,nameExa)
+}
+let divpushElementExa = document.querySelectorAll('.divpushElementExa');
+divpushElementExa.forEach(e=>{
+e.addEventListener('click',()=>{
+init_conatinerInfoConfirmExa(e.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent);
+})
+})
+}
+if(objLength.length > 0) init_event_containerExa()
+	else{
+// pendiente loader
+	}
+}
+let verificacionPush = true;
+let nameExa;
+function events(buttonInit_Exa,buttonCloseForElements,containerbyInfoExa,nameExas){
+nameExa = nameExas;
+if(verificacionPush) funcionCallback2(buttonInit_Exa,buttonCloseForElements,containerbyInfoExa)
+verificacionPush = false;
+
+}
+function funcionCallback2(buttonInit_Exa,buttonCloseForElements,containerbyInfoExa){
+funcionEscucha=()=>{
+init_Rama_Exa(nameExa)
+}
+buttonInit_Exa.addEventListener('click', funcionEscucha)
+buttonCloseForElements.addEventListener('click',()=>{
+containerbyInfoExa.style.display = 'none'; // container
+})
+}
+async function initProcessDataByCreatorExa(confirm,nameExamen){
+let divs = document.querySelectorAll('.questionContainerJs');
+let objSendQuestion = {
+	puntaje : puntajeGlobal
+};
+if(confirm) objSendQuestion['infoExitApp'] = true;
+else objSendQuestion['infoExitApp'] = false
+let loader = document.querySelector('.loaderBySendExaForTeacher');
+loader.style.display = 'flex';
+for(let i =0; i < divs.length; i++){
+let label = divs[i].firstElementChild.textContent;
+let inputTextArea = divs[i].firstElementChild.nextElementSibling.value;
+objSendQuestion[label] = {
+ pregunta : label,
+ respuesta : inputTextArea,
+}
+}
+let veriCacionPost = await fetchPushResultado();
+async function fetchPushResultado(){
+let data = {
+	funcion : 'pushResultadorForTeachers',
+	nameStudent : nameConectionUserLocal,
+	teacherConection : docenteConection,
+	nameExamen : nameExass,
+	data : { ... objSendQuestion},
+	name : nameConectionUserLocal
+}
+let config = {
+ method : 'post',
+ body : JSON.stringify(data),
+ headers : {'Content-Type' : 'application/json'}
+}
+console.log(data)
+let fetchData = await fetch(serverConection,config);
+let response = await fetchData.json();
+if(response.mensaje) return true
+	else return false
+}
+if(veriCacionPost){
+loader.style.display = 'none';
+document.getElementById('byExaCreatorAndSend').style.display = 'none';
+document.getElementById('contenedorHcaerExa').style.display = 'none';
+examenes_Contenedor();
+}
+}

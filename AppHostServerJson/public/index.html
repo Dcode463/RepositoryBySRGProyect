@@ -1,6 +1,6 @@
  <!DOCTYPE html>
 <html>
-<head>
+<head> 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
@@ -36,7 +36,7 @@
 		</div>
 		<input type="hidden" id="addicionalInfoUserName">
 		<input type="hidden" id="addicionalInfoUserMateria">
-<div class="contenLogin" style="display:block;">
+<div class="contenLogin" style="display:block;"> <!-----------------------------------------Contenedor de login-->
 		<div class="salaEsperaLogin" style="display:none;">
 		<div class="loaderLOGIN"></div>
 		<p id="status_salaEsperaLogin">Espere porfavor</p>
@@ -118,7 +118,7 @@
  	  	<h1 style="color:wheat;">Estudiantes</h1>
  	  	<div id="containerEstudiantesPushElementJs">
 <!--             <div class="estudiantesContainerJS">
-            	<img class="avatarEstudiantes" src="http://182.122.239.4:8070/perfiles/jugador6.jpg">
+            	<img class="avatarEstudiantes" src="http://182.122.239.3:8070/perfiles/jugador6.jpg">
             	<p class="statusEstudiantes">Dennis</p>
             	<i class="menuBarsEstuendJs"><div style="display:none;" class="divButtonContainers">
             		 <button>Borrar</button>
@@ -126,8 +126,18 @@
             		 <button>Mandar examenes</button>
             	</div><img  src="media/iconos/menuBars.png"></i>
             </div> -->
- 	  	</div> 
+ 	  	</div>
+ 	  	 	  <div id="containerListExa" style="display:none;">
+ 	  	 	  	<img src="media/iconos/CLOSE.png" id="buttonCloseContainerExaList">
+ 	  	 	  	Eliga el examen
+ 	  	<div id="pushExaContainerList">
+<div class="loaderByLIstExa">
+<div class="loaderByForCjalist"></div>
+</div>
+ 	  	</div>
+ 	  </div> 
  	  </div>		
+
  </div>
  <div class="caja_Examenes caja" id="boxForCreateNewExa" style="display:none">
  	 <div id="loadderForExa" style="display:none;">
@@ -180,9 +190,72 @@
 </div>
  </div>
 </div>
- <div id="containerForExamenes" class="caja">
- 	
+ <div id="containerForExamenes" class="caja" style="display:none;">
+ <div class="cajaForExa">
+<div id="ifExaNodeNOne">
+<p id="infoNoExa">
+ Ups, no ah creado ningun examen <br><br>
+</p>
+<a href=""></a>
+<button id="forExaButtonNewExaForInfo">Crear examanen</button>
  </div>
+ <section id="sobrePonerForExaQuestion" style="display:none;"></section>
+<div id="containerLOADDINGBydeleteExa" style="display:none;">
+<p id="pStatusContainerLoaddingDelete">Borrando Examen ...</p>
+</div>
+<div id="containerViewQuestionForExa" style="display:none;"> <!--contenedor para ver la preguntas del examen-->
+<img src="media/iconos/CLOSE.png" id="buttonCloseContainerViewQuestion">
+<div id="pushJSContainierViewQuestionForExa">
+<div class="pushQuestionViemExa"><p class="questionElementP">¿Que es programcion?</p></div>
+<div class="pushQuestionViemExa"><p class="questionElementP">¿Que es programcion?</p></div>
+<div class="pushQuestionViemExa"><p class="questionElementP">¿Que es programcion?</p></div>
+<div class="pushQuestionViemExa"><p class="questionElementP">¿Que es programcion?</p></div>
+</div>
+</div>
+<div id="contenedorVerResultados" style="display:none;"> <!--contenedor para ver los resultados-->
+<img src="media/iconos/CLOSE.png" id="butonCerrarResultados" class="closeWindow">
+<div id="pushResultadosUsers" style="display:block;"></div>
+</div>
+<div id="pushExaContainer">
+<p>Examenes</p>
+<div class="cajaPushExa">
+<b style="color:grey;">Tema</b>
+<p class="pNameForExaContainer pAll">¿Quien fue ruben dario?<p class="p_for_b_Puntaje pAll"><b style="color:grey;">Puntaje</b> 15 puntos</p></p><img src="media/iconos/remove.png" class="imgRemoveExa"><img class="iconEditExa" src="media/iconos/editIcon.png"><img src="media/iconos/menuBars2.png" class="iconShowContainerExa">
+<div class="divShowBars" style="display:block;">
+<img  src="media/iconos/CLOSE.png"><button class="resultadosButton">Ver resultados</button><button class="infoSendButton">Enviados</button><button class="allInfoButton">Toda la inf</button>
+</div>
+</div>
+</div>
+ </div>
+ </div>
+</div>
+<section id="revisarExamenes" style="display:none;">
+<button id="cancelarRevicionDeExamanes">Cancelar</button>
+<button id="enviarResultados">Enviar a Onfire</button>
+<p id="nameExA">
+	"Programacion"
+</p>
+<p id="puntajeStatus">
+	Puntaje total  45
+	<br>
+	puntaje por preguntas  20.5
+</p>
+ <div id="pushToRevisarExamanes">
+<!--  <div class="divContainerOFRequestStudent">
+ 	<label>¿Que es la programacion?</label>
+ 	<p class="puntajeRevisarExamenes">Puntaje 10</p>
+ <textarea readonly class="valueOfRequestStudent">
+La programacion es el proceso de crear un conjunto de instrunciones que le dicen a una computadora blablabla</textarea><div class="promptOfRequestStudent"><div class="promptCorrecto"><input type="checkbox" class="inputTrue"><p>Exacto</p></div><div class="promptIncorrecto"><input class="inputFalse" type="checkbox"> <p>Incorrecto</p></div><input type="text" class="inputCommit" placeholder="Escriba un commit para onfire"></div>
+ </div> -->
+ </div>
+</section>
+<section id="sectionByLOader" style="display: none;">
+	<div class="center">
+<p style="font-weight:1; color:grey;">Codificando y mandando resultados </p>
+		<div class="loaderBysendstudent"></div>
+
+</div>
+</section>
 <script type="text/javascript" src="js/exa.js"></script>
 <script type="text/javascript" src="js/codigo.js"></script>
 <script type="text/javascript" src="js/createNewUser.js"></script>

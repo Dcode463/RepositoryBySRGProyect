@@ -1,6 +1,49 @@
 {
   "start": "repositori",
-  "chat": " ",
-  "examenes": {},
-  "resultadoForExamenes": ""
+  "Modo emprendimiento": {
+    "dataconfig": {
+      "nameForExa": "Modo emprendimiento",
+      "pointsForExa": "60",
+      "privateForTeacher": true,
+      "noExitApp": true,
+      "limitTimeCompleteVercion": "2 minutos",
+      "limitTime": {
+        "confirm": true,
+        "data": {
+          "hours": "",
+          "minute": "2"
+        }
+      }
+    },
+    "questionsData": {
+      "numero": 2,
+      "preguntas": [
+        "¿Que es el modo emprendedor?",
+        "¿Como puedo ser emprendedor?"
+      ]
+    }
+  },
+  "Emprendor": {
+    "dataconfig": {
+      "nameForExa": "Emprendor",
+      "pointsForExa": "65",
+      "privateForTeacher": false,
+      "noExitApp": false,
+      "limitTimeCompleteVercion": "2 minutos",
+      "limitTime": {
+        "confirm": true,
+        "data": {
+          "hours": "",
+          "minute": "2"
+        }
+      }
+    },
+    "questionsData": {
+      "numero": 2,
+      "preguntas": [
+        "¿what?",
+        "¿yea?"
+      ]
+    }
+  }
 }

@@ -527,7 +527,7 @@ padding:0;
 border-radius: 15px;
 }
 }
-@media only screen and (max-width:496px){
+@media only screen and (max-width:696px){
 .prompt{
 	position: absolute;
 	left: 10%;

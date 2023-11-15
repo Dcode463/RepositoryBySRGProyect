@@ -9,7 +9,7 @@ let buttonsSelectionModeRepositori = document.getElementById('severRepositoriMod
 const input = document.getElementById('userName');
 const img = document.getElementById('userAvatar');
 let urlLocal = location.hostname;
-let events = true;
+let eventsOne = true;
 servidor = `http://${urlLocal}:8070`;
 console.log(`conectado a ${servidor}`);
 window.addEventListener('load',()=>{
@@ -23,10 +23,15 @@ setTimeout(()=>{
 boxModeAcademic.style = `left:50%;top:50%;transform:translate(-50%,-50%)`;
 setTimeout(()=>{boxModeAcademic.style.opacity = "0"; setTimeout(()=>{
 viajeSubLaunchuer.style.display = "block";
+document.getElementById('launcherImg').src = 'mediaChatBot/launcherSendAnd.gif';
+// srcIMgViajeLanuncher.src = 'mediaChatBot/launcherSendAnd.gif';
+
 sectionModeServerRepositoriGames.style.style = "none";
 document.getElementById('electionMode').style.display = "none";
 sectionModeServerRepositoriGames.innerHTML = '';
-setTimeout(()=>{modeAcademic(viajeSubLaunchuer,servidor)},1500)
+setTimeout(()=>{
+window.location.href = '../academicMode.html';
+},4500)
 },500)},500)
 },500)
 })
@@ -85,8 +90,8 @@ const clickEnterAnimacion = document.querySelector('.clickEnter');
 const contenedorStartAnimationGet = contenedorStartAnimation.getAttribute('style');
 if(contenedorStartAnimation.style.display === "block"){
 body.addEventListener('keydown', (e)=>{
-if(e.key === "Enter" && p6AnimationStart.style.opacity === "1"&& events){
-events = false;
+if(e.key === "Enter" && p6AnimationStart.style.opacity === "1"&& eventsOne){
+eventsOne = false;
 transitionLOgin();
 async function transitionLOgin (){  
 p6AnimationStart.style.display = "none";
@@ -151,8 +156,8 @@ span.removeAttribute('class')
 })
 if(contenedorStartAnimation.style.display === "block"){
 document.querySelector('html').addEventListener('click', (e)=>{
-if(events){
-events = false;
+if(eventsOne){
+eventsOne = false;
 transitionLOgin();
 async function transitionLOgin (){  
 p6AnimationStart.style.display = "none";

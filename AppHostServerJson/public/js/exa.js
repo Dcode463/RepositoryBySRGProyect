@@ -6,6 +6,7 @@ const buttonAñidirPregunta = document.getElementById('buttonAñadirPreguntas');
 const contenedorPadre = document.getElementById('pushBoxFather');
 const buttonSend = document.getElementById('buttonSendExa');
 const infoPreguntas = document.getElementById('infoPreguntas');
+const timeStatus = document.getElementById('timeStatus')
 // Document HTML
 //limit time
 let checkboxLimitTime = document.getElementById('limitTimeCheckBox');
@@ -37,6 +38,7 @@ let objPushDataConfig = {
 	pointsForExa : '',
 	privateForTeacher : false,
 	noExitApp : false,
+	limitTimeCompleteVercion : '',
 	limitTime : {
 	    confirm : false,
 	    data : {
@@ -126,8 +128,29 @@ if(checkboxLimitTime.checked){labelLimitTime.style.display = "none";inputTheChec
 else if(checkboxLimitTime.checked === false){timeStatus.innerHTML = ''; labelLimitTime.style.display = "inline-block";inputTheCheckBoxLimitTimeMinutes.style.display = "none";inputTheCheckBoxLimitTimeMinutes.value = '';inputTheCheckBoxLimitTimeHours.style.display = "none";inputTheCheckBoxLimitTimeHours.value = '';}
 }
 // global
-veriDataInput=()=>{
-const promesaV = new Promise((resolve, reject)=>{
+async function veficacionExamenIgualdad (nameInputExa){
+let name = document.getElementById('addicionalInfoUserName');
+let data = {
+funcion : 'requestExa',
+name : name.value
+}
+let config = {
+method : 'post',
+body : JSON.stringify(data),
+headers : {'Content-Type':'application/json'}
+}
+let fetchData = await fetch(server,config);
+let responseFetchOne = await fetchData.json();
+let responseFetch = JSON.parse(responseFetchOne)
+let jsonToArray = Object.keys(responseFetch);
+let filterArray = jsonToArray.filter(e=> e != 'start');
+let validorIgualdad = filterArray.some(w=> w === nameInputExa)
+console.log(validorIgualdad)
+if(validorIgualdad) return true
+else return false 
+}
+async function veriDataInput (){
+const promesaV = new Promise(async (resolve, reject)=>{
 let veri = true;
 if(checkboxLimitTime.checked){
 if(inputTheCheckBoxLimitTimeHours.value.length === 0 && inputTheCheckBoxLimitTimeMinutes.value.length === 0) reject({input : inputTheCheckBoxLimitTimeHours, method : true, data : 'Ingrese el tiempo que desea como limite'});
@@ -138,11 +161,14 @@ else if (isNaN(inputTheCheckBoxLimitTimeMinutes.value))reject({input : inputTheC
 }
 if(inputNameExa.value.length === 0 || inputNameExa.value === " ")reject({input : inputNameExa,method : true, data : 'Ingrese un nombre a su examen (obligatorio)'});
 else if(puntosMateria.value.length === 0 || puntosMateria.value === " ")reject({input: puntosMateria,method : true, data : 'Ingrese el puntaje de su examen (obligatorio)'});
+let peticionExa = await  veficacionExamenIgualdad(inputNameExa.value);
+console.log(peticionExa)
+if (peticionExa) reject({input:inputNameExa,method:true,data:`Ups, el nombre para el  examen '${inputNameExa.value}'' ya esta en uso.`})
 else resolve(true)
 }).then(e => pushDataConfig()).catch(e=>{
 if(e.input != undefined){
 	 e.input.style.border = 'solid 2px red';
- statusforconfigExa.innerHTML = e.data
+ statusforconfigExa.innerHTML = e.data;
  setTimeout(()=>{e.input.style.border = 'none';statusforconfigExa.innerHTML = ''},3000)
 }else{
 	alert(e)
@@ -179,6 +205,7 @@ if(checkboxLimitTime.checked){
 objPushDataConfig.limitTime.confirm = true;
 objPushDataConfig.limitTime.data.minute = inputTheCheckBoxLimitTimeMinutes.value;
 objPushDataConfig.limitTime.data.hours = inputTheCheckBoxLimitTimeHours.value;
+objPushDataConfig.limitTimeCompleteVercion = timeStatus.innerHTML;
 }
 else if(checkboxLimitTime.checked === false) objPushDataConfig.limitTime.confirm = false;
 changeSectionForExa();

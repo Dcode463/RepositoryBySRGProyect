@@ -48,7 +48,6 @@ hr{
 	height: 70vh;
 	width: 100%;
 	border-radius: 15px;
-box-shadow: 4px 2px 8px black;
 }
 .promptOne{
 	float: left;
@@ -1054,36 +1053,40 @@ float: right;
 	border-radius: 5px;
 }
 #containerEstudiantes{
-	width:50%;
-	height: 50%;
-	background: #1a1a1a;
-	position: absolute;
-	left: 10%;
-	border-radius: 15px;
-	top: 50%;
-	transform: translate(-10%,-50%);
-	overflow: auto;
-	scrollbar-width:thin;
-	padding: 15px;
-	box-shadow: 0 0 30px black;
+width: 50%;
+  height: 50%;
+  background: white;
+  position: absolute;
+  left: 10%;
+  border-radius: 15px;
+  top: 50%;
+  transform: translate(-10%,-50%);
+  overflow: auto;
+  scrollbar-width: thin;
+  padding: 15px;
+  box-shadow: 0 0 30px black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 .estudiantesContainerJS{
-	width: auto;
-	height: 15%;
-	float: left;
-	display: flex;
-	padding: 10px;
-	background: white;
-	border-radius: 15px;
-	margin: 5px;
-	text-align: center;
+width: 100%;
+  height: 15%;
+  float: left;
+  display: flex;
+  padding: 10px;
+  background: white;
+  border-radius: 15px;
+  margin: 5px;
+  text-align: center;
   position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .avatarEstudiantes{
  width:5%;
  border-radius: 50%;
 }
 .statusEstudiantes{
+	transition: 0.4s;
 	text-align: center;
 	margin: 5px;
 }
@@ -1293,4 +1296,522 @@ border-radius: 15px;
 	align-items: center;
 	background: white;
 }
+}
+.cajaForExa{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 60%;
+	height: 80%;
+	background: white;
+	border-radius: 15px;
+/*  box-shadow: 0 0 10px rgba(0, 0, 0, 1);*/
+
+	padding: 20px;
+}
+#pushExaContainer{
+width: 100%;
+height: 100%;
+overflow: auto;
+}
+.cajaPushExa{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+	width: 90%;
+	border-radius: 10px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	color: black;
+	padding: 10px;
+	margin: 20px;
+	transition: 0.2s;
+}
+
+.pAll{
+		color: black;
+	padding: 5px;
+	border-radius: 10px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: inline-block;
+	margin: 10px;
+}
+.iconShowContainerExa{
+cursor: pointer;
+float: right;
+}
+
+.imgRemoveExa{
+cursor: pointer;
+float: right;
+}
+.iconEditExa{
+cursor: pointer;
+float: right;
+}
+.imgRemoveExa:hover{
+	scale: 105%;
+}
+.imgRemoveExa:hover > .cajaPushExa{
+box-shadow: 0 0 10px red!important;
+}
+.divShowBars{
+	position: absolute;
+  right: 10%;
+  background: #1a1a1a;
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  display: none;
+}
+.divShowBars img{float: right; cursor: pointer;}
+.divShowBars button{
+	display: block;
+	background: white;
+	color: black;
+	margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  width: 90%;
+  text-align: left;
+  cursor: pointer;
+}
+.divShowBars button:hover{
+	background: royalblue;
+	color: white;
+}
+#infoNoExa{
+position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 20px;
+  font-family: inherit;}
+#forExaButtonNewExaForInfo{
+background: royalblue;
+border-radius: 15px;
+border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+#forExaButtonNewExaForInfo{
+	background: royalblue;
+  border-radius: 15px;
+  border: none;
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+#containerViewQuestionForExa{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 200;
+	background: white;
+	color: black;
+	width: 50%;
+	height: 50%;
+	border-radius: 15px;
+	padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+  overflow-x: hidden;
+}
+#containerLOADDINGBydeleteExa{
+		position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 200;
+	background: white;
+	color: black;
+	width:auto;
+	height:auto;
+	border-radius: 15px;
+	padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#contenedorVerResultados{
+		position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 200;
+	background: white;
+	color: black;
+	width: 50%;
+	height: 50%;
+	border-radius: 15px;
+	padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+    overflow-x: auto;
+  overflow-x: hidden;
+  padding-top: 25px;
+}
+#butonCerrarResultados{
+	position: absolute;
+right: 1%;
+top: 1%;
+background:black;
+border-radius: 5px;
+width: 35px;
+cursor: pointer;
+}
+#cancelarRevicionDeExamanes{
+position: absolute;
+right: 5%;
+top: 15%;
+background: black;
+color: white;
+border: none;
+padding: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+border-radius: 5px;
+cursor: pointer;
+}
+#puntajeStatus{
+position: absolute;
+left: 5%;
+width: auto;
+bottom: 10%;
+background-color:white;
+border-radius: 15px;
+padding: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+max-width: 20%;
+}
+#nameExA{
+	position: absolute;
+left: 5%;
+width:auto;
+bottom: 20%;
+background-color:white;
+border-radius: 15px;
+padding: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+max-width: 20%;
+}
+#enviarResultados{
+position: absolute;
+right: 5%;
+top: 5%;
+background: royalblue;
+color: white;
+border: none;
+padding: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+border-radius: 5px;
+cursor: pointer;
+max-width: 19%;
+}
+#sobrePonerForExaQuestion{
+	opacity:0.9;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+width: 100%;
+height: 100%;
+background: white;
+z-index: 100;
+background-color: rgba(250, 250, 250, 0.9);
+border-radius: 15px;
+}
+.pushQuestionViemExa{
+	background: white;
+	color:black;
+	padding: 5px;
+	border-radius: 5px;
+	width:100%;
+	margin: 10px 0 10px 0;
+	width: 100%;
+	overflow: auto;
+background-color: rgba(250, 250, 250, 0.9);
+}
+#buttonCloseContainerViewQuestion{
+position: absolute;
+right: -10%;
+top: -20%;
+background:black;
+border-radius: 5px;
+width: 35px;
+cursor: pointer;
+}
+.pushDivElementResult{
+	display: flex;
+ cursor: pointer;
+		background: white;
+	color:black;
+	padding: 5px;
+	border-radius: 5px;
+	width:100%;
+	margin: 10px 0 10px 0;
+	width: auto;
+	overflow: auto;
+background-color: rgba(250, 250, 250, 0.9);
+}
+.pushDivElementResult:hover{
+background: royalblue;
+color: white;
+}
+/* HTML: <div class="loader"></div> */
+.loaderByExaLoader {
+  width: 100px;
+  aspect-ratio: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  display: grid;
+  background: #fff;
+  filter: blur(5px) contrast(10);
+  mix-blend-mode: darken;
+}
+.loaderByExaLoader:before,
+.loaderByExaLoader:after{
+  content: "";
+  grid-area: 1/1;
+  background:
+    linear-gradient(#000 0 0) left,
+    linear-gradient(#000 0 0) right;
+  background-size: 20px 40px;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+}
+.loaderByExaLoader:after {
+  height: 20px;
+  width:  20px;
+  margin: auto 0;
+  border-radius: 50%;
+  background: #000;
+  animation: l10 1s infinite;
+}
+@keyframes l10{
+  90%,100% {transform: translate(300%)}
+}
+.loaderContainer{
+margin-left: 30px;
+	width: 10%;
+	height: 10%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#buttonCloseContainerExaList{
+	background: black;
+	position: absolute;
+	cursor: pointer;
+	width: 5%;
+	right: 1%;
+}
+#containerListExa{
+	position: absolute;
+	z-index: 100;
+	right: 10%;
+	top: 50%;
+	width: 100%;
+	height: 100%;
+	background: white;
+	transform: translate(10%,-50%);
+	border-radius: 15px;
+	padding: 10px;
+}
+#pushExaContainerList{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	background: white;
+/*  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+	width: 80%;
+	height: 80%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+.pushJSEXAContainer{
+	width: 80%;
+	border-radius: 15px;
+	padding: 20px;
+	font-weight: 15;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+  cursor: pointer;
+}
+.pushJSEXAContainer:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+.loaderByLIstExa{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* HTML: <div class="loader"></div> */
+.loaderByForCjalist {
+  width: 65px;
+  aspect-ratio: 1;
+  position: relative;
+}
+.loaderByForCjalist:before,
+.loaderByForCjalist:after {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  box-shadow: 0 0 0 3px inset black;
+  animation: l5 2.5s infinite;
+}
+.loaderByForCjalist:after {
+  animation-delay: -1.25s;
+  border-radius: 0;
+}
+@keyframes l5{
+  0%    {inset:0    35px 35px 0   }
+  12.5% {inset:0    35px 0    0   }
+  25%   {inset:35px 35px 0    0   }
+  37.5% {inset:35px 0    0    0   }
+  50%   {inset:35px 0    0    35px}
+  62.5% {inset:0    0    0    35px}
+  75%   {inset:0    0    35px 35px}
+  87.5% {inset:0    0    35px 0   }
+  100%  {inset:0    35px 35px 0   }
+}
+#revisarExamenes{
+		position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 100%;
+	height: 100%;
+	background: white;
+	transform: translate(-50%,-50%);
+
+}
+#pushToRevisarExamanes{
+		position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	background: white;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ width: 50%;
+ height: 90%;
+ overflow: auto;
+ overflow-x: hidden;
+ scrollbar-width: thin;
+ border-radius: 15px;
+}
+.divContainerOFRequestStudent{
+	width: 90%;
+	padding: 10px;
+	height: auto;
+	border: solid 2px royalblue;
+	margin: 20px;
+	border-radius: 10px;
+}.divContainerOFRequestStudent textarea{
+width: 90%;
+padding: 30px;
+border-radius: 15px;
+border: none;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ margin: 10px;
+ scrollbar-width: thin;
+}
+.promptOfRequestStudent{
+	width: 80%;
+}
+.inputCommit{
+	width: 50%;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.promptCorrecto{
+		color:black;
+	display: flex;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 15px;
+}
+.promptCorrecto input{
+	cursor: pointer;
+	margin-right: 10px;
+}
+.promptIncorrecto{
+	color:black;
+	display: flex;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 15px;
+}
+.promptIncorrecto input{
+	cursor: pointer;
+	margin-right: 10px;
+}
+.puntajeRevisarExamenes{
+	margin: 5px;
+	color: grey;
+}
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+
+#sectionByLOader{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	background-color: rgba(250, 250, 250, 0.9);
+	width: 100%;
+	height: 100vh;
+	}
+.center{
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);display: flex;justify-content: center;align-items: center;
+}
+#loaderBysendAndStudent div p{
+	color: grey;
+	padding: 30px;
+}
+/* HTML: <div class="loader"></div> */
+
+/* HTML: <div class="loader"></div> */
+.loaderBysendstudent {    
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #fff;
+  mix-blend-mode: darken;
+  display: grid;
+  filter: blur(4px) contrast(10) hue-rotate(270deg);
+}
+.loaderBysendstudent:before,
+.loaderBysendstudent:after {
+  content:"";
+  grid-area: 1/1;
+  animation: l2 3s infinite linear;
+  background:#ff00ff;
+  border-radius: 50%;
+}
+.loaderBysendstudent:after {
+  animation-delay: -.8s;
+}
+@keyframes l2{
+  12.5% {border-radius: 37% 63% 70% 30% / 30% 62% 38% 70%}
+  25%   {border-radius: 84% 16% 15% 85% / 55% 79% 21% 45%}
+  37.5% {border-radius: 73% 27% 74% 26% / 64% 32% 68% 36%}
+  50%   {border-radius: 73% 27% 18% 82% / 52% 32% 68% 48%}
+  62.5% {border-radius: 33% 67% 18% 82% / 52% 75% 25% 48%}
+  75%   {border-radius: 12% 88% 69% 31% / 10% 66% 34% 90%}
+  87.5% {border-radius: 50% 50% 70% 30% / 52% 62% 38% 48%}
 }

@@ -5,7 +5,7 @@ top:49%;
 transform:translate(-50%,-49%);
 width:100%;
 height:101vh;
-background:transparent;
+background-image: linear-gradient(to right top, #2611da, #2818d7, #2a1ed4, #2d23d0, #2f27cd, #1f3fd8, #0c52e1, #0063e8, #0084f6, #00a0fc, #00bbfc, #5fd3fb);
 }
 .contenLogin{
 color: white;
@@ -257,7 +257,7 @@ display: inline-block;
 	transition: padding 0.4s, all 0.2s;
 	display: block;
 	background: #12151c ;
-	height: 100vh;
+	height: 101vh;
 	width: 70px;
 	z-index: 1000000;
 	top: 0;
@@ -384,4 +384,287 @@ display: inline-block;
 .bInfoFullMateri{
 	color: grey;
 	font-size: 12px;
+}
+#section_Exa{
+overflow: auto;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+background: white;
+width: 80%;
+height: 80%;
+border-radius: 15px;
+}
+.pushElementExa{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+	width: 90%;
+	border-radius: 10px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	color: black;
+	padding: 10px;
+	margin: 20px;
+}
+.pForPush{
+	color: black;
+	padding: 5px;
+	border-radius: 10px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: inline-block;
+	margin: 10px;
+}
+.pForPush b{
+		font-weight: 12;
+	color:grey;
+
+}
+.imgExa{
+width:50px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+
+}
+#contenedorHcaerExa{
+position: absolute;
+left: 50%;
+top: 50%;
+transform:translate(-50%,-50%);
+width: 100%;
+height: 100%;
+background: rgba(250, 250, 250, 0.9);
+}
+.elements p{
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ color: black;
+ padding: 10px;
+ border-radius: 5px;
+ width: auto;
+ display: inline-block;
+}
+.elements {
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ padding: 20px;
+ border-radius: 15px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 50%;
+	transform: translate(-50%,-50%);
+	background: white;
+}
+#buttonInit_Exa{
+	background: black;
+	color: white;
+	display: block;
+
+}
+#buttonCloseForElements{
+	position: absolute;
+	right: -10%;
+	top: -10%;
+	background: black;
+	padding: 2px;
+	border-radius: 5px;
+	width: 35px;
+	cursor: pointer;
+}
+#buttonInit_SendExa{
+		background: black;
+	padding: 2px;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	padding: 10px;
+	float: right;
+	margin-right: 20px;
+	margin-top: 50px;
+}
+#byExaCreatorAndSend{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 100%;
+	height: 100%;
+	background: white;
+	transform: translate(-50%,-50%);
+	z-index: 1000001;
+}
+#push_JS_ExaCreator{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	background: white;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ width: 50%;
+ height: 90%;
+ overflow: auto;
+ overflow-x: hidden;
+ scrollbar-width: thin;
+ border-radius: 15px;
+}
+.questionContainerJs{
+	width: 100%;
+	height: 20%;
+	color: black;
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.questionContainerJs label{
+ display: block;
+ margin-bottom: 10px;
+}
+.questionContainerJs textarea{
+width: 90%;
+height: 70%;
+max-height: 98%;
+max-width: 90%;
+border-radius: 15px;
+border: none;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+color: black;
+padding: 15px;
+}
+#timeLimet{
+position: sticky;
+top: 0;
+width:100%;
+background: royalblue;
+padding: 5px;
+transition:all 0s ease 0s;
+}
+#timeLimet:hover{
+	width: 100%;
+}
+.bForP{
+	display: block;
+	color: black!important;
+	font-weight: 12;
+}
+.loaderBySendExaForTeacher{
+ position: absolute;
+ left: 50%;
+ top:50%;	
+ transform: translate(-50%,-50%);
+ color: black;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(250,250, 250, 1);
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.loaderBySendExaForTeacher p{
+	font-size: 15px;
+	color: grey;
+	text-align: center;
+	margin-left: 30px;
+} 
+
+
+.loaderByCssSendTeachers {
+  width: 100px;
+  aspect-ratio: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  display: grid;
+  background: #fff;
+  filter: blur(5px) contrast(10);
+  mix-blend-mode: darken;
+}
+.loaderByCssSendTeachers:before,
+.loaderByCssSendTeachers:after{
+  content: "";
+  grid-area: 1/1;
+  background:
+    linear-gradient(#000 0 0) left,
+    linear-gradient(#000 0 0) right;
+  background-size: 20px 40px;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+}
+.loaderByCssSendTeachers:after {
+  height: 20px;
+  width:  20px;
+  margin: auto 0;
+  border-radius: 50%;
+  background: #000;
+  animation: l10 1s infinite;
+}
+@keyframes l10{
+  90%,100% {transform: translate(300%)}
+}
+#alertModeNoExit{
+	font-size: 10px;
+	position: absolute;
+	right: 1%;
+	bottom: 1%;
+	padding: 10px;
+	border-radius: 5px;
+	color:black;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+}
+#exitAppInfo{
+	padding: 40px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+background-color: rgba(250, 250, 250, 1);
+color : black;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ border:  solid 2px royalblue;
+}
+#exitAppInfo p{
+ font-size: 19px;
+
+}
+#exitAppInfo button{
+	display: block;
+	margin-top: 30px;
+	padding: 10px;
+	float: right;
+	color: white;
+	background: black;
+}
+#exitAppInfo b{
+	font-weight: 12;
+	color: grey;
+	font-size: 20px;
+}
+.divpushElementExa{
+	border: solid 3px transparent;
+}
+.divpushElementExa:hover{
+	border: solid 3px royalblue;
+}
+#infoNoExa{
+	width: 90%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	color:black;
+	font-weight: 15;
+	font-size: 20px;
+	background: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#infoNoExa img{
+width: 130px;
+display: inline-block;
+}
+.ByInfonoExa{
+	display: inline-block;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);	
+ 	padding: 5px;
+	border-radius: 10px;
 }

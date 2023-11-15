@@ -24,7 +24,7 @@ const contetLogin = document.getElementById('contenedorMAXFORContentLogin');
 const buttonAceptarNewLogin = document.getElementById('buttonAceptarNewLogin');
 const butonCancelarNewLogin = document.getElementById('buttonNoAceptarNewLogin')
 const containerNewLoginServer = document.getElementById('createNewUserContainer');
-//////////////Chat bot/////
+//////////////Chat bot///// 
 const pchatBot = document.getElementById('chatBotText')
 /////////////inputs For login
 const inputNameSendServerNewUser = document.getElementById('nombre_CreateNewUser');
@@ -662,6 +662,7 @@ fetch(servidor,headers)
 	 	let img  = document.createElement('IMG'); img.classList.add('avatarEstudiantes'); if(jsonData[aRSLFTs[i]].status.what != undefined){img.setAttribute('value',jsonData[aRSLFTs[i]].status.host)} img.src = servidor + jsonData[aRSLFTs[i]].avatar;
 	 	let button = document.createElement('I'); button.classList.add('menuBarsEstuendJs'); button.innerHTML = `<div style="display:none;" class="divButtonContainers">
       <button class = "viemGameExpectorButton">Mirar juego</button>
+      <button class = "sendExaButton">Mandar Examen</button>
 	 	</div><img src="media/iconos/menuBars.png">`;
 	 	div.appendChild(img)
 	 	div.appendChild(p)
@@ -672,6 +673,7 @@ fetch(servidor,headers)
 }) 
 }
 function eventosEschuchaForButtons(){
+const sendExaButton = document.querySelectorAll('.sendExaButton');
 const menuBarsEstuendJs = document.querySelectorAll('.menuBarsEstuendJs');
 const buttonViemExpector = document.querySelectorAll('.viemGameExpectorButton');
 menuBarsEstuendJs.forEach(e=>{
@@ -696,6 +698,9 @@ buttonViemExpector.forEach(e=>{
          if(hosGameConection === null || hosGameConection === undefined) alert("Tu estudiante no esta jugando")
          else alert(hosGameConection)
 	 })
+})
+sendExaButton.forEach(e=>{
+e.addEventListener('click',()=>{init_send_exa_for_studentContainer(e.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling.textContent,e.parentElement.parentElement.parentElement.firstElementChild.nextElementSibling)})
 })
 }
 function hours(){
@@ -761,4 +766,420 @@ document.querySelector('.nav_a').style =`cursor:pointer;width:90%;padding: 5px;m
 document.querySelector('.userImg').style =`transition:  0.4s!important;transition: width 0.6s!important;transition:  margin 10s!;width: 50px;margin: 10px;border-radius: 50%;`;
 document.querySelector('.userName').style =`width: 200px;transition: 0s;color: transparent;padding: 10px;opacity:0;`
 document.getElementById('statusName').style =`transition:0;opacity:0;color: transparent;font-size: 12px;`;
+}
+// click button examanes 
+// document
+let containerForExa = document.getElementById('containerForExamenes');
+let buttonViemExamenes = document.getElementById('examenesButton');
+// Events 
+init_BoxExa=()=>{
+cerrarNav()
+elementosCaja.forEach(j=>{
+	if(j != containerForExa) j.style.display = 'none';
+});containerForExa.style.display = 'block';
+requieredExaList()
+}
+buttonViemExamenes.addEventListener('click', init_BoxExa)
+async function requieredExaList(){
+let objQuestion;
+let containerFatherForEXApush = document.getElementById('pushExaContainer');
+containerFatherForEXApush.innerHTML = '';
+async function requieredFetchExaList(){
+let dataSend = {
+	funcion : 'requestExa',
+	materia : inputMat.value,
+	name : inputUserName.value
+}
+let config = {
+	method : 'post',
+	body : JSON.stringify(dataSend),
+	headers : {'Content-Type' : 'application/json'}
+}
+let fetchData = await fetch(servidor,config);
+let dataResponse = await fetchData.json();
+return JSON.parse(dataResponse)
+}
+let documentJsonResponse = await requieredFetchExaList();
+objQuestion = documentJsonResponse;
+let objeBydocument = Object.keys(documentJsonResponse);
+let filterobjeBydocument =  objeBydocument.filter(e => e != 'start');
+if(filterobjeBydocument.length === 0) ifExaNodeNOne.style.display = 'block';
+else ifExaNodeNOne.style.display = 'none';
+for(let i=0; i < filterobjeBydocument.length; i++){
+let div = document.createElement('DIV');div.classList.add('cajaPushExa');
+let pByNameExa = document.createElement('P');pByNameExa.classList.add('pNameForExaContainer','pAll');
+pByNameExa.innerHTML = `<p class='pAll' style = "color:grey;">Tema</p><p class = 'pAll'>${documentJsonResponse[filterobjeBydocument[i]].dataconfig.nameForExa}</p><a href="#" class= "init_questionForExa pAll">Preguntas ${documentJsonResponse[filterobjeBydocument[i]].questionsData.numero}</a><p class="p_for_b_Puntaje pAll"><b style="color:grey;font-weight: 12;">Puntaje</b> <br> ${documentJsonResponse[filterobjeBydocument[i]].dataconfig.pointsForExa}`;
+let buttonRemoveExa = document.createElement('IMG');buttonRemoveExa.classList.add('imgRemoveExa');buttonRemoveExa.src = 'media/iconos/remove.png';
+let buttonEdit  = document.createElement('IMG');buttonEdit.classList.add('iconEditExa');buttonEdit.src = 'media/iconos/editIcon.png';
+let buttonBars = document.createElement('IMG');buttonBars.classList.add('iconShowContainerExa');buttonBars.src = 'media/iconos/menuBars2.png';
+let divBarsOther = document.createElement('DIV');divBarsOther.classList.add('divShowBars');divBarsOther.innerHTML = `<img src='media/iconos/CLOSE.png' class='closeWindow'>	<button class="resultadosButton">Ver resultados</button><button class="infoSendButton">Enviados</button><button class="allInfoButton">Toda la inf</button>
+`;
+div.appendChild(pByNameExa);div.appendChild(buttonRemoveExa);div.appendChild(buttonEdit);div.appendChild(buttonBars);div.appendChild(divBarsOther)
+containerFatherForEXApush.appendChild(div);
+}
+if(ifExaNodeNOne.style.display === 'none'){
+let a_init_viemQuestions = document.querySelectorAll('.init_questionForExa');
+let containerPushQuestionForExa = document.getElementById('pushJSContainierViewQuestionForExa');
+let containerForInforExa = document.getElementById('containerViewQuestionForExa');
+let sobrePonerExa = document.getElementById('sobrePonerForExaQuestion');
+let buttonclose = document.getElementById('buttonCloseContainerViewQuestion');
+let buttonsForPushOpciones = document.querySelectorAll('.iconShowContainerExa');
+let buttonDeleteEXA = document.querySelectorAll('.imgRemoveExa');
+let buttonclosed = document.querySelectorAll('.closeWindow');
+buttonDeleteEXA.forEach(e=>{ 
+e.addEventListener('click',async ()=>{
+let objectoSend  = await {
+father:  e.parentElement,
+nameExa : e.parentElement.firstElementChild.firstElementChild.nextElementSibling.textContent,
+nameTeacher : addicionalInfoUserName.value
+}
+init_delete_exa(objectoSend)
+ })
+})
+buttonsForPushOpciones.forEach(e=>{ // push opciones
+e.addEventListener('click',()=>{ // evento open
+let elementCaja =  e.parentElement.lastElementChild;
+elementCaja.style.display = 'block';
+let buttonClose = e.parentElement.lastElementChild.firstElementChild;
+buttonclosed.forEach(e=>{
+	e.addEventListener('click',()=>{ // Evento close 
+elementCaja.style.display = 'none';
+})
+})
+let butonDeVerResultados = e.nextElementSibling.firstElementChild.nextElementSibling;
+butonDeVerResultados.addEventListener('click',()=>{init_view_resultados(e.parentElement.firstElementChild.firstElementChild.nextElementSibling.textContent,elementCaja)});
+})
+})
+a_init_viemQuestions.forEach(e=>{ // evento de ver preguntas
+e.addEventListener('click',()=>{
+sobrePonerExa.style.display = 'block';
+containerForInforExa.style.display = 'block';
+containerPushQuestionForExa.innerHTML = '';
+buttonclose.addEventListener('click',()=>{
+	 sobrePonerExa.style.display = 'none';
+containerForInforExa.style.display = 'none';
+containerPushQuestionForExa.innerHTML = '';
+})
+init_push_questions=(nameQuestion)=>{
+	console.log(objQuestion)
+	console.log(nameQuestion)
+let objlength = objQuestion[nameQuestion].questionsData.preguntas;
+for(let i=0; i < objlength.length; i++){
+let div = document.createElement('DIV'); div.classList.add('pushQuestionViemExa');
+let p = document.createElement('P'); p.classList.add('questionElementP');p.textContent = objlength[i]
+div.appendChild(p);containerPushQuestionForExa.appendChild(div)
+}
+}
+init_push_questions(e.parentElement.firstElementChild.nextElementSibling.textContent)
+})
+})
+}}
+/*
+transition: 0.2s;
+  transform: translate(-100%);*/
+async function init_delete_exa(obj){
+let containerLoad = document.getElementById('containerLOADDINGBydeleteExa');
+let pStatus = document.getElementById('pStatusContainerLoaddingDelete');
+let sobreponer = document.getElementById('sobrePonerForExaQuestion');
+let fatherPush = document.getElementById('pushExaContainer');
+let elementoDiv = obj.father;
+sobreponer.style.display = 'block';
+pStatus.textContent = `Borrando Examen '${obj.exaDelete} ...'`;
+let requestResponse = await requestDelete();
+if(requestResponse){
+pStatus.textContent = `Examen '${obj.exaDelete}' borrado con exito`;
+setTimeout(()=>{
+containerLoad.style.display = 'none';sobreponer.style.display = 'none';
+elementoDiv.transform = 'translate(-100%)';
+setTimeout(()=>{
+fatherPush.removeChild(elementoDiv);
+},500)
+},1000);
+}
+async function requestDelete(){
+let data = { 
+funcion : 'deleteExamenes',
+nameTeacher : obj.nameTeacher,
+name : obj.nameTeacher,
+exaDelete : obj.nameExa
+}
+let config = {
+method : 'post',
+body : JSON.stringify(data),
+headers : {'Content-Type':'application/json'}
+}
+let fetchData = await fetch(servidor,config);
+let response = await fetchData.json();
+console.log(response)
+if(response.mensaje) return true
+else return false
+}	
+}
+let nameExamenGlobal;
+let puntajeGlobal; 
+function pushEvents(){ // añadir eventos alas cajas de los resultados de los examenes
+let divsFather = document.querySelectorAll('.divContainerOFRequestStudent');
+divsFather.forEach(i=>{
+let inputTrue = i.lastElementChild.firstElementChild.firstElementChild;
+let inputFale = i.lastElementChild.firstElementChild.nextElementSibling.firstElementChild;
+inputTrue.addEventListener('change',()=>{if (inputTrue.checked) inputFale.checked = false;
+	inputFale.style.boxShadow =  'none';
+	inputTrue.style.boxShadow =  'none';
+});
+inputFale.addEventListener('change',()=>{if (inputFale.checked) inputTrue.checked = false;
+	inputFale.style.boxShadow =  'none';
+	inputTrue.style.boxShadow =  'none';
+});
+})
+}
+async function init_view_resultados(nameExamen,containerClose){
+nameExamenGlobal = nameExamen;
+document.getElementById('nameExA').textContent = nameExamen;
+try{
+let sobreponer = document.getElementById('sobrePonerForExaQuestion');
+let buttonCloseContenedorResultados = document.getElementById('butonCerrarResultados');
+let contenedorResultados = document.getElementById('contenedorVerResultados');
+contenedorResultados.style.display = 'block';
+sobreponer.style.display = 'block';
+call=()=>{contenedorResultados.style.display = 'none';sobreponer.style.display = 'none';buttonCloseContenedorResultados.removeEventListener('click',call)}
+buttonCloseContenedorResultados.addEventListener('click', call)
+}
+catch(e){
+console.log(e)
+}
+async function init_Peticion_de_resultados(){
+let data = {
+funcion : 'requestExaAnswers',
+name : addicionalInfoUserName.value,
+nameExa : nameExamen
+}
+let config = {
+method : 'post',
+body: JSON.stringify(data),
+headers : {'Content-Type' : 'application/json'}
+}
+let fetchData = await fetch(servidor,config);
+let response = await fetchData.json();
+return JSON.parse(response)
+}
+containerClose.style.display = 'none';
+let responseAnswers = await init_Peticion_de_resultados();
+let objectToArray =  Object.keys(responseAnswers);
+let filterMatriz = objectToArray.filter(e=>  e != 'NOREMOVE');
+let fatherOne = document.getElementById('pushResultadosUsers')
+fatherOne.innerHTML = '';
+for(let i=0; i < filterMatriz.length; i++){
+let div = document.createElement('DIV');
+    div.classList.add('pushDivElementResult');
+let p = document.createElement('P');
+    p.classList.add('pushDivPName');
+      p.textContent = filterMatriz[i];
+     div.appendChild(p)
+      fatherOne.appendChild(div)
+}
+// evento escucha de divs elements
+let divsElements = document.querySelectorAll('.pushDivElementResult');
+init_view_resultado_de_usuario=(name)=>{
+let sectionForAllElements = document.getElementById('revisarExamenes');
+sectionForAllElements.style.display = 'block'
+let sectionOfSobrePoner = document.getElementById('sobrePonerForExaQuestion');
+let fatherPushRevisarExamanes = document.getElementById('pushToRevisarExamanes');
+let buttoncancelarRevicionDeExamanes = document.getElementById('cancelarRevicionDeExamanes');
+let buttonEnviarResultadosALestudiante = document.getElementById('enviarResultados');
+buttonEnviarResultadosALestudiante.textContent = `Enviar a ${name}`;
+buttonEnviarResultadosALestudiante.addEventListener('click',()=>{ init_validor_divs_result()})
+buttoncancelarRevicionDeExamanes.addEventListener('click',()=>{
+fatherPushRevisarExamanes.innerHTML = '';
+sectionOfSobrePoner.style.display = 'none';
+sectionForAllElements.style.display = 'none';
+})
+sectionOfSobrePoner.style.display = 'block';
+let objofUser = responseAnswers[name].data;
+console.log(objofUser)
+let objOfArray = Object.keys(objofUser);
+let filterOne = objOfArray.filter(e=> e != 'infoExitApp');
+let filterTwo = filterOne.filter(e=> e != 'puntaje');
+puntajeGlobal = objofUser.puntaje / filterTwo.length;
+document.getElementById('puntajeStatus').innerHTML = `Puntaje total ${objofUser.puntaje} <br> Puntaje por preguntas ${puntajeGlobal}`;
+for(let i=0; i < filterTwo.length; i++){
+let div = document.createElement('DIV');div.classList.add('divContainerOFRequestStudent');
+let label = document.createElement('LABEL');
+    label.textContent = objofUser[filterTwo[i]].pregunta;
+let pPuntajeHtml = document.createElement('P'); pPuntajeHtml.classList.add('puntajeRevisarExamenes'); pPuntajeHtml.textContent = `Puntaje ${objofUser.puntaje / filterTwo.length}`;   
+let textarea = document.createElement('TEXTAREA');
+    textarea.textContent = objofUser[filterTwo[i]].respuesta;
+    textarea.setAttribute('readonly','true');
+let divPrompts = document.createElement('DIV');divPrompts.classList.add('promptOfRequestStudent');
+ let divPromptsByInputs = document.createElement('DIV');divPromptsByInputs.classList.add('promptCorrecto');  // div prompt de input true
+  let pOfDivsPrompts = document.createElement('P');pOfDivsPrompts.textContent = 'Exacto'; 
+  let inputExact = document.createElement('INPUT');
+    inputExact.setAttribute('type','checkbox');
+    inputExact.classList.add('inputTrue')
+divPromptsByInputs.appendChild(inputExact);divPromptsByInputs.appendChild(pOfDivsPrompts);
+ let divPromptsByInputsIconrrect = document.createElement('DIV'); divPromptsByInputsIconrrect.classList.add('promptIncorrecto');
+  let pOfDivsPrompts2 = document.createElement('P');pOfDivsPrompts2.textContent = 'Incorrecto'; 
+  let inputNoExact = document.createElement('INPUT');
+     inputNoExact.setAttribute('type','checkbox');
+     inputNoExact.classList.add('inputFalse');
+divPromptsByInputsIconrrect.appendChild(inputNoExact);divPromptsByInputsIconrrect.appendChild(pOfDivsPrompts2);
+let inputCommit = document.createElement('INPUT'); inputCommit.classList.add('inputCommit');
+    inputCommit.setAttribute('placeholder', `Escriba un commit para ${name}`);
+divPrompts.appendChild(divPromptsByInputs);divPrompts.appendChild(divPromptsByInputsIconrrect);divPrompts.appendChild(inputCommit) // div de los prompts
+div.appendChild(label);
+div.appendChild(pPuntajeHtml);
+div.appendChild(textarea);
+div.appendChild(divPrompts);
+fatherPushRevisarExamanes.appendChild(div);
+}
+if(filterTwo.length > 0){pushEvents()};
+}
+divsElements.forEach(w=>{
+w.addEventListener('click',()=>{init_view_resultado_de_usuario(w.firstElementChild.textContent)})
+})
+}
+async function init_send_exa_for_studentContainer(nameConection,pContainer){
+let fatherPush = document.getElementById('pushExaContainerList');
+async function requestExa(){
+let dataSend = {
+	funcion : 'requestExa',
+	materia : inputMat.value,
+	name : addicionalInfoUserName.value
+}
+let config = {
+method : 'post',
+body : JSON.stringify(dataSend),
+headers : {'Content-Type':'application/json'}
+}
+let fetchData = await fetch(servidor,config);
+let dataJson = await fetchData.json();
+console.log(JSON.parse(dataJson))
+return JSON.parse(dataJson);
+}
+let listExa = await requestExa();
+fatherPush.innerHTML = '';
+let objlengthReturn = Object.keys(listExa);
+let objlength = objlengthReturn.filter(e=> e != 'start');
+console.log(objlengthReturn)
+for(let i = 0; i < objlength.length; i++){
+let div = document.createElement('DIV');div.classList.add('pushJSEXAContainer');div.innerHTML = `<p style="color:grey;">Tema</p> <br> ${listExa[objlength[i]].dataconfig.nameForExa}`;
+div.setAttribute('value',listExa[objlength[i]].dataconfig.nameForExa)
+fatherPush.appendChild(div)
+}
+if(objlength.length > 0){
+let containerClick = document.querySelectorAll('.pushJSEXAContainer');
+containerClick.forEach(e=>{
+e.addEventListener('click',()=>{
+init_send_exa_for_student(nameConection,pContainer,e.getAttribute('value'),listExa)
+})
+})
+}
+let cotainerlistExa = document.getElementById('containerListExa');
+let closeContainer = document.getElementById('buttonCloseContainerExaList');
+cotainerlistExa.style.display = 'block';closeContainer.addEventListener('click',()=>{cotainerlistExa.style.display='none';});
+}
+function init_validor_divs_result(){
+let validor = true;
+let divsFather = document.querySelectorAll('.divContainerOFRequestStudent');
+divsFather.forEach(e=>{
+let inputCommit = e.lastElementChild.lastElementChild;
+if(inputCommit.value === ' '){
+validor = false;
+inputCommit.focus()
+inputCommit.style.border = 'solid 12px red';
+inputCommit.value = '';
+inputCommit.setAttribute('placeholder', 'Ah ingresado solo un espacio, ingrese un commit');
+inputCommit.addEventListener('keydown',()=>{inputCommit.style.border = 'none'});
+}
+}); //  forEach
+if(validor) init_copilador_de_datos()
+}
+function init_copilador_de_datos(){
+	let validor2 = true;
+let countsPuntaje = 0;
+let objectoEnviar = {
+puntajeDeExa : puntajeGlobal,
+puntajeGanado : '' ,
+nameExamen : nameExamenGlobal,
+data : {}
+}
+let divsFather = document.querySelectorAll('.divContainerOFRequestStudent');
+divsFather.forEach(e=>{
+/// data 
+let nombreExa = e.firstElementChild.textContent;
+let respuestaExa = e.firstElementChild.nextElementSibling.nextElementSibling.textContent;
+let commit = e.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.lastElementChild.value;
+let validor;
+// verificacion validor
+let inputcheckedTrue = e.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild;
+let inputcheckedFalse = e.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild;
+if(inputcheckedTrue.checked){validor = true; countsPuntaje += puntajeGlobal}
+else if(inputcheckedFalse.checked) validor = false;
+if(inputcheckedTrue.checked === false && inputcheckedFalse.checked === false){
+	inputcheckedFalse.style.boxShadow =  '0 0 10px red';
+	inputcheckedTrue.style.boxShadow =  '0 0 10px red';
+	validor2 = false;
+	inputcheckedFalse.focus();
+}
+// push data
+objectoEnviar.data[nombreExa] = {
+nameQuestion : nombreExa,
+respuestaToQuestion : respuestaExa,
+validor : validor,
+commit : commit
+}
+})
+if(validor2){
+	objectoEnviar.puntajeGanado = countsPuntaje;
+document.getElementById('sectionByLOader').style.display = 'block';
+}else{
+	alert('ingrese en que se una confirmacion')
+}
+}
+async function init_send_exa_for_student(nameConection,pContainer,valueForExamen,obj){
+async function sendRequesExa(){
+let data = await {
+funcion : 'newExaSendStudent',
+repositoriName : nameConection,
+name : nameConection,
+teacherName : addicionalInfoUserName.value,
+materia : addicionalInfoUserMateria.value,
+dataconfig : obj[valueForExamen].dataconfig,
+questionsData : obj[valueForExamen].questionsData,
+nameExa : obj[valueForExamen].dataconfig.nameForExa
+}
+let config = await {
+	method : 'post',
+	body : JSON.stringify(data),
+	headers : {'Content-Type':'application/json'}
+}
+let fetchData = await fetch(servidor,config);
+let dataJson = await fetchData.json();
+return dataJson
+}
+let cotainerlistExa = document.getElementById('containerListExa');
+cotainerlistExa.style.display = 'none';
+pContainer.parentElement.style = `
+text-align: center;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+`
+pContainer.innerHTML = `<div class="loaderContainer"><div class="loaderByExaLoader" id="textInviandoExa"></div> <p>Enviando examen</p></div>`;
+let send = await sendRequesExa();
+if(send.mensaje){
+pContainer.innerHTML = 'Examen enviando'
+setTimeout(()=>{
+pContainer.innerHTML = nameConection;
+pContainer.parentElement.style = '';
+},2000)
+}
+else{
+pContainer.innerHTML = 'Ups, algo paso y no se envio el examamen'
+setTimeout(()=>{
+pContainer.innerHTML = nameConection;
+pContainer.parentElement.style = ''
+},2000)
+}
 }
