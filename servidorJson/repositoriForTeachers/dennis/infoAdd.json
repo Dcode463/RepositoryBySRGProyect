@@ -1,0 +1,48 @@
+{
+  "start": "repositori",
+  "Computacion": {
+    "dataconfig": {
+      "nameForExa": "Computacion",
+      "pointsForExa": "45",
+      "privateForTeacher": false,
+      "noExitApp": false,
+      "limitTimeCompleteVercion": "0 hora y 1 minuto",
+      "limitTime": {
+        "confirm": true,
+        "data": {
+          "hours": "0",
+          "minute": "1"
+        }
+      }
+    },
+    "questionsData": {
+      "numero": 2,
+      "preguntas": [
+        "¿Que es la computacion?",
+        "¿Que es window 10? y ¿para que se usa?"
+      ]
+    }
+  },
+  "Como funciona la computacion": {
+    "dataconfig": {
+      "nameForExa": "Como funciona la computacion",
+      "pointsForExa": "100",
+      "privateForTeacher": false,
+      "noExitApp": false,
+      "limitTimeCompleteVercion": "0 hora y 10 minutos",
+      "limitTime": {
+        "confirm": true,
+        "data": {
+          "hours": "0",
+          "minute": "10"
+        }
+      }
+    },
+    "questionsData": {
+      "numero": 1,
+      "preguntas": [
+        "¿como puedoaprender programacion?"
+      ]
+    }
+  }
+}

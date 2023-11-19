@@ -6,12 +6,15 @@ let docenteConection;
 let nameConectionUserLocal = 'onfire';
 let nameExass;
 let puntajeGlobal;
+let validorExitAPP = false;
+verificacionListaExa = true;
 //function inicializador
-inicializarModoAcademico()
+
 function inicializarModoAcademico(){
 loginForAcademic.style.display ='block';
 }
 // documents HTML
+let elementosCaja = document.querySelectorAll('.caja')
 let pWarnig = document.getElementById('pWarnig')
 let containerLong = document.getElementById('loginForAcademic');
 let buttonSendUserName = document.getElementById('siguiente_Name');
@@ -28,7 +31,7 @@ validorForPasswordByUser=(name)=>{
 inputSendUserPassword.style.display = 'block';
 inputSendUserName.style.display = 'none';
 buttonSendUserPassword.style.display = 'block';
-buttonSendUserName.style.display = 'none';
+buttonSendUserName.style.display = 'none'; 
 infoLoginP.innerHTML = 'Ingrese su contraseña';
 //Eventos for veriPassword
 init_password=async (name)=>{
@@ -278,12 +281,32 @@ documents.style.display = 'none';
 //document
 let sectionRamaPrincipalDeHSRG = document.getElementById('ramaPrincipalDeHSRG');
 sectionRamaPrincipalDeHSRG.style.display = 'block';
-examenes_Contenedor()
 }
-//nav
+//nav examenes_Contenedor()
+// eventos de navs 
+document.getElementById('inicioButton').addEventListener('click',()=>{ // salir
+location.reload()
+})
+let buttonExamanes = document.getElementById('questionButtonShow');
+buttonExamanes.addEventListener('click',()=>{ // examanes button
+let containerExamanes = document.getElementById('section_Exa')
+elementosCaja.forEach(e=>{
+	if(e != containerExamanes) e.style.display = 'none';
+	   else e.style.display = 'block';
+})
+examenes_Contenedor()
+})
+document.getElementById('inicioButtonDaskBoard').addEventListener('click',()=>{
+let containerHome = document.getElementById('homeSection');
+elementosCaja.forEach(e=>{
+	if(e != containerHome) e.style.display = 'none';
+	   else e.style.display = 'block';
+})
+})
 let displayComprobar = document.querySelectorAll('.p_nav_a');
 let buttonExtentNav = document.querySelector('.barraExpandirNav');
 let verificacionForNav = true;
+try{
 abrirNav=()=>{
 verificacionForNav = false;
 document.querySelector('.sobrePonerForNav').style.display = "block";
@@ -294,8 +317,6 @@ document.getElementById('nav_a_containers').style.paddingBottom = '30px';
 document.querySelector('.nav_ecrtro').style = `padding-right:5px; padding-top:150px;width:300px;`;
 document.querySelector('.nav_a').style =`width:90%`;
 document.querySelector('.userImg').style =`border-radius: 20%;position: absolute;left: 40%;top: 1%;transform: translate(-50%,-5%);width:50%!important;`;
-document.querySelector('.userName').style =`color: white;`;
-document.getElementById('statusName').style =`transition: 0s;color:white!important;opacity:1;`;	
 }
 cerrarNav=()=>{
 verificacionForNav = true;
@@ -316,8 +337,10 @@ box-shadow: 0 0 25PX BLACK;
 cursor: pointer;`;
 document.querySelector('.nav_a').style =`cursor:pointer;width:90%;padding: 5px;margin: 5px;display:block;text-decoration: none;color: white;`;
 document.querySelector('.userImg').style =`transition:  0.4s!important;transition: width 0.6s!important;transition:  margin 10s!;width: 50px;margin: 10px;border-radius: 50%;`;
-document.querySelector('.userName').style =`width: 200px;transition: 0s;color: transparent;padding: 10px;opacity:0;`
-document.getElementById('statusName').style =`transition:0;opacity:0;color: transparent;font-size: 12px;`;
+}
+}
+catch(e){
+	console.log('Modo responsivo')
 }
 buttonExtentNav.addEventListener('click',()=>{
 if (verificacionForNav){
@@ -355,7 +378,7 @@ document.getElementById('infoNoExa').style.display = 'block';
 }
 for(let i=0; i < objLength.length; i++){
 let div = document.createElement('DIV');div.classList.add('pForPush');div.classList.add('divpushElementExa')
-// let imgAvatar = document.createElement('IMG');imgAvatar.classList.add('imgExa');imgAvtar.src = requestResultado[objLength[i]].urlAvatar 
+let imgAvatar = document.createElement('IMG');imgAvatar.classList.add('imgExa');imgAvatar.src = `${serverConection}/${requestResultado[objLength[i]].urlAvatar}` 
 let pNameExa = document.createElement('P');pNameExa.classList.add('pForPush');pNameExa.innerHTML = `<b>Materia</b> <br> ${requestResultado[objLength[i]].materiaTeacher}`;
 let pTema = document.createElement('P');pTema.classList.add('pForPush');pTema.innerHTML = `<b>Tema</b>  <b class = 'bForP'>${requestResultado[objLength[i]].dataconfig.nameForExa}</b>`;
 let pPuntaje = document.createElement('P');pPuntaje.classList.add('pForPush');pPuntaje.innerHTML = `<b>Puntaje</b> <br> ${requestResultado[objLength[i]].dataconfig.pointsForExa}`
@@ -365,7 +388,7 @@ else pInfoExit.innerHTML = `<b>Salir de la app</b> <br> No permitido`;
 let pTimeLimit = document.createElement('P');pTimeLimit.classList.add('pForPush');
 if(requestResultado[objLength[i]].dataconfig.limitTime.confirm) pTimeLimit.innerHTML = `<b>Tiempo limite</b> ${requestResultado[objLength[i]].dataconfig.limitTimeCompleteVercion}`
 else pTimeLimit.innerHTML = `<b>Tiempo limite</b> <br> No hay limite`;
-div.appendChild(pNameExa);div.appendChild(pTema);div.appendChild(pPuntaje);div.appendChild(pInfoExit);div.appendChild(pTimeLimit);father.appendChild(div)
+div.appendChild(imgAvatar);div.appendChild(pNameExa);div.appendChild(pTema);div.appendChild(pPuntaje);div.appendChild(pInfoExit);div.appendChild(pTimeLimit);father.appendChild(div)
 }
 init_Rama_Exa=(nameExa)=>{
 let obj = requestResultado[nameExa]
@@ -373,12 +396,15 @@ docenteConection = obj.nameTeacher;
 nameExass = obj.dataconfig.nameForExa
 puntajeGlobal = obj.dataconfig.pointsForExa;
 function init_Se_Acabo_time(){
-alert('se acabo el tiempo')
+	if(validorExitAPP){
+initProcessDataByCreatorExa(true)		
+	}else {
+initProcessDataByCreatorExa(false)
+	}
 }
-let validorExitAPP = false;
 let validorExitAPPinfo;
 init_exit_limit=()=>{
-if(validorExitAPP === false){
+if(validorExitAPP === false && verificacionListaExa){
 	let alertDocumentNoExitApp = document.getElementById('alertModeNoExit');
 	alertDocumentNoExitApp.style.display = 'block'
 let avisoDocumentExit = document.getElementById('exitAppInfo');
@@ -388,7 +414,7 @@ if(document.visibilityState === 'visible'){
 console.log('conectado')
 }
 else{
-	if(validorExitAPP === false){
+	if(validorExitAPP === false && verificacionListaExa){
 		avisoDocumentExit.style.display = 'block';
 funcionCloseInfoExitApp=()=>{
 avisoDocumentExit.style.display = 'none';
@@ -491,7 +517,7 @@ events(buttonInit_Exa,buttonCloseForElements,containerbyInfoExa,nameExa)
 let divpushElementExa = document.querySelectorAll('.divpushElementExa');
 divpushElementExa.forEach(e=>{
 e.addEventListener('click',()=>{
-init_conatinerInfoConfirmExa(e.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.textContent);
+init_conatinerInfoConfirmExa(e.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.textContent);
 })
 })
 }
@@ -537,7 +563,7 @@ objSendQuestion[label] = {
 let veriCacionPost = await fetchPushResultado();
 async function fetchPushResultado(){
 let data = {
-	funcion : 'pushResultadorForTeachers',
+	funcion : 'pushResultadorForTeachers', 
 	nameStudent : nameConectionUserLocal,
 	teacherConection : docenteConection,
 	nameExamen : nameExass,
@@ -556,9 +582,66 @@ if(response.mensaje) return true
 	else return false
 }
 if(veriCacionPost){
+verificacionListaExa = false;
 loader.style.display = 'none';
 document.getElementById('byExaCreatorAndSend').style.display = 'none';
 document.getElementById('contenedorHcaerExa').style.display = 'none';
 examenes_Contenedor();
+}
+else if(veriCacionPost === false){
+document.getElementById('statusExa').innerHTML = 'Ups, el examen ha sido borrado';
+setTimeout(()=>{
+verificacionListaExa = false;
+document.getElementById('byExaCreatorAndSend').style.display = 'none';
+document.getElementById('contenedorHcaerExa').style.display = 'none';
+examenes_Contenedor();
+},3000)
+}
+}
+// evento escucha for container resultados and request resultados
+document.getElementById('examenesButton').addEventListener('click',()=>{
+
+	let containerResultados = document.getElementById('contentByresultaados');
+elementosCaja.forEach(e=>{
+	if(e != containerResultados) e.style.display = 'none';
+	   else e.style.display = 'block';
+})
+init_view_Resultados()
+})
+async function init_view_Resultados(){
+	async function init_request_resultados(){
+let data = {
+funcion : 'requesResultadoByStudent',
+name : nameConectionUserLocal
+}
+let config = {
+method : 'post',
+body : JSON.stringify(data),
+headers : {'Content-Type':'application/json'}
+}
+let fetchData = await fetch(serverConection,config);
+let response = await fetchData.json();
+let convertJsonParse = JSON.parse(response);
+return convertJsonParse
+}
+////////////////////////////////////////////////////////////////////
+let father = document.getElementById('pushResultado');
+father.innerHTML = '';
+let request = await init_request_resultados()
+let convertJsonparseToArray = Object.keys(request);
+let matriz = convertJsonparseToArray.filter(e=> e != 'NOREMOVE');
+for(let i=0; i < matriz.length; i++){
+let div = document.createElement('DIV');div.classList.add('divByJsToResultados');
+let temaB = document.createElement('B'); temaB.classList.add('pall'); temaB.textContent = 'Tema';
+let pNameExa = document.createElement('P'); pNameExa.classList.add('pnameExamane', 'pall'); pNameExa.textContent = matriz[i];
+let puntajeB = document.createElement('B'); puntajeB.classList.add('pall'); puntajeB.textContent = 'Puntaje';
+let puntajeP = document.createElement('P'); puntajeP.classList.add('puntaje', 'pall'); puntajeP.textContent = `${request[matriz[i]].puntajeGanado}/${request[matriz[i]].puntaje}`;
+let a = document.createElement('A'); a.classList.add('a_viem_result'); a.setAttribute('href', '#'); a.textContent = 'Detalles';
+div.appendChild(temaB);
+div.appendChild(pNameExa);
+div.appendChild(puntajeB);
+div.appendChild(puntajeP);
+div.appendChild(a);
+father.appendChild(div)
 }
 }

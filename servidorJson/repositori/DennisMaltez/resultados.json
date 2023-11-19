@@ -1,0 +1,45 @@
+{
+  "NOREMOVE": {
+    "DATA": "011101001100101"
+  },
+  "Yes no question": {
+    "nameStudent": "DennisMaltez",
+    "nameTeacher": "Esteban",
+    "puntajeGanado": 100,
+    "puntaje": "100",
+    "data": {
+      "¿What is your favorite color?": {
+        "nameQuestion": "¿What is your favorite color?",
+        "respuestaToQuestion": "dqdlq",
+        "validor": true,
+        "commit": ""
+      },
+      "¿When where you born?": {
+        "nameQuestion": "¿When where you born?",
+        "respuestaToQuestion": "dmw",
+        "validor": true,
+        "commit": ""
+      }
+    }
+  },
+  "Computacion": {
+    "nameStudent": "DennisMaltez",
+    "nameTeacher": "dennis",
+    "puntajeGanado": 22.5,
+    "puntaje": "45",
+    "data": {
+      "¿Que es la computacion?": {
+        "nameQuestion": "¿Que es la computacion?",
+        "respuestaToQuestion": "hola",
+        "validor": false,
+        "commit": ""
+      },
+      "¿Que es window 10? y ¿para que se usa?": {
+        "nameQuestion": "¿Que es window 10? y ¿para que se usa?",
+        "respuestaToQuestion": "\thoolas",
+        "validor": true,
+        "commit": ""
+      }
+    }
+  }
+}

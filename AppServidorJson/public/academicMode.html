@@ -2,8 +2,10 @@
 <html>
 <head>
 	<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="scriptCSS/modeAcademic.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <link rel="stylesheet" type="text/css" href="scriptCSS/estilo.css">
+<link rel="stylesheet" type="text/css" href="scriptCSS/modeAcademic.css">
 <link rel="icon"  href="mediaChatBot/iconoForAcademic2.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>SRG Academico</title>
@@ -78,41 +80,44 @@
 </div>
 </section>
 <section id="ramaPrincipalDeHSRG" style="display:none;">
+	<div id="alertChat" style="display: none;">
+	<p id="infoAlert">Prosefor Dennis ha mandado un examen</p>
+</div>
 		 <section class="sobrePonerForNav">
 	
 </section>
+
 	 <nav class="nav_ecrtro">
 	 	<img src="media/iconos/baseline.png" class="barraExpandirNav">
 	 	<img src="mediaChatBot/iconoForAcademic2.png" class="userImg">
-	 	<p class="userName"id="userNameId"><p class="userName" id="statusName"></p><b id="povCertifate"></b></p>
+	 
 	 	<!-- <hr> -->
 	 	<div id="nav_a_containers">
 	    <a title="Salir" class="nav_a" id="inicioButton" ><i class="fa-solid fa-sitemap"><img style="width:20px;" src="media/iconos/salirLogin.png"></i><p class="p_nav_a">Salir</p></a>
 	 	<a title="Inicio" class="nav_a" id="inicioButtonDaskBoard"><i><img style="width:20px;" src="media/iconos/home.png"></i><p class="p_nav_a">Inicio</p></a>
 
-	 	<a title="Ver Todos los examenes" class="nav_a" id="questionButtonShow"><i class="fa-regular fa-keyboard"><img style="width:20px;" src="media/iconos/showQuestions.png"></i><p class="p_nav_a">Todos los examenes</p></a>
-	     <a title="Ver mis Examanes pendientes" class="nav_a" id="examenesButton"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/exaIcon.png"></i><p class="p_nav_a">Resultados de examenes</p></a>
+	 	<a title="Ver Todos los examenes" class="nav_a" id="questionButtonShow"><i class="fa-regular fa-keyboard"><img style="width:20px;" src="media/iconos/showQuestions.png"></i><p class="p_nav_a">Examenes</p></a>
+	     <a title="Ver mis Examanes pendientes" class="nav_a" id="examenesButton"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/exaIcon.png"></i><p class="p_nav_a">Resultados</p></a>
 	   </div>
 	 </nav>
-<div class="caja" id="homeSection" style="display:none;">
-	<div><p id="statusExaPendiente">Examenes pendientes <b>5</b> |<b class="bInfoFullMateri">Matematica, lengua ...</b> </p><button class="buttonViemExamanesPendientes">Ver</button></div>
-	<div><p id="statusResultadoForExa">Resultados de examenes <b>1</b> | <b class="bInfoFullMateri">Matematica</b></p><button class="buttonViemResultadosExa">Ver</button></div>
+<div class="caja" id="homeSection" style="display:block;">
+<p>Hola ..</p>
 </div>
-<div class="caja" id="section_Exa" style="display : block">
-<div id="contenedorHcaerExa" style="display:none;">
+<div class="caja" id="section_Exa" style="display : none">
+<div id="contenedorHcaerExa" style="display:none;background-image: url('media/modoacdemicoBackground.jpg');">
 <div class="elements">
 <img src="media/iconos/CLOSE.png" id="buttonCloseForElements">
-<p id="p_ForContenedor_Exa_Docente"></p>
-<p id="p_ForContenedor_Exa_Materia"></p>
-<p id="p_ForContenedor_Exa_Tema"></p>
-<p id="p_ForContenedor_Exa_Preguntas"></p>
-<p id="p_ForContenedor_Exa_Puntaje"></p>
-<p id="p_ForContenedor_Exa_Tiempo"></p>
+<p id="p_ForContenedor_Exa_Docente">data</p>
+<p id="p_ForContenedor_Exa_Materia">data</p>
+<p id="p_ForContenedor_Exa_Tema">data</p>
+<p id="p_ForContenedor_Exa_Preguntas">data</p>
+<p id="p_ForContenedor_Exa_Puntaje">data</p>
+<p id="p_ForContenedor_Exa_Tiempo">data</p>
 <button id="buttonInit_Exa">Hacer examen</button>
 </div>
 </div>
 <div id="pushJS_Section_Exa"></div>
-<div id="infoNoExa" style="display:none;">
+<div id="infoNoExa" style="display:block;">
 	<img src="media/chatBot.gif"><div class="ByInfonoExa"><p>Wow, eres muy afortunado no tienes ningun examen</p></div>
 </div>
 </div>
@@ -123,18 +128,26 @@
 <button id="buttonInit_SendExa"></button>
 <div class="loaderBySendExaForTeacher" style="display:none;">
 <div class="loaderByCssSendTeachers"></div>
-<p>Mandando examen</p>
+<p id="statusExa">Mandando examen</p>
 </div>
 <div id="alertModeNoExit" style="display:none;">Recordatorio <b>No esta permitido salir de la app</b></div>
 <div id="exitAppInfo" style="display:none;">
 	<p>Te has salido del examen</p>
 	<br>
-	<b>Esto sera informado al profesor del examen, el desidira si te afectara en el puntaje final</b>
+	<p>Esto sera informado al profesor del examen, el desidira si te afectara en el puntaje final</p>
 	<button id="buttonCloseInfoExitApp">Ok</button>
 </div>
 </div>
+<div id="contentByresultaados" class="caja" style="display: none;">
+	<div id="pushResultado">
+		<div class="divByJsToResultados">
+     <b class="pall">Tema</b><p class="pnameExamane pall">Como es la programcion</p><b class="pall">Puntaje</b><p class="puntaje pall">60/100</p><a class="a_viem_result" href="">Ver mas</a>
+		</div>
+	</div>
+</div>
 </section>
 <script type="text/javascript" src="scriptsJS/jsModeAcademic/script.js"></script>
+<script type="text/javascript" src="scriptsJS/jsModeAcademic/notification.js"></script>
 </section>
 </body>
 </html>

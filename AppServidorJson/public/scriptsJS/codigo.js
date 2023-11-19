@@ -22,8 +22,7 @@ boxModeGames.style.opacity = "0";
 setTimeout(()=>{
 boxModeAcademic.style = `left:50%;top:50%;transform:translate(-50%,-50%)`;
 setTimeout(()=>{boxModeAcademic.style.opacity = "0"; setTimeout(()=>{
-viajeSubLaunchuer.style.display = "block";
-document.getElementById('launcherImg').src = 'mediaChatBot/launcherSendAnd.gif';
+viajeSubLaunchuer.style.display = "none";
 // srcIMgViajeLanuncher.src = 'mediaChatBot/launcherSendAnd.gif';
 
 sectionModeServerRepositoriGames.style.style = "none";
@@ -31,7 +30,7 @@ document.getElementById('electionMode').style.display = "none";
 sectionModeServerRepositoriGames.innerHTML = '';
 setTimeout(()=>{
 window.location.href = '../academicMode.html';
-},4500)
+},500)
 },500)},500)
 },500)
 })

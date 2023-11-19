@@ -1,0 +1,18 @@
+{
+  "NOREMOVE": "011514415757",
+  "DennisMaltez": {
+    "nameStudent": "DennisMaltez",
+    "data": {
+      "puntaje": "45",
+      "infoExitApp": true,
+      "¿Que es la computacion?": {
+        "pregunta": "¿Que es la computacion?",
+        "respuesta": "hola"
+      },
+      "¿Que es window 10? y ¿para que se usa?": {
+        "pregunta": "¿Que es window 10? y ¿para que se usa?",
+        "respuesta": "\thoolas"
+      }
+    }
+  }
+}

@@ -2,8 +2,13 @@
   "NOREMOVE": {
     "NOREMOVE": "NOREMOVE"
   },
-  "Nelson": {
-    "materia": "AEP",
-    "name": "Nelson"
+  "dennis": {
+    "materia": "Computacion",
+    "name": "dennis",
+    "avatar": "perfiles/iconoComputacion.jpg"
+  },
+  "Esteban": {
+    "materia": "Ingles",
+    "name": "Esteban"
   }
 }

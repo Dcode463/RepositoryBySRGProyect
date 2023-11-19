@@ -22,69 +22,6 @@ nameLocalScriptHost = await info.nameLocal;
 servidorScriptHost = await info.servidor;
 imgActual.src = avatarLocalScriptHost;
 imgSiguente.src = avatarOnlineScriptHost;
-let headerRequestFriends = {
-method : "post",
-body  : JSON.stringify({
-funcion : 'requestUsers',
-name :  nameLocalScriptHost 
-}),
-headers : {"Content-Type" : "application/json"}
-}
-fetch(servidor,headerRequestFriends)
-.then(responseServer => responseServer.json())
-.then(async(responseServerJson) => {
-let dataRamArray = [];
-let datajsonFriends = await JSON.parse(responseServerJson);
-dataRamArray = datajsonFriends[nameLocalScriptHost].friends;
-let datas = {
-funcion : 'newUser',
-status : {
-"what" : "jugando",
-"host" : nameOnlineScriptHost
-},
-name : nameLocalScriptHost,
-avatar : avatarLocalScriptHost,
-friends : [],
-trofeos : 0 
-}
-datas.friends = dataRamArray[0];
-let headers = {
-method : 'post',
-body : JSON.stringify(datas),
-headers : {"Content-Type" : "application/json"}
-}
-fetch(servidor,headers)
-// .catch(error=>{
-// let buttnReiniciar = document.getElementById('reinicarApp_Error')
-// let containerForError = document.getElementById('EroorFetch');
-// setTimeout(()=>{
-// containerForError.style.opacity = "0";
-// containerForError.style.display = "block"
-// setTimeout(()=>{
-// containerForError.style.opacity = "1";
-// document.getElementById('containerMax').style.display = "none";
-// buttnReiniciar.addEventListener('click',()=>{
-// location.reload()
-// })
-// },500)
-// },1000)
-// })
-})
-// .catch(error=>{
-// let buttnReiniciar = document.getElementById('reinicarApp_Error')
-// let containerForError = document.getElementById('EroorFetch');
-// setTimeout(()=>{
-// containerForError.style.opacity = "0";
-// containerForError.style.display = "block"
-// setTimeout(()=>{
-// containerForError.style.opacity = "1";
-// document.getElementById('containerMax').style.display = "none";
-// buttnReiniciar.addEventListener('click',()=>{
-// location.reload()
-// })
-// },500)
-// },1000)
-// })
 if(avatarOnlineScriptHost != null && avatarLocalScriptHost != null &&  nameLocalScriptHost != null && nameOnlineScriptHost != null) inicializarGame()
 }
 inicializarGame=()=>{

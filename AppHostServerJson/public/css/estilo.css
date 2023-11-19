@@ -3,6 +3,23 @@
 *{
 	font-family: sans-serif;
 }
+#materia_CreateNewUser{
+color: black;
+  display: block;
+  margin: 4%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+body{
+	width: 100%;
+	height: 100vh!important;
+}
+html{
+	width: 100%;
+	height: 100vh;
+}
 .caja_Examenes{
 	position: absolute;
 	left: 50%;
@@ -11,8 +28,11 @@
 	width: 70%;
 	height: 100vh;
 }
+.nav_ecrtro_responsive{
+	display:none ;
+}
 hr{
-	opacity: 0;
+	opacity: 0; 
 	border-radius: 200% 0 0 0 ;
 }
 #nav_a_containers{
@@ -1144,7 +1164,7 @@ border-radius: 50%;
 }
 .chatBot2{
 	position: absolute;
-	bottom: -50%;
+bottom: -180%;
 	right: 0;
 	display: flex;
 	justify-content: center;
@@ -1219,83 +1239,13 @@ float: right;
 	width: 90%;
 	display: inline-block;
 }
-@media only screen and (max-width: 721px){
-	.todasLasPreguntas{
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
-	height:auto;
-	width: 90%;
-	max-height: 70%;
-	min-width: 30%;
-	overflow: auto;
-   border-radius: 10px;
-	background: white;
-	padding: 10px;
-}
-	#alertDiv{
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
-	z-index: 2000;
-	padding: 30px;
-	background-color: rgba(30,30,30,0.9);
-	color: white;
-	border-radius: 15px;
-	width: 100%
-}
-.contenLogin{
-color: white;
-position: absolute;
-left: 50%;
-top: 50%;
-transform: translate(-50%,-50%);
-background: #1a1a1a ;
-padding:10px;
-width: 80%;
-height: 400px;
-border-radius: 15px;
-}
-#navPrymari{
-	border-radius: 15px 15px 15px;
-	box-shadow: 0 0 15px black;
-	transition: 0.5s;
-	width: 1%;
-    background-image: linear-gradient(to right top, #051937, #002567, #002d97, #3b2cc4, #7712eb);
-	position: absolute;
-	overflow: hidden;
-	right:0%;
-	top: 50%;
-	transform: translate(1%,-50%);
-	padding: 10px;
-	height: 20vh;
-	cursor: pointer;
-	z-index: 20;
-}
-#navPrymari:hover{
-	width: 50%;
-	height: auto;
-	left: 0%;
-	transform: translate(0%,-50%);
-}
-.containerQuestion{
-/*  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);*/
-  border-radius: 20px;  
-	position: absolute;
-	width:90%;
-	height:auto;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	padding: 15px;
-	z-index: 10;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: white;
-}
+#cancelBoxContainerQuestion{
+float: right;
+  display: inline-block;
+  position: absolute;
+  right: 1%;
+  top: -20%;
+  cursor: pointer;
 }
 .cajaForExa{
 	position: absolute;
@@ -1337,6 +1287,7 @@ overflow: auto;
  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	display: inline-block;
 	margin: 10px;
+
 }
 .iconShowContainerExa{
 cursor: pointer;
@@ -1448,16 +1399,40 @@ border: none;
 	width: 50%;
 	height: 50%;
 	border-radius: 15px;
-	padding: 15px;
+	padding: 25px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: auto;
     overflow-x: auto;
   overflow-x: hidden;
   padding-top: 25px;
 }
+#containerRegistro{
+		position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 200;
+	background: white;
+	color: black;
+	width: 50%;
+	height: 50%;
+	border-radius: 15px;
+	padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.divRegistros{
+width: 90%;
+padding: 10px;
+border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.pRegistroPuntaje b{
+font-weight: 12;
+color: grey;
+}
 #butonCerrarResultados{
-	position: absolute;
-right: 1%;
+	position: sticky;
+float: right;
 top: 1%;
 background:black;
 border-radius: 5px;
@@ -1537,6 +1512,21 @@ background-color: rgba(250, 250, 250, 0.9);
 }
 #buttonCloseContainerViewQuestion{
 position: absolute;
+right: -10%;
+top: -20%;
+background:black;
+border-radius: 5px;
+width: 35px;
+cursor: pointer;
+}
+#pushRegistro{
+	overflow: auto;
+	overflow-x: hidden;
+	width: 100%;
+	height: 95%;
+}
+#buttonCloseRegistro{
+	position: absolute;
 right: -10%;
 top: -20%;
 background:black;
@@ -1654,7 +1644,6 @@ align-items: center;
 	width: 80%;
 	border-radius: 15px;
 	padding: 20px;
-	font-weight: 15;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   margin: 20px;
   cursor: pointer;
@@ -1833,3 +1822,701 @@ transform: translate(-50%,-50%);display: flex;justify-content: center;align-item
   75%   {border-radius: 12% 88% 69% 31% / 10% 66% 34% 90%}
   87.5% {border-radius: 50% 50% 70% 30% / 52% 62% 38% 48%}
 }
+#infoExitapp{
+	position: absolute;
+	left:50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	width: auto;
+	height: auto;
+	background: royalblue;
+	color: white;
+	border-radius: 10px;
+	padding: 30px;
+}
+#infoExitapp button{
+	margin: 10px;
+	border-radius: 10px;
+	padding: 5px;
+	border: none;
+	cursor: pointer;
+}
+#infoExitapp b{
+	font-size: 12px;
+	color: white;
+	display: block;
+}
+#containerForAlert{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 100%;
+	width: 100%;
+	transform: translate(-50%,-50%);
+	background-color: rgba(250, 250, 250, 0.9);
+	z-index: 4566;
+}
+#pushJSContainierViewQuestionForExa{
+	height: 100%;
+	overflow: auto!important;
+	overflow-x: hidden;
+}
+@media only screen and (max-width: 721px){/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.pNameForExaContainer {
+	width: 100%;
+}
+	.inputCommit{
+		width: 100%;
+	}
+	.valueOfRequestStudent{
+		height: 40%;
+	}
+	.promptResponsive button{
+		position: relative!important;
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top: 10px;
+		width: 100%!important;
+	}
+	.send{
+		width: 100%!important;
+	}
+	.promptResponsive{
+		position: absolute;
+		top: 0;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+#pushToRevisarExamanes{
+	width: 100%;
+	height: 90%;
+	left: 50%;
+	top: 90%;
+	transform: translate(-50%,-90%);
+	border-radius: 0;
+}
+#enviarResultados{
+	top: 1%;
+	width: 100%;
+}
+#contenedorVerResultados{
+	width:95%;
+}
+	#buttonCloseContainerViewQuestion{
+
+position: absolute;
+right: 1%;
+top: -10%;
+background:black;
+border-radius: 5px;
+width: 35px;
+cursor: pointer;
+}
+	#containerViewQuestionForExa{
+width: 95%;
+}
+.pAll{
+		color: black;
+	padding: 5px;
+	border-radius: 10px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: inline-block;
+	margin: 10px;
+font-size: 20px;
+}
+	#containerForExamenes{
+		padding: 0;
+		width: 100%!important;
+	}
+.cajaPushExa {
+
+  display: inline-block;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: black;
+  padding: 10px;
+    padding-left: 10px;
+  transition: 0.2s;
+  position: relative;
+}
+	.cajaForExa{
+	padding: 0;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 100%;
+	height: 100%;
+	background: white;
+	border-radius: 1px;
+/*  box-shadow: 0 0 10px rgba(0, 0, 0, 1);*/
+padding-top: 60px;
+padding-left:10px;
+padding-right: 10px;
+}
+	.pushBox{
+		width: 100%;
+		padding: 10px;
+		padding-top: 30px;
+	}
+	#statusNav{
+		margin-top: 20px;
+		display: block!important;
+		float: none;
+	}
+	#infoPreguntas{
+		color: grey;
+		padding: 0;
+		text-align: center;
+		font-size: 15px!important;
+	}
+	#contenedorParaExamenes{
+	transition: 0.6s;
+	overflow: auto;
+ scrollbar-width: thin;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	background: white;
+	height: 100vh;
+	width: 100%;
+	border-radius: 0px;
+}
+#nav_For_exam{
+	margin-top: 30px;
+	width: 100%;
+	border: none;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+ padding-top: 25px;
+}
+#statusforconfigExa{
+	z-index: 100;
+	position: absolute;
+	right: 1%;
+	bottom: 1%;
+}
+
+#exa_cash_adjustments{
+	transition: 0.6s;
+	overflow: auto;
+ scrollbar-width: thin;
+	position: absolute;
+	left: 50%;
+	top: 50%; 
+	transform: translate(-50%,-50%);
+	background: white;
+	height:100vh;
+	width: 100%;
+	border-radius: 5px;
+}
+#pnOOpcional{
+	top: 10%!important;
+}
+.promptOne{
+	padding-top: 50px;
+	float: left;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform: translate(-0%,-0);
+	background: royalblue;
+	height: 50%;
+	border-radius: 0 0 245px 0;
+  transition: 0.4s;
+}
+/*.promptOne:hover{
+	border-radius: 0 0 0 0;
+}*/
+.promptOpcional{
+	color:black;
+	height: 50%;
+	background: whitesmoke;
+	width: 100%;
+	position: absolute;
+	right: 0;
+	bottom:0 ;
+	transform: translate(0,0);
+	border-radius: 0 0 245px 0;
+}
+.inputsForPromptOne{
+	display: block;
+	border-radius: 7px;
+	padding: 5px;
+  border: none;
+  margin: 10px;
+}
+.labelForPromptOne{
+	display: block;
+	padding: 5px;
+  border: none;
+  margin: 10px;
+  color: white;
+}
+.promptInputForTIME{
+	width: 100%;
+display: block;
+float: left;
+padding: 10px;
+}
+#ramConfig{
+	position: absolute;
+	right: 5%;
+	bottom:7%;
+	z-index: 1000;
+	background: black;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	width: 20%;
+	padding: 10px;
+	cursor: pointer;
+}
+.cajaForPromptCheckBox{
+	width: 100%;
+display: block;
+float: left;
+padding: 10px;
+}
+.checkbox{
+margin: 5px;
+cursor: pointer;
+}
+.inputTime{
+		display: none;
+		border-radius: 7px;
+	padding: 5px;
+  border: none;
+  box-shadow: 0 0 3px black;
+  width: 100px;
+  margin: 5px;
+}
+/*///////////////////////////////////////////////////////////////////////////////////*/
+	.caja_Examenes{
+		width: 100%;
+		height: 50%;
+	}
+#contentEstudiantes{
+	position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);	
+  height: 100vh;
+  width: 100%;
+}
+#contentEstudiantes nav{
+	position: absolute;
+	top: 10%;
+	right: 10%;
+	width:auto;
+/*	transform: translate();*/
+}
+#navForSearchcontentEstudiantes{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+/*	background: white;*/
+	border-radius: 20px;
+	padding: 10px;
+}
+#navForSearchcontentEstudiantes input{
+	padding: 10px;
+	margin: 5px;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 0 5px black;
+}
+#navForSearchcontentEstudiantes img{
+	cursor: pointer;
+	width: 10%;
+	background: white;
+	border-radius: 5px;
+}
+#containerEstudiantes{
+width: 100%;
+height: 35%;
+  max-height:35%;
+  background: white;
+  position: absolute;
+  left: 10%;
+  border-radius: 15px;
+  top: 70%;
+  transform: translate(-10%,-70%);
+  overflow: auto;
+  scrollbar-width: thin;
+  padding: 15px;
+  box-shadow: 0 0 30px black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+.estudiantesContainerJS{
+width: 100%;
+  height: 15%;
+  float: left;
+  display: flex;
+  padding: 10px;
+  background: white;
+  border-radius: 15px;
+  margin: 5px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.avatarEstudiantes{
+ width:5%;
+ border-radius: 50%;
+}
+.statusEstudiantes{
+	transition: 0.4s;
+	text-align: center;
+	margin: 5px;
+}
+.menuBarsEstuendJs{
+position: absolute;
+right: 0;
+cursor: pointer;
+transition: 0.6s;
+z-index: 100;
+width: 5%;
+margin: 5px;
+}
+.menuBarsEstuendJs:hover{
+/*	transform: rotate(180deg);*/
+}
+#resultadoForSearch{
+ position: absolute;
+ right: 20%;
+bottom: -80%;
+ width: auto;
+ height: auto;
+	background: #1a1a1a;
+	border-radius: 15px 0 15px 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	justify-items: center;
+	padding: 5px;
+}
+.imgForSearch{
+width: 20%;
+display: inline-flex;
+border-radius: 50%;
+}
+.nameUserForSearch{
+	display: inline-flex;
+	text-align: center;
+ color: white;
+}
+.buttonsAddEstudent{
+	position: absolute;
+	right: -20%;
+	width: 15%;
+	background: white;
+	border-radius: 5px;
+	padding: 2px;
+	cursor: pointer;
+}
+.buttonsAddEstudentNoFriends{
+	position: absolute;
+	right: -20%;
+	width: 15%;
+	border-radius: 5px;
+	padding: 2px;
+}
+.chatBot2{
+	position: absolute;
+	bottom: -100%;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+/*	background: white;*/
+	height: 10%;
+	width: 100%;
+}
+.chatBot2 img{
+border-radius: 50%;
+  width: 40%;
+  float: left;
+  position: absolute;
+  left: -30%;
+  top: 0;
+  transform: translateY(-50px);
+}
+.chatBot2 p{
+margin-left: -15px;
+  background: black;
+  color: white;
+  padding: 10px;
+  border-radius: 0 15px 15px 15px;
+  width: 100%;
+  margin: 10px;
+}
+/*//////////////////////////////*/
+	.promptAtajos{
+		width: 100%;
+	}
+	#saludoP{
+	position: absolute;
+	left: 50%;
+    top: 20%;
+    transform: translate(-50%,-20%);
+    color: white;
+    display: none;
+}
+	.promptAtajos a{
+		padding: 5px;
+		margin: 10px;
+		display: block;
+		width: 90%;
+	}
+	body{
+		height: 100vh!important;
+	}
+	.nav_ecrtro{
+display: none!important;
+}
+.nav_ecrtro_responsive{
+	display: block;
+	border-radius: 20px;
+position: relative;
+float: right;
+margin-top: 20px;
+background: #1a1a1a;
+padding: 10px;
+width:7%;
+height:10%;
+margin: 5px;
+margin-top: 15%;
+overflow: hidden;
+transition: 0.2s!important;
+z-index: 165161;
+}
+.nav_a2{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.nav_a2:hover{
+	background: grey;
+}
+.nav_a2 img{
+	margin: 20px;
+}
+.p_nav_a2{
+	display: inline-block;
+	color: white;
+	font-size: 15px;
+	width: 90%;
+}
+.nav_ecrtro_responsive:hover{
+	overflow: auto;
+	overflow-x: hidden;
+	width: 50%;
+	height: 50%;
+	border-radius: 5px;
+}
+#imgSlider2{
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%,-50%)  rotate(95deg);
+
+}
+.containerNavResponsive {
+  display: block;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, width 0.6s; /* Ajusta la duración según tus preferencias */
+}
+
+.nav_ecrtro_responsive:hover > .containerNavResponsive {
+  opacity: 1;
+  width: 100%;
+  right: 0;
+}
+.nav_ecrtro_responsive:hover > #imgSlider2{
+	display:none;
+}
+	#createNewUserContainer{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+  width: auto;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 60px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 15px;
+  background: #1a1a1a;
+  /*border: solid 1px white;*/
+}
+#formForCreateNewUser{
+	width:auto;
+	height:auto;
+}
+#formForCreateNewUser input{
+	color: black;
+	display: block;
+	margin: 4%;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+}
+#formForCreateNewUser label{
+	text-align: left;
+	display: block;
+	color: white;
+}
+#formForCreateNewUser button{
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+  padding: 1%;
+  cursor: pointer;
+	display: inline-block;
+}
+#cancelServerNewUser{
+	position: absolute;
+	top:0%;
+	left:0%;
+	cursor: pointer;
+	display: inline-block;
+}
+.chatBot{
+	position: absolute;
+	top: -30%;
+	right: 52%;
+	transform: translate(52%,-30%);
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+/*	background: white;*/
+	height: 10%;
+	width: 100%;
+}
+.chatBot img{
+	border-radius: 50%;
+	width: 40%;
+	float: left;
+}
+.chatBot p{
+	margin-left: -15px;
+	background: black;
+	color: white;
+	padding: 10px;
+	border-radius: 0 15px 15px 15px;
+}
+#sendServerNewUser{
+	padding: 10px;
+}
+	#buttonAceptarNewLogin{
+		padding: 10px;
+		width: 20%;
+	}
+	#buttonNoAceptarNewLogin{
+		padding: 10px;
+		width: 20%;
+	}
+	.todasLasPreguntas{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	height:auto;
+	width: 90%;
+	max-height: 70%;
+	min-width: 30%;
+	overflow: auto;
+   border-radius: 10px;
+	background: white;
+	padding: 10px;
+}
+	#alertDiv{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 2000;
+	padding: 30px;
+	background-color: rgba(30,30,30,0.9);
+	color: white;
+	border-radius: 15px;
+	width: 100%
+}
+.contenLogin{
+color: white;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+background: #1a1a1a ;
+padding:10px;
+width: 90%;
+height: 40%;
+border-radius: 15px;
+}
+.inputsLogin{
+	width: 70%;
+     position: absolute;
+     left: 50%;
+     top: 60%;
+     transform: translate(-50%,-60%);
+	background: white;
+	color: black;
+	border-radius: 15px;
+	border: none;
+	padding: 20px;
+	
+}
+#navPrymari{
+	border-radius: 15px 15px 15px;
+	box-shadow: 0 0 15px black;
+	transition: 0.5s;
+	width: 1%;
+    background-image: linear-gradient(to right top, #051937, #002567, #002d97, #3b2cc4, #7712eb);
+	position: absolute;
+	overflow: hidden;
+	right:0%;
+	top: 50%;
+	transform: translate(1%,-50%);
+	padding: 10px;
+	height: 20vh;
+	cursor: pointer;
+	z-index: 20;
+}
+#navPrymari:hover{
+	width: 50%;
+	height: auto;
+	left: 0%;
+	transform: translate(0%,-50%);
+}
+.containerQuestion{
+/*  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);*/
+  border-radius: 20px;  
+	position: absolute;
+	width:100%;
+	height:auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	padding: 15px;
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: white;
+}
+}/*//////////////////////////////////////////*/

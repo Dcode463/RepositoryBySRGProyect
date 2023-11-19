@@ -153,7 +153,8 @@ async function veriDataInput (){
 const promesaV = new Promise(async (resolve, reject)=>{
 let veri = true;
 if(checkboxLimitTime.checked){
-if(inputTheCheckBoxLimitTimeHours.value.length === 0 && inputTheCheckBoxLimitTimeMinutes.value.length === 0) reject({input : inputTheCheckBoxLimitTimeHours, method : true, data : 'Ingrese el tiempo que desea como limite'});
+if(inputTheCheckBoxLimitTimeHours.value === '')reject({input : inputTheCheckBoxLimitTimeHours, method : true, data: 'Ingrese las horas'})
+else if(inputTheCheckBoxLimitTimeHours.value.length === 0 && inputTheCheckBoxLimitTimeMinutes.value.length === 0) reject({input : inputTheCheckBoxLimitTimeHours, method : true, data : 'Ingrese el tiempo que desea como limite'});
 else if (isNaN(inputTheCheckBoxLimitTimeHours.value))reject({input : inputTheCheckBoxLimitTimeHours, method : true, data : 'ingrese un valor correcto'});
 //MINUTES VERI
 else if (inputTheCheckBoxLimitTimeMinutes.value.length === 0 && inputForTimeConfigHours.value.length === 0) reject({input : inputTheCheckBoxLimitTimeMinutes, method : true, data : 'Ingrese el tiempo que desea como limite'});
@@ -171,7 +172,7 @@ if(e.input != undefined){
  statusforconfigExa.innerHTML = e.data;
  setTimeout(()=>{e.input.style.border = 'none';statusforconfigExa.innerHTML = ''},3000)
 }else{
-	alert(e)
+console.log(e);
 }
 }) 
 }
@@ -259,8 +260,14 @@ const response = await fetchData.json();
 if(response.mensaje === true){
 statusSaveServer.innerHTML = 'Listo, Examen guardado';
 setTimeout(()=>{  
+document.getElementById('salaDeEspera').style.display = 'none';
+document.getElementById('pushBoxFather').innerHTML = '';
+document.getElementById('contenedorParaExamenes').style.display = 'none';
+document.getElementById('exa_cash_adjustments').style.display = 'block';
+document.getElementById('centerForExa').style.display = 'block';
+numPreguntas = 0;
 
-})
+},1000)
 }
 } 
 }

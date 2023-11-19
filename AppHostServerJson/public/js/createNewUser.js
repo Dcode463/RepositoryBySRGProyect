@@ -1,11 +1,12 @@
-function newUser(name,password,materia,estudiantes){
+function newUser(name,password,materia,urlAvatar){
 	let headers = {
 		method : "post",
 		body : JSON.stringify({
 			"funcion" : "newTeacher",
 			"materia" : materia,
 			"name" : name,
-			"pass" : password
+			"pass" : password,
+			"avatarUrl" : urlAvatar 
         }),
         headers : {"Content-Type" : "application/json"}
 	}

@@ -2,13 +2,33 @@
   "nuevosDatos": {
     "ok": "data"
   },
-  "onfire": {
+  "DennisMaltez": {
     "status": "online",
     "avatar": "/perfiles/studentPerfil.png",
+    "name": "DennisMaltez",
+    "friends": [
+      []
+    ],
+    "trofeos": " "
+  },
+  "onfire": {
+    "status": "online",
+    "avatar": "/perfiles/jugador5.jpg",
     "name": "onfire",
     "friends": [
       []
     ],
     "trofeos": " "
+  },
+  "Esteban": {
+    "status": "online",
+    "avatar": "/perfiles/jugadorDos.gif",
+    "name": "Esteban",
+    "friends": [
+      [
+        "onfire"
+      ]
+    ],
+    "trofeos": "undefined"
   }
 }

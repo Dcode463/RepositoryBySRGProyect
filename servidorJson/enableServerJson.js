@@ -96,10 +96,33 @@ else if(datosRecibidos.funcion === "createNewRepositori"){
           resolve(JSON.stringify({ "mensaje": "error" }));
         } else {
           console.log("Listo, repositorio creado");
-          creatorJsonRepositori()
+          funcioncrearJsonNotification()
           resolve({"mensaje": "ok"});
         }
       });
+/////////////////////////creator notification json/////////////////////////////////////
+funcioncrearJsonNotification=()=>{
+  const datos = {
+NOREMOVE : {
+  data : true
+}
+};
+
+// Ruta y nombre del archivo JSON que se creará
+const filePath = `repositori/${nombreRepositoriCarpeta}/notification.json`;
+
+// Convierte el objeto de datos a formato JSON
+const contenidoJson = JSON.stringify(datos, null, 2);
+
+// Escribe el contenido JSON en el archivo
+fs.writeFile(filePath, contenidoJson, 'utf8', (err) => {
+  if (err) {
+    console.error('Error al escribir en el archivo JSON:', err);
+  } else {
+          creatorJsonRepositori()
+  }
+});
+}
 //----->///////////datajsonrepositori////////////////
 creatorJsonRepositori=()=>{
 let rutaDeRepositorio = `repositori/${nombreRepositoriCarpeta}/dataGame.json`;
@@ -469,10 +492,12 @@ fs.readFile(filePath, 'utf8', (err, data)=>{
 }
 //////////////////////////////////////NewTeacher/////////////////////////////////////////////////////////
 else if(datosRecibidos.funcion === "newTeacher"){
+  console.log(datosRecibidos.avatarUrl)
   const rutaJson = 'DataJson/jsonTeachers/usersTeachersInfo.json';
 const nuevosDatos = {
   "materia" :  `${datosRecibidos.materia}`,
-  "name":     `${datosRecibidos.name}`
+  "name":     `${datosRecibidos.name}`,
+  "avatar" : datosRecibidos.avatarUrl
 };
 const datos = datosRecibidos.name;
 fs.readFile(rutaJson, 'utf8', (error, datosExistente) => {
@@ -548,7 +573,8 @@ let rutaDeRepositorio = `repositoriForTeachers/${nombreRepositoriCarpeta}/pass.j
 try{ 
 const data = {
 "pass" : datosRecibidos.pass,
-"materia" : datosRecibidos.materia
+"materia" : datosRecibidos.materia,
+"avatar" : datosRecibidos.avatarUrl
   };
 let dataJson = JSON.stringify(data, null, 2);
 fs.writeFileSync(rutaDeRepositorio, dataJson);
@@ -624,7 +650,8 @@ fs.readFile(filePath, 'utf8', (err, data)=>{
    if(datas.pass === datosRecibidos.password){
     resolve({
       "materia" : datas.materia,
-      "resultado" : true
+      "resultado" : true,
+      "avatar" : datas.avatar
     })
    }else{
     resolve({
@@ -778,7 +805,9 @@ fs.writeFile(rutaArchivoJson, contenidoJson, 'utf8', (err) => {
     if (err) {
         console.error('Error al crear el archivo JSON:', err);
     } else {
-        console.log('Archivo JSON creado correctamente.');
+      resolve({
+        mensaje : true
+      })
     }
 });
 }
@@ -832,6 +861,7 @@ fs.readFile(filePath, 'utf8', (err, data)=>{
 const nuevosDatos = {
 nameTeacher : datosRecibidos.teacherName,
 materiaTeacher : datosRecibidos.materia,
+urlAvatar : datosRecibidos.avatarMateria,
 dataconfig : datosRecibidos.dataconfig,
 questionsData : datosRecibidos.questionsData
 };
@@ -891,21 +921,34 @@ fs.readFile(filePath, 'utf8', (err, data)=>{
 }
 //////////////////////////////////////////////////pushResultadorForTeachers////////////////////////////////
 else if(datosRecibidos.funcion === 'pushResultadorForTeachers'){
-        //registramos al usuario en dataJsonHowManyUser
-  const rutaJson = `repositoriForTeachers/${datosRecibidos.teacherConection}/resultadosExa/${datosRecibidos.nameExamen}.json`;
+  const rutaCompleta = path.join(__dirname, 'repositoriForTeachers', datosRecibidos.teacherConection, 'resultadosExa', `${datosRecibidos.nameExamen}.json`);
+
+  // Imprimir en la consola si el archivo existe en la carpeta especificada
+  if (fs.existsSync(rutaCompleta)) {
+ init_confirm_validor()
+
+        resolve({
+        "mensaje" : true
+      })
+  } else {
+  console.log('Bus de examen no existe')
+  init_delete_exaFor_student()
+        resolve({
+        "mensaje" : false
+      })
+  }
+  init_send_student_Notfication=()=>{
+  const rutaJson = `repositori/${datosRecibidos.nameStudent}/notification.json`;
 const nuevosDatos = {
-nameStudent : datosRecibidos.nameStudent,
-data : {... datosRecibidos.data}
+data : `El profesor ${datosRecibidos.nameTeacher} te ha mandado un examen`
 };
-const datos = datosRecibidos.nameStudent;
+const datos = 'alert';
 fs.readFile(rutaJson, 'utf8', (error, datosExistente) => {
   if (error) {
       resolve({
-      "mensaje" : false,
-      "error" : " al analizar el archivo JSON"
+      "mensaje" : false
     })
     console.log("Error al leer el archivo JSON");
-    
   }
   try {
     const dataJson = JSON.parse(datosExistente);
@@ -918,21 +961,53 @@ fs.readFile(rutaJson, 'utf8', (error, datosExistente) => {
       if (error) {
           resolve({
       "mensaje" : false,
-      "error" : " al analizar el archivo JSON"
     })
+        console.log('Error al escribir el archivo JSON: ' + error);
+      } else {
+        console.log(`notificando a ${datosRecibidos.nameStudent} que tiene un resultado`);
+      resolve({"mensaje" : true})
+      }
+    });
+  } catch (parseError) {
+    resolve({
+      "mensaje" : false,
+    })
+    console.log("Error al analizar el archivo JSON: " + parseError);
+  }
+});
+}
+function init_confirm_validor(){
+        //registramos al usuario en dataJsonHowManyUser
+  const rutaJson = `repositoriForTeachers/${datosRecibidos.teacherConection}/resultadosExa/${datosRecibidos.nameExamen}.json`;
+const nuevosDatos = {
+nameStudent : datosRecibidos.nameStudent,
+data : {... datosRecibidos.data}
+};
+const datos = datosRecibidos.nameStudent;
+fs.readFile(rutaJson, 'utf8', (error, datosExistente) => {
+  if (error) {
+    console.log("Error al leer el archivo JSON");
+    
+  }
+  try {
+    const dataJson = JSON.parse(datosExistente);
+    // Usar notación de corchetes para agregar nuevosDatos al objeto existente
+    dataJson[datos] = nuevosDatos;
+
+    const datosActualizados = JSON.stringify(dataJson, null, 2);
+
+    fs.writeFile(rutaJson, datosActualizados, 'utf8', (error) => {
+      if (error) {
         console.log('Error al escribir el archivo JSON: ' + error);
       } else {
     init_delete_exaFor_student()
       }
     });
   } catch (parseError) {
-    resolve({
-      "mensaje" : false,
-      "error" : " al analizar el archivo JSON"
-    })
     console.log("Error al analizar el archivo JSON: " + parseError);
   }
 });
+}
 function init_delete_exaFor_student(){
 const archivoJSON = `repositori/${datosRecibidos.nameStudent}/examenes.json`;
 let whatQuestion = datosRecibidos.nameExamen;
@@ -954,9 +1029,6 @@ fs.readFile(archivoJSON, 'utf8', (err, data) => {
     if (err) {
       console.error('Error al escribir el archivo JSON', err);
     } else {
-      resolve({
-        "mensaje" : true
-      })
       console.log('Objeto eliminado y cambios guardados.');
     }
   });
@@ -1038,12 +1110,11 @@ if (fs.existsSync(archivoABorrar)) {
         resolve({
         "mensaje" : false
       })
-}
-}
-//////////////////////////////////////sendStudentAndRegistro///////////////////////////////////
+}}}
+//////////////////////////////////////////////////////////////////////////sendStudentAndRegistro
 else if(datosRecibidos.funcion === 'sendStudentAndRegistro'){
       //registramos al usuario en registro
-  const rutaJson = `repositoriForTeachers/${datosRecibidos.nameTeacher}/registroExa/${datosRecibidos.registro.nameExamen}`;
+  const rutaJson = `repositoriForTeachers/${datosRecibidos.nameTeacher}/registroExa/${datosRecibidos.registro.nameExamen}.json`;
 const nuevosDatos = {
 nameStudent : datosRecibidos.registro.nameStudent,
 puntaje : datosRecibidos.registro.puntaje
@@ -1085,7 +1156,7 @@ init_send_student_resultado=()=>{
   const rutaJson = `repositori/${datosRecibidos.nameStudent}/resultados.json`;
 const nuevosDatos = {
 nameStudent : datosRecibidos.nameStudent,
-nameTeacher : datosRecibidos.nameStudent,
+nameTeacher : datosRecibidos.nameTeacher,
 puntajeGanado : datosRecibidos.send.puntajeGanado,
 puntaje : datosRecibidos.send.puntajeDeExa,
 data : {... datosRecibidos.send.data}
@@ -1125,15 +1196,83 @@ fs.readFile(rutaJson, 'utf8', (error, datosExistente) => {
 });
 }
 }
+////////////////////////////////////////////////////////////////////requestRecord////////////////////////////////////////
+else if(datosRecibidos.funcion === 'requestRecord'){
+const filePath = path.join(__dirname, 'repositoriForTeachers', `${datosRecibidos.name}`, 'registroExa', `${datosRecibidos.nameExa}.json`);
+fs.readFile(filePath, 'utf8', (err, data)=>{
+  if(err){ 
+    console.log(err)
+    resolve({
+      "mensaje" : "error",
+      "typeError" : `${err}`
+    })
+  }
+  else resolve(data)
+})
 }
+///////////////////////////////////////////////////////////////////requesResultadoByStudent////////////////////////////
+else if(datosRecibidos.funcion === 'requesResultadoByStudent'){
+  const filePath = path.join(__dirname, 'repositori', `${datosRecibidos.name}`, 'resultados.json');
+fs.readFile(filePath, 'utf8', (err, data)=>{
+  if(err){ 
+    console.log(err)
+    resolve({
+      "mensaje" : false,
+      "typeError" : `${err}`
+    })
+  }
+  else resolve(data)
+})
+}
+//////////////////////////////////verinotification by student////
+else if(datosRecibidos.funcion === 'requestNotificationStudent'){
+    const filePath = path.join(__dirname, 'repositori', `${datosRecibidos.name}`, 'notification.json');
+fs.readFile(filePath, 'utf8', (err, data)=>{
+  if(err){ 
+    console.log(err)
+    resolve({
+      "mensaje" : false,
+      "typeError" : `${err}`
+    })
+  }
+  else resolve(data)
+})
+}
+//////////////////////////////////////////////////////////////////
+else if(datosRecibidos.funcion === "deleteAlert"){
+console.log("borrando question");
+const archivoJSON = `repositori/${datosRecibidos.name}/notification.json`;
+let whatQuestion = 'alert';
+
+fs.readFile(archivoJSON, 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error al leer el archivo JSON', err);
+    
+  }
+
+  const jsonData = JSON.parse(data);
+
+  // Eliminar el objeto deseado utilizando la clave almacenada en 'whatQuestion'
+  if (jsonData.hasOwnProperty(whatQuestion)) {
+    delete jsonData[whatQuestion];
+  }
+
+  fs.writeFile(archivoJSON, JSON.stringify(jsonData, null, 2), (err) => {
+    if (err) {
+      console.error('Error al escribir el archivo JSON', err);
+    } else {
+      resolve({
+        "mensaje" : "ok"
+      })
+      console.log('Objeto eliminado y cambios guardados.');
+    }
+  });
+});}
   });
   promesaDatosRecibidos.then((envio) => {
     res.json(envio);
   });
 });
-
-
-
 app.listen(port,ipServer, ()=>{
   console.log(`Servidor Json listo en http://${ipServer}:${port}`)
 })

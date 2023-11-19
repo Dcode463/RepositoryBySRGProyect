@@ -1,15 +1,18 @@
 //servidor port 
 let servidor;
 let elementosCaja = document.querySelectorAll('.caja');
-let urlLocal = location.hostname
+let urlLocal = location.hostname;
+let confirmDecalificacion = false;
+let puntajeGlobalPrymari;
 servidor = `http://${urlLocal}:8070`;
 console.log(`conectado ${servidor}`);
 /////////////////////////////////////////////////////////////////////////////////////////
 document.getElementById("Title").innerHTML = "HSRG | Iniciando sesion";
 let userNames;
-let inputMat;
+let inputMat;  
 let guardarMateria;
 let showPreguntas = document.getElementById('questionButtonShow')
+let showPreguntasResponsive = document.getElementById('questionButtonShow2')
 const inputPass = document.getElementById('pass');
 const buttonInputPass = document.getElementById('buttonPasswordVerificar')
 const containerLogin = document.querySelector('.contenLogin')
@@ -36,6 +39,7 @@ let objectModi;
 let contenedorByEstudiantes = document.getElementById('contentEstudiantes')
 let containerEstudiantesPushElementJs = document.getElementById('containerEstudiantesPushElementJs');
 const misEstudianteButtonNav = document.getElementById('misEstudianteButtonNav');
+const misEstudianteButtonNavResponsive = document.getElementById('misEstudianteButtonNav2');
 siguiente_Name.addEventListener('click',()=>{eventoLoginForUserName()});
 inputUserName.addEventListener('keydown',event=>{
  if(event.key === "Enter") eventoLoginForUserName()
@@ -189,7 +193,21 @@ promiseVerificacionInput.then(e=>{
    	                                       Creando cuenta para "${inputNameSendServerNewUser.value}"`;
    	    buttonAceptarNewLogin.style.display = "none";
    	    butonCancelarNewLogin.style.display = "none";
-   	    newUser(inputNameSendServerNewUser.value,inputPasswordSendServerNewUser.value,inputMateriaSendServerNewUser.value)
+   let avatarMateria;
+   if (inputMateriaSendServerNewUser.value === 'AEP')  avatarMateria = 'perfiles/iconoAep.jpg'
+   else if(inputMateriaSendServerNewUser.value === 'Tac')  avatarMateria = 'perfiles/iconoTac.jpg'
+   else if(inputMateriaSendServerNewUser.value === 'Computacion') avatarMateria = 'perfiles/iconoComputacion.jpg'
+   else if(inputMateriaSendServerNewUser.value === 'Matematicas') avatarMateria = 'perfiles/iconoMatematicas.jpg'
+   else if(inputMateriaSendServerNewUser.value === 'Fisica') avatarMateria = 'perfiles/iconoFisica.jpg'
+   else if(inputMateriaSendServerNewUser.value === 'Biologia') avatarMateria = 'perfiles/iconoBiomoleculas.png'
+   else if(inputMateriaSendServerNewUser.value === 'Historia') avatarMateria = 'perfiles/iconoHistoria.jpg'
+   else if(inputMateriaSendServerNewUser.value === 'Educacion Fisica')  avatarMateria = 'perfiles/iconoEducacionFisica.jpg'
+   else if(inputMateriaSendServerNewUser.value === 'Filosofia') avatarMateria = 'perfiles/iconoFilosofia.jpg'
+   else if(inputMateriaSendServerNewUser.value === 'Geografia') avatarMateria = 'perfiles/iconoGeografia.png'
+   else if(inputMateriaSendServerNewUser.value === 'Lengua y literatura') avatarMateria = 'perfiles/iconoLengua.jpg'
+   else if(inputMateriaSendServerNewUser.value === 'Ingles') avatarMateria = 'perfiles/iconoIngles.jpg'
+   	else avatarMateria = 'perfiles/iconoAllmateri.jpg'
+   	    newUser(inputNameSendServerNewUser.value,inputPasswordSendServerNewUser.value,inputMateriaSendServerNewUser.value,avatarMateria)
  	 }
 })
 })
@@ -214,7 +232,7 @@ fetch(servidor,headers)
 .then(async(dataJsons) => {
   let dataJson = await dataJsons;
 	if(dataJson.resultado){
-    startInterface(dataJson.materia)
+    startInterface(dataJson.materia,dataJson.avatar)
 	}
 	else{
 document.getElementById("Title").innerHTML = "HSRG | Esperando contraseña";
@@ -243,7 +261,7 @@ salaEsperaLogin.style.display = "none";
 
 // 	 })
 }
-function startInterface(materia){
+function startInterface(materia,avatar){
 document.getElementById("Title").innerHTML = `HSRG | ${inputUserName.value} ${materia} ` ;
 hours()
 document.getElementById('saludoP').innerHTML = `Hola ${inputUserName.value}, que desea hacer hoy?`
@@ -253,15 +271,19 @@ containerLogin.style.display = "none";
 containerLogin.innerHTML = " "
 subBody.style.display = "block";
 guardarMateria = materia;
-document.getElementById('addicionalInfoUserMateria').setAttribute('value',materia)
+document.getElementById('addicionalInfoUserMateria').setAttribute('value',materia);
+document.getElementById('addicionalInfoUserAvatar').setAttribute('value',avatar)
 inputMat = materia;
 //contenedores del html
 const contenedorPreguntas = document.querySelector('.containerQuestion')
 const dashBoard = document.querySelector(".todasLasPreguntas")
 //ButtonsNav
 const buttonHome = document.getElementById('inicioButton');
+const buttonHomeResponsive = document.getElementById('inicioButton2');
 const buttonQuestion = document.getElementById('questionButton');
+const buttonQuestionResponsive = document.getElementById('questionButton2');
 const dashBoardInicio = document.getElementById('inicioButtonDaskBoard');
+const dashBoardInicioResponsive = document.getElementById('inicioButtonDaskBoard2');
 const home = document.querySelector('.home')
 // loadding
 let loader = document.querySelector('.loader')
@@ -284,6 +306,13 @@ elementosCaja.forEach(e=>{
 	 home.style.display = "block"
 })
 })
+dashBoardInicioResponsive.addEventListener('click', ()=>{ // responsive
+cerrarNav();
+elementosCaja.forEach(e=>{
+	if(e != home) e.style.display = "none"
+	 home.style.display = "block"
+})
+})
 newPost.addEventListener('click',()=>{
 	let cancelNewpost = document.getElementById('cancelBoxContainerQuestion');
  	dashBoard.style.display = "none";
@@ -296,8 +325,12 @@ newPost.addEventListener('click',()=>{
 buttonHome.addEventListener('click',()=>{
 	 location.reload()
 });
+buttonHomeResponsive.addEventListener('click',()=>{ // responsive
+	 location.reload()
+})
 document.getElementById('IngresarPreguntasAtajo').addEventListener('click',()=>{iniciarEventoIngresarPreguntas()})
 buttonQuestion.addEventListener('click',()=>{iniciarEventoIngresarPreguntas()});
+buttonQuestionResponsive.addEventListener('click',()=>{iniciarEventoIngresarPreguntas()});
 iniciarEventoIngresarPreguntas=()=>{
 newPost.style.display = 'block';
 cerrarNav()
@@ -312,6 +345,7 @@ cerrarNav()
 document.getElementById('showQuestionAtajo').addEventListener('click',()=>{iniciarEventoTodasLasPreguntas()})
 	contenedorPadreForContainerQuestion.innerHTML =" "
 	showPreguntas.addEventListener('click',()=>{iniciarEventoTodasLasPreguntas()});
+	showPreguntasResponsive.addEventListener('click',()=>{iniciarEventoTodasLasPreguntas()});
 iniciarEventoTodasLasPreguntas=()=>{
 	newPost.style.display = 'none';
 		elementosCaja.forEach(e=>{
@@ -622,8 +656,10 @@ elementosCaja.forEach(j=>{
 }
 document.getElementById('verEstudianteAtajo').addEventListener('click',iniciarEventoShowEstudiante)
 misEstudianteButtonNav.addEventListener('click',iniciarEventoShowEstudiante);
+misEstudianteButtonNavResponsive.addEventListener('click',iniciarEventoShowEstudiante);
 document.getElementById('forExaButtonNewExaForInfo').addEventListener('click', iniciarContentCreateNewExa)
 document.getElementById('misExamenesButtonNav').addEventListener('click', iniciarContentCreateNewExa)
+document.getElementById('misExamenesButtonNav2').addEventListener('click', iniciarContentCreateNewExa)
 function startContentEstudientes(nameTeacher){ 
  let aRSLFTs = []
  let headers = {
@@ -745,6 +781,10 @@ document.querySelector('.nav_a').style =`width:90%`;
 document.querySelector('.userImg').style =`border-radius: 20%;position: absolute;left: 40%;top: 1%;transform: translate(-50%,-5%);width:50%!important;`;
 document.querySelector('.userName').style =`color: white;`;
 document.getElementById('statusName').style =`transition: 0s;color:white!important;opacity:1;`;	
+document.querySelectorAll('.labelDivNav').forEach(e=>{
+e.style.fontSize = '15px';
+e.style.display = 'block';
+})
 }
 cerrarNav=()=>{
 verificacionForNav = true;
@@ -767,11 +807,15 @@ document.querySelector('.nav_a').style =`cursor:pointer;width:90%;padding: 5px;m
 document.querySelector('.userImg').style =`transition:  0.4s!important;transition: width 0.6s!important;transition:  margin 10s!;width: 50px;margin: 10px;border-radius: 50%;`;
 document.querySelector('.userName').style =`width: 200px;transition: 0s;color: transparent;padding: 10px;opacity:0;`
 document.getElementById('statusName').style =`transition:0;opacity:0;color: transparent;font-size: 12px;`;
+document.querySelectorAll('.labelDivNav').forEach(e=>{
+e.style.display = 'none';
+})
 }
 // click button examanes 
 // document
 let containerForExa = document.getElementById('containerForExamenes');
 let buttonViemExamenes = document.getElementById('examenesButton');
+let buttonViemExamenesResponsive = document.getElementById('examenesButton2');
 // Events 
 init_BoxExa=()=>{
 cerrarNav()
@@ -780,7 +824,8 @@ elementosCaja.forEach(j=>{
 });containerForExa.style.display = 'block';
 requieredExaList()
 }
-buttonViemExamenes.addEventListener('click', init_BoxExa)
+buttonViemExamenesResponsive.addEventListener('click', init_BoxExa);
+buttonViemExamenes.addEventListener('click', init_BoxExa);
 async function requieredExaList(){
 let objQuestion;
 let containerFatherForEXApush = document.getElementById('pushExaContainer');
@@ -828,9 +873,7 @@ let buttonDeleteEXA = document.querySelectorAll('.imgRemoveExa');
 let buttonclosed = document.querySelectorAll('.closeWindow');
 let resultadosButton = document.querySelectorAll('.allInfoButton');
 resultadosButton.forEach(e=>{
-e.addEventListener('click', ()=>{
-
-})
+e.addEventListener('click', ()=>{init_requestRegistro(e.parentElement.parentElement.firstElementChild.firstElementChild.nextElementSibling.textContent)})
 })
 buttonDeleteEXA.forEach(e=>{ 
 e.addEventListener('click',async ()=>{
@@ -883,6 +926,48 @@ init_push_questions(e.parentElement.firstElementChild.nextElementSibling.textCon
 /*
 transition: 0.2s;
   transform: translate(-100%);*/
+async function init_requestRegistro(nameExamen){
+let father = document.getElementById('pushRegistro');
+let divContainer = document.getElementById('containerRegistro');
+let sobrePonerRegistro = document.getElementById('sobrePonerForExaQuestion'); 
+let close = document.getElementById('buttonCloseRegistro');
+let peticionRegistro = await registroRequest();
+let objectToArray = Object.keys(peticionRegistro);
+let filterMatriz = objectToArray.filter(e=> e != 'NOREMOVE');
+for(let i=0; i < filterMatriz.length; i++){
+let div = document.createElement('DIV'); div.classList.add('divRegistros');
+let pname = document.createElement('P');div.classList.add('pRegistroname'); pname.textContent = peticionRegistro[filterMatriz[i]].nameStudent;
+let pPuntaje = document.createElement('P');pPuntaje.classList.add('pRegistroPuntaje');pPuntaje.innerHTML = `<b>Puntaje</b> ${peticionRegistro[filterMatriz[i]].puntaje}`
+div.appendChild(pname);div.appendChild(pPuntaje);father.appendChild(div);
+}
+if(filterMatriz.length === 0){
+ let div = document.createElement('DIV'); div.classList.add('divRegistros');
+let pname = document.createElement('P');div.classList.add('pRegistroname'); pname.textContent = 'Aun no hay ningun registro';
+div.appendChild(pname);father.appendChild(div);
+}
+sobrePonerRegistro.style.display = 'block';
+divContainer.style.display = 'block';
+close.addEventListener('click',()=>{
+father.innerHTML = '';
+sobrePonerRegistro.style.display = 'none';
+divContainer.style.display = 'none';
+})
+async function registroRequest(){
+let data = {
+funcion : 'requestRecord',
+name : addicionalInfoUserName.value,
+nameExa : nameExamen
+}
+let config = {
+method : 'post',
+body : JSON.stringify(data),
+headers : {'Content-Type':'application/json'}
+}
+let fetchData = await fetch(servidor,config);
+let responseByrequest = await fetchData.json();
+return JSON.parse(responseByrequest)
+}
+}
 async function init_delete_exa(obj){
 let containerLoad = document.getElementById('containerLOADDINGBydeleteExa');
 let pStatus = document.getElementById('pStatusContainerLoaddingDelete');
@@ -894,7 +979,7 @@ sobreponer.style.display = 'block';
 pStatus.textContent = `Borrando Examen '${obj.nameExa} ...'`;
 let requestResponse = await requestDelete();
 if(requestResponse){
-pStatus.textContent = `Examen '${obj.exaDelete}' borrado con exito`;
+pStatus.textContent = `Examen '${obj.nameExa}' borrado con exito`;
 setTimeout(()=>{
 containerLoad.style.display = 'none';sobreponer.style.display = 'none';
 elementoDiv.transform = 'translate(-100%)';
@@ -1017,6 +1102,7 @@ let objOfArray = Object.keys(objofUser);
 let filterOne = objOfArray.filter(e=> e != 'infoExitApp');
 let filterTwo = filterOne.filter(e=> e != 'puntaje');
 puntajeGlobal = objofUser.puntaje / filterTwo.length;
+puntajeGlobalPrymari = objofUser.puntaje;
 document.getElementById('puntajeStatus').innerHTML = `Puntaje total ${objofUser.puntaje} <br> Puntaje por preguntas ${puntajeGlobal}`;
 for(let i=0; i < filterTwo.length; i++){
 let div = document.createElement('DIV');div.classList.add('divContainerOFRequestStudent');
@@ -1114,7 +1200,7 @@ function init_copilador_de_datos(){
 	let validor2 = true;
 let countsPuntaje = 0;
 let objectoEnviar = {
-puntajeDeExa : puntajeGlobal,
+puntajeDeExa : puntajeGlobalPrymari,
 puntajeGanado : '' ,
 nameExamen : nameExamenGlobal,
 data : {}
@@ -1146,23 +1232,51 @@ commit : commit
 }
 })
 if(validor2){
-	objectoEnviar.puntajeGanado = countsPuntaje;
+	if(confirmDecalificacion){
+			objectoEnviar.puntajeGanado = countsPuntaje / 2;
+	}else{
+			objectoEnviar.puntajeGanado = countsPuntaje;
+	}
+
 document.getElementById('sectionByLOader').style.display = 'block';
 init_send_resultado= async ()=>{
-sendStudent()
+let sendVeri = await sendStudent();
+console.log(sendVeri)
+if(sendVeri){
+	sendStatus.textContent = 'Examen enviado ...';
+	setTimeout(()=>{
+document.getElementById('sectionByLOader').style.display = 'none';
+document.getElementById('revisarExamenes').style.display = 'none';
+	},2000)
+}
+else {
+	sendStatus.textContent = 'Error al enviar examane, intentelo mas tarde';
+		setTimeout(()=>{
+document.getElementById('sectionByLOader').style.display = 'none';
+document.getElementById('revisarExamenes').style.display = 'none';
+	},2000)
+}
 async function sendStudent(){
 let data = {
 registro : {nameExamen : nameExamenGlobal,nameStudent :document.getElementById('enviarResultados').getAttribute('value'),puntaje :  countsPuntaje},
 send : {... objectoEnviar},
-function : 'sendStudentAndRegistro',
+funcion : 'sendStudentAndRegistro',
 nameStudent : document.getElementById('enviarResultados').getAttribute('value'),
-nameTeacher : addicionalInfoUserName.value
+nameTeacher : addicionalInfoUserName.value,
+name :  addicionalInfoUserName.value
 }
-console.log(data)
+let config = {
+	method : 'post',
+	body : JSON.stringify(data),
+	headers : {'Content-Type':'application/json'}
+}
+let fetchData = await fetch(servidor,config);
+let response = await fetchData.json();
+return response
+console.log(response)
 }
 }
 init_send_resultado()
-
 }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -1172,6 +1286,7 @@ let data = await {
 funcion : 'newExaSendStudent',
 repositoriName : nameConection,
 name : nameConection,
+avatarMateria : addicionalInfoUserAvatar.value,
 teacherName : addicionalInfoUserName.value,
 materia : addicionalInfoUserMateria.value,
 dataconfig : obj[valueForExamen].dataconfig,
@@ -1204,7 +1319,7 @@ pContainer.innerHTML = 'Examen enviando'
 setTimeout(()=>{
 pContainer.innerHTML = nameConection;
 pContainer.parentElement.style = '';
-},2000)
+},100)
 }
 else{
 pContainer.innerHTML = 'Ups, algo paso y no se envio el examamen'

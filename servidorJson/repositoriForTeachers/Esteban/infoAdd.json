@@ -1,0 +1,26 @@
+{
+  "start": "repositori",
+  "Yes no question": {
+    "dataconfig": {
+      "nameForExa": "Yes no question",
+      "pointsForExa": "100",
+      "privateForTeacher": false,
+      "noExitApp": true,
+      "limitTimeCompleteVercion": "0 hora y 1 minuto",
+      "limitTime": {
+        "confirm": true,
+        "data": {
+          "hours": "0",
+          "minute": "1"
+        }
+      }
+    },
+    "questionsData": {
+      "numero": 2,
+      "preguntas": [
+        "¿What is your favorite color?",
+        "¿When where you born?"
+      ]
+    }
+  }
+}

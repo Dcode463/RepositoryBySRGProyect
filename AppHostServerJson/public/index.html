@@ -8,7 +8,7 @@
 	<link rel="icon" href="media/iconoSchoolServer.png">
 	<title id="Title">HSRG | Docentes</title>
 </head> 
-<body>
+<body> 
 <!-- 	<div id="EroorFetch" style="display:none;">
 		<h1 id="statusError">Ups, hay un error en el servidor</h1>
 		<p>Verifica si el servidor local esta encendido</p>
@@ -28,14 +28,29 @@
            	 <label>Nombre</label>
            	 <input autocomplete="off" autocomplete="off" type="text" id="nombre_CreateNewUser" placeholder="Su nombre"  name="nombre">
            	 <label>Materia</label>
-           	 <input autocomplete="off" autocomplete="off" type="text" id="materia_CreateNewUser" placeholder="Su materia" name="">
-           	 <label>Contraseña</label>
+           	<select id="materia_CreateNewUser" onautocomplete="off">
+           	<option value="" disabled selected>Selecciona La materia</option>
+                <option value="AEP">AEP</option>
+                <option value="Tac">Tac</option>
+                <option value="Computacion">Computacion</option>
+                <option value="Matematicas">Matematicas</option>
+                <option value="Fisica">Fisica</option>
+                <option value="Biologia">Biologia</option>
+                <option value="Historia">Historia</option>
+                <option value="Educacion Fisica">Educacion Fisica</option>
+                <option value="Filosofia">Filosofia</option>
+                <option value="Geografia">Geografia</option>
+                <option value="Lengua y literatura">Lengua y literatura</option>
+                <option value="Ingles">Ingles</option>
+           	</select>
+           	 <label>Contraseña</label> 
            	 <input autocomplete="off" autocomplete="off" type="password" id="password_CreateNewUser" placeholder="y su contraseña" name="">
            	 <button id="sendServerNewUser">Listo, creame la cuenta</button>
            </div>
 		</div>
 		<input type="hidden" id="addicionalInfoUserName">
 		<input type="hidden" id="addicionalInfoUserMateria">
+		<input type="hidden" id="addicionalInfoUserAvatar">
 <div class="contenLogin" style="display:block;"> <!-----------------------------------------Contenedor de login-->
 		<div class="salaEsperaLogin" style="display:none;">
 		<div class="loaderLOGIN"></div>
@@ -87,16 +102,40 @@
 	 <section class="sobrePonerForNav">
 	
 </section>
+<nav class="nav_ecrtro_responsive">
+		<img src="media/iconos/baseline.png" id="imgSlider2">
+		<div class="containerNavResponsive">
+		<label style="color:royalblue">otros</label>
+ 	<hr>
+	    <a title="Salir" class="nav_a2" id="inicioButton2" ><i class="fa-solid fa-sitemap"><img style="width:25px;" src="media/iconos/salirLogin.png"></i><p class="p_nav_a2">Salir</p></a>
+<a title="Inicio" class="nav_a2" id="inicioButtonDaskBoard2"><i><img style="width:25px;" src="media/iconos/home.png"></i><p class="p_nav_a2">Inicio</p></a>
+	<label style="color:royalblue">Modo juego</label>
+ 	<hr>
+<a title="Ingresar Preguntas al juego SRG" class="nav_a2" id="questionButton2"><i class="fa-solid fa-unlock-keyhole"><img style="width:25px;" src="media/iconos/icononSendQuestion.png"></i><p class="p_nav_a2"> Ingresar Preguntas</p></a>
+ 	<a title="Ver todas las preguntas" class="nav_a2" id="questionButtonShow2"><i class="fa-regular fa-keyboard"><img style="width:25px;" src="media/iconos/showQuestions.png"></i><p class="p_nav_a2">Todas Preguntas</p></a>
+ 	<label style="color:royalblue">Modo academico</label>
+ 	<hr>
+ 		    <a title="ver estudiantes" class="nav_a2" id="misEstudianteButtonNav2"><i class="fa-solid fa-gear"><img style="width:25px;" src="media/iconos/estudianteicon.png"></i><p class="p_nav_a2">Mis estudiantes</p></a>
+ 		        <a title="Ver mis examenes" class="nav_a2" id="examenesButton2"><i class="fa-solid fa-gear"><img style="width:25px;" src="media/iconos/exaIcon.png"></i><p class="p_nav_a2">Examanes</p></a>
+ 		        	       <a title="Crear un nuevo examen" class="nav_a2" id="misExamenesButtonNav2"><i class="fa-solid fa-gear"><img style="width:25px;" src="media/iconos/createNewExaIcon.png"></i><p class="p_nav_a2">Crear Examanes</p></a>
+ 		        	</div>
+</nav>
 	 <nav class="nav_ecrtro">
 	 	<img src="media/iconos/baseline.png" class="barraExpandirNav">
 	 	<img src="media/iconoSchoolServer.png" class="userImg">
 	 	<p class="userName"id="userNameId"><p class="userName" id="statusName"></p><b id="povCertifate"></b></p>
 	 	<!-- <hr> -->
 	 	<div id="nav_a_containers">
+	 				<label class="labelDivNav" style="color:white; font-size:15px; display: none">otros</label>
+ 	<hr>
 	    <a title="Salir" class="nav_a" id="inicioButton" ><i class="fa-solid fa-sitemap"><img style="width:20px;" src="media/iconos/salirLogin.png"></i><p class="p_nav_a">Salir</p></a>
 	 	<a title="Inicio" class="nav_a" id="inicioButtonDaskBoard"><i><img style="width:20px;" src="media/iconos/home.png"></i><p class="p_nav_a">Inicio</p></a>
+	 	 				<label class="labelDivNav" style="color:white; font-size:15px; display: none">Modo juego</label>
+ 	<hr>
 	 	<a title="Ingresar Preguntas al juego SRG" class="nav_a" id="questionButton"><i class="fa-solid fa-unlock-keyhole"><img style="width:20px;" src="media/iconos/icononSendQuestion.png"></i><p class="p_nav_a"> Ingresar Preguntas</p></a>
 	 	<a title="Ver todas las preguntas" class="nav_a" id="questionButtonShow"><i class="fa-regular fa-keyboard"><img style="width:20px;" src="media/iconos/showQuestions.png"></i><p class="p_nav_a">Todas Preguntas</p></a>
+	 	 	 				<label class="labelDivNav" style="color:white; font-size:15px; display: none">Modo academico</label>
+ 	<hr>
 	    <a title="ver estudiantes" class="nav_a" id="misEstudianteButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/estudianteicon.png"></i><p class="p_nav_a">Mis estudiantes</p></a>
 	     <a title="Ver mis examenes" class="nav_a" id="examenesButton"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/exaIcon.png"></i><p class="p_nav_a">Examanes</p></a>
 	       <a title="Crear un nuevo examen" class="nav_a" id="misExamenesButtonNav"><i class="fa-solid fa-gear"><img style="width:20px;" src="media/iconos/createNewExaIcon.png"></i><p class="p_nav_a">Crear Examanes</p></a>
@@ -105,22 +144,22 @@
  <div id="contentEstudiantes" class="caja" style="display:none;">
  	  <nav>
  	  	  <div id="navForSearchcontentEstudiantes"><input autocomplete="off" type="text" id="inputSearch" autocomplete="off" placeholder="Busca a sus estudiantes"><img id="startSearch" src="media/iconos/search.png"></div>
- 	  	      <div id="resultadoForSearch" style="display:none;">
-<div class="containerJsSearchResultado">
-<!-- 	  <img class="imgForSearch" src="http://182.122.239.4:8070/perfiles/jugador6.jpg">
+ 	  	      <div id="resultadoForSearch" style="display:block;">
+<div class="containerJsSearchResultado" style="display:block;">
+<!-- 	  <img class="imgForSearch" src="">
 	  <p class="nameUserForSearch">Dennis | 5to año</p>
 	  <img class="buttonsAddEstudent" src="media/iconos/addFriends.png"> -->
 </div>
  	     </div>
-	   <div class="chatBot2" style="display:none;"><img src="media/chatBot.gif"><p id="chatBotText2">Ingresa los datos para poder enviarlos al servidor</p></div>
+	   <div class="chatBot2" style="display:block;"><img src="media/chatBot.gif"><p id="chatBotText2">Ingresa los datos para poder enviarlos al servidor</p></div>
  	  </nav>
  	  <div id="containerEstudiantes">
- 	  	<h1 style="color:wheat;">Estudiantes</h1>
+ 	  	<!-- <h1 style="color:wheat;">Estudiantes</h1> -->
  	  	<div id="containerEstudiantesPushElementJs">
-<!--             <div class="estudiantesContainerJS">
+ <!--            <div class="estudiantesContainerJS">
             	<img class="avatarEstudiantes" src="http://182.122.239.3:8070/perfiles/jugador6.jpg">
             	<p class="statusEstudiantes">Dennis</p>
-            	<i class="menuBarsEstuendJs"><div style="display:none;" class="divButtonContainers">
+            	<i class="menuBarsEstuendJs"><div style="display:block;" class="divButtonContainers">
             		 <button>Borrar</button>
             		 <button class="viemGameExpectorButton">Mirar juego</button>
             		 <button>Mandar examenes</button>
@@ -146,7 +185,7 @@
  	<div id="exa_cash_adjustments" style="display:block;">
  		<p style="position:absolute; left: 50%;top: 5%;transform: translate(-50%,-5%);">Configuracion</p>
  		<div class="promptOne">
-         <p style="position:absolute;left: 50%;top: 5%;transform: translate(-50%,-5%);color:black;background:white;width: auto;border-radius: 5px;padding: 5px;">No opcional</p>
+         <p id="pnOOpcional" style="position:absolute;left: 50%;top: 5%;transform: translate(-50%,-5%);color:black;background:white;width: auto;border-radius: 5px;padding: 5px;">No opcional</p>
  			<br>
  			<br>
  			<br>
@@ -167,10 +206,10 @@
  				<input autocomplete="off" id="limitTimeCheckBox" class="checkbox" type="checkbox"><label id="labelLimitTime">Agregar un tiempo limite</label><input type="number" min="0" max="24" id="inputForTimeConfigHours" placeholder="Horas" class="inputTime"><input min="0" max="59" autocomplete="off" class="inputTime" id="inputForTimeConfigMinutes" type="number" placeholder="Minutos"><p id="timeStatus" style="display:inline-block;font-size: 13px;color: grey;"></p>
  			</div>
  			<div class="cajaForPromptCheckBox promptVeri">
- 				<input autocomplete="off" id="notExitCheckbox" type="checkbox" class="checkbox" name=""><label>No permitir que salga de la app</label>
+ 				<input autocomplete="off" id="notExitCheckbox" type="checkbox" class="checkbox" name=""><label>Permitir que salga de la app</label>
  			</div>
  			<div class="cajaForPromptCheckBox">
- 				<input id="checkboxForPrivateForTeachers" autocomplete="off" type="checkbox" class="checkbox" name=""><label>Permitir que otros docentes vean este examen</label>
+ 				<input id="checkboxForPrivateForTeachers" style="display:none;" autocomplete="off" type="checkbox" class="checkbox" name=""><label style="display:none;">Permitir que otros docentes vean este examen</label>
  			</div>
  		</div>
  	</div>
@@ -203,13 +242,19 @@
 <div id="containerLOADDINGBydeleteExa" style="display:none;">
 <p id="pStatusContainerLoaddingDelete">Borrando Examen ...</p>
 </div>
+<div id="containerRegistro" style="display:none;">
+<img src="media/iconos/CLOSE.png" id="buttonCloseRegistro">
+	<div id="pushRegistro">
+		<!-- <div class="divRegistros"><p class="pRegistroname">Dennis Maltez</p><p class="pRegistroPuntaje"><b>Puntaje<b> 100</p></div> -->
+	</div>
+</div>
 <div id="containerViewQuestionForExa" style="display:none;"> <!--contenedor para ver la preguntas del examen-->
 <img src="media/iconos/CLOSE.png" id="buttonCloseContainerViewQuestion">
 <div id="pushJSContainierViewQuestionForExa">
+<!-- <div class="pushQuestionViemExa"><p class="questionElementP">¿Que es programcion?</p></div>
 <div class="pushQuestionViemExa"><p class="questionElementP">¿Que es programcion?</p></div>
 <div class="pushQuestionViemExa"><p class="questionElementP">¿Que es programcion?</p></div>
-<div class="pushQuestionViemExa"><p class="questionElementP">¿Que es programcion?</p></div>
-<div class="pushQuestionViemExa"><p class="questionElementP">¿Que es programcion?</p></div>
+<div class="pushQuestionViemExa"><p class="questionElementP">¿Que es programcion?</p></div> -->
 </div>
 </div>
 <div id="contenedorVerResultados" style="display:none;"> <!--contenedor para ver los resultados-->
@@ -230,8 +275,21 @@
  </div>
 </div>
 <section id="revisarExamenes" style="display:none;">
-<button id="cancelarRevicionDeExamanes">Cancelar</button>
-<button id="enviarResultados">Enviar a Onfire</button>
+<section id="containerForAlert" style="display:none;">
+	<center>
+	<div id="infoExitapp">
+ <p>El estudiante se salio de la app</p>
+ <br>
+ <button id="descalificarButton">Descalificar</button><button id="NodescalificarButton">No descalificar</button>
+ <b>Si descalifica se le quitara el 50% del puntaje final</b>
+</div>
+</center>
+</section>
+<div class="promptResponsive">
+	<button id="cancelarRevicionDeExamanes">Cancelar</button>
+<button id="enviarResultados" class="send">Enviar</button>
+</div>
+
 <p id="nameExA">
 	"Programacion"
 </p>
@@ -251,7 +309,7 @@ La programacion es el proceso de crear un conjunto de instrunciones que le dicen
 </section>
 <section id="sectionByLOader" style="display: none;">
 	<div class="center">
-<p style="font-weight:1; color:grey;">Codificando y mandando resultados </p>
+<p id="sendStatus" style="font-weight:1; color:grey;">Codificando y mandando resultados </p>
 		<div class="loaderBysendstudent"></div>
 
 </div>

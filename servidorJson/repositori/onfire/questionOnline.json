@@ -1,4 +1,9 @@
 {
   "status": " ",
-  "pregunta": " "
+  "pregunta": " ",
+  "Online": {
+    "status": "gano",
+    "pregunta": " ",
+    "respuestaCorrecta": " "
+  }
 }
